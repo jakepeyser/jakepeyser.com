@@ -2,6 +2,8 @@ body,html {
   width : 100%;
   height: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: black;
 }
@@ -9,6 +11,12 @@ body,html {
 #app, #main {
   all: inherit
 }
+
+#content {
+  flex: 1;
+}
+
+/* Nav Bar */
 
 #navbar {
   position: fixed;
@@ -54,10 +62,41 @@ body,html {
 
 .nav-link:hover, .nav-link:focus {
 	color: #8b9dc3;
-	text-decoration: none;
 }
 
 .active-nav {
   color: #8b9dc3;
   cursor: default;
+	text-decoration: underline;
+}
+
+/* Footer */
+
+#footer {
+  height: 30px;
+  margin-top: 11px;
+  padding: 0px 20px;
+  border-top: 1px solid white;
+  display: flex;
+  background-color: white;
+  color: black;
+}
+
+.profiles {
+  float: right;
+  margin-left: auto;
+}
+
+.profiles a {
+  margin: 0px 5px;
+  text-decoration: none;
+}
+
+.profile-icon {
+  color: black;
+}
+
+.profile-icon:hover {
+  cursor: pointer;
+  color: #8b9dc3;
 }

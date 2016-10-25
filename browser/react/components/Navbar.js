@@ -17,7 +17,11 @@ export default ({ children }) => (
         navList.map(navItem => {
           return (
             <li key={navItem.id}>
-              <Link to={navItem.href} className="nav-link" activeClassName="nav-link active-nav">{navItem.text}</Link>
+              <Link to={navItem.href}
+              className="nav-link"
+              activeClassName="nav-link active-nav">
+                {navItem.text}
+              </Link>
             </li>
           )
         })

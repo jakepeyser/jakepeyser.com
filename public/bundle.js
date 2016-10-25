@@ -28991,7 +28991,11 @@
 	    'div',
 	    { id: 'main', className: 'container-fluid' },
 	    _react2.default.createElement(_Navbar2.default, null),
-	    children,
+	    _react2.default.createElement(
+	      'div',
+	      { id: 'content' },
+	      children
+	    ),
 	    _react2.default.createElement(_Footer2.default, null)
 	  );
 	};
@@ -29035,7 +29039,9 @@
 	          { key: navItem.id },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: navItem.href, className: 'nav-link', activeClassName: 'nav-link active-nav' },
+	            { to: navItem.href,
+	              className: 'nav-link',
+	              activeClassName: 'nav-link active-nav' },
 	            navItem.text
 	          )
 	        );
@@ -29048,7 +29054,7 @@
 /* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -29060,9 +29066,30 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var profiles = [{ id: 1, href: 'https://github.com/jakepeyser', icon: 'github' }, { id: 2, href: 'https://twitter.com/jakepeyser', icon: 'twitter' }, { id: 3, href: 'https://www.linkedin.com/in/jakepeyser', icon: 'linkedin' }, { id: 4, href: 'http://stackoverflow.com/users/1116896/jake-peyser', icon: 'stack-overflow' }, { id: 5, href: 'https://www.instagram.com/jakepeyser/', icon: 'instagram' }];
+	
 	exports.default = function (_ref) {
 	  var children = _ref.children;
-	  return _react2.default.createElement("div", { id: "footer" });
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'footer' },
+	    _react2.default.createElement(
+	      'span',
+	      null,
+	      '\xA9 2016 Jake Peyser'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'profiles' },
+	      profiles.map(function (profile) {
+	        return _react2.default.createElement(
+	          'a',
+	          { key: profile.id, href: profile.href, target: '_blank' },
+	          _react2.default.createElement('i', { className: 'profile-icon fa fa-' + profile.icon, 'aria-hidden': 'true' })
+	        );
+	      })
+	    )
+	  );
 	};
 
 /***/ },
