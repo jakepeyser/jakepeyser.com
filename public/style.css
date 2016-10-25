@@ -1,0 +1,63 @@
+body,html {
+  width : 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: black;
+}
+
+#app, #main {
+  all: inherit
+}
+
+#navbar {
+  position: fixed;
+  height: 55px;
+  z-index: 1;
+  width: inherit;
+  top: 0px;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+.logo {
+  width: 40px;
+  padding: 7px 0px;
+  margin: 0px 20px;
+}
+
+.nav-list {
+  float: right;
+  display: inline-flex;
+  margin: 8px 0px;
+  padding: 0;
+  list-style-type: none;
+  font-family: Raleway;
+  font-weight: 600;
+}
+
+.nav-list > li {
+  font-size: 1.3em;
+  margin-top: 9px;
+}
+
+.nav-list > li + li::before {
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  content: '|';
+}
+
+.nav-link {
+  color: black;
+	text-decoration: none;
+}
+
+.nav-link:hover, .nav-link:focus {
+	color: #8b9dc3;
+	text-decoration: none;
+}
+
+.active-nav {
+  color: #8b9dc3;
+  cursor: default;
+}

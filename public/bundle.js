@@ -29000,7 +29000,7 @@
 /* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -29010,11 +29010,38 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(172);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var navList = [{ id: 1, href: '/home', text: 'Home' }, { id: 2, href: '/projects', text: 'Portfolio' }, { id: 3, href: '/contact', text: 'Contact' }];
 	
 	exports.default = function (_ref) {
 	  var children = _ref.children;
-	  return _react2.default.createElement("div", { id: "navbar" });
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'navbar', className: 'col-xs-12' },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: '/home' },
+	      _react2.default.createElement('img', { src: './jakepeyser_logo.png', alt: 'JP Logo', className: 'logo' })
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'nav-list' },
+	      navList.map(function (navItem) {
+	        return _react2.default.createElement(
+	          'li',
+	          { key: navItem.id },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: navItem.href, className: 'nav-link', activeClassName: 'nav-link active-nav' },
+	            navItem.text
+	          )
+	        );
+	      })
+	    )
+	  );
 	};
 
 /***/ },
