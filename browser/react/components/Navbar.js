@@ -19,7 +19,7 @@ export default ({ children }) => (
             <li key={navItem.id}>
               <Link to={navItem.href}
               className="nav-link"
-              activeClassName="nav-link active-nav">
+              activeClassName="active-nav">
                 {navItem.text}
               </Link>
             </li>

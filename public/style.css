@@ -8,12 +8,19 @@ body,html {
   color: black;
 }
 
-#app, #main, #content-wrapper {
-  all: inherit
+#app {
+  all: inherit;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #content-wrapper {
-  flex: 1;
+  min-height: calc(100vh - 55px - 44px);
   margin-top: 55px;
   background-color: #f7f7f7;
 }
@@ -57,13 +64,13 @@ body,html {
 #portfolio {
   flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
+  justify-content: space-around;
 	max-width: 900px;
 	padding: 0 4em;
 }
 
 .project {
 	margin: 10px 20px;
-  justify-content: center;
 }
 
 .project-link, .project-link:focus {
@@ -168,7 +175,9 @@ body,html {
 
 #project {
   height: 100%;
-  align-items: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  flex-direction: column;
 }
 
 .project-title-container {
@@ -192,6 +201,75 @@ body,html {
 
 .project-title-container .links a {
 	margin: 0px 5px;
+}
+
+/* Project Sections */
+
+#project > .sections {
+  max-width: 1050px;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+#project > .sections > div {
+  max-height: 400px;
+  width: 100%;
+  padding: 15px 0;
+}
+
+#project > .sections > div:nth-child(odd) {
+  flex-direction: row;
+}
+
+#project > .sections > div:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+#project > .sections > div > div {
+  width: 50%;
+  flex-direction: column;
+  padding: 0 2em;
+}
+
+#project > .sections > div > .text {
+  align-items: flex-start;
+	text-align: justify;
+}
+
+#project > .sections > div > div > h2 {
+  margin-top: 0;
+	font-family: Raleway;
+	font-weight: 500;
+	font-size: 2em;
+}
+
+#project > .sections > div > div img {
+	max-width: 100%;
+  max-height: 400px;
+}
+
+#home-root ul {
+	margin: 0;
+	font-size: 1.6em;
+}
+
+#project > .sections > div > div > ul {
+  flex-direction: column;
+  align-items: flex-start;
+	font-size: 1.3em;
+}
+
+#project > .sections > div > div > ul > li {
+	display: list-item;
+}
+
+#project > .sections > div > div > ul > li > a {
+  display: inline;
+	color: black;
+}
+
+#project > .sections > div > div > ul > li > a:hover {
+	color: #8b9dc3;
 }
 
 /* Nav Bar */

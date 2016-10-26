@@ -1,33 +1,53 @@
 import React from 'react';
 
-const createLink = (link, icon, id) => {
-  return (
-    <a key={id} href={ link } target="_blank">
-      <i className={`profile-icon fa fa-${icon} fa-2x`} aria-hidden="true"></i>
-    </a>
-  )
-};
-
-const getLinks = (githubUrl, liveUrl) => {
-  const links = [];
-  if (githubUrl) links.push(createLink(githubUrl, 'github', 1));
-  if (liveUrl) links.push(createLink(liveUrl, 'desktop', 2));
-  return links;
-};
-
-export default ({ project }) => {
-  const links = getLinks(project.github_url, project.live_url)
-
-  return (
-    <div id="project">
-      <div className={`project-banner bg-${project.filename}`}>
-        <div className="project-title-container">
-          <h1 className="name">{project.name}</h1>
-          <div className="links">
-            { links }
-          </div>
+export default ({ project }) => (
+  <div id="project">
+    <div className={`project-banner bg-${project.filename}`}>
+      <div className="project-title-container">
+        <h1 className="name">{project.name}</h1>
+        <div className="links">
+        {
+          project.links && project.links.map((link, idx) => {
+            return (
+              <a key={idx} href={ link.url } target="_blank">
+                <i className={`profile-icon fa fa-${link.type} fa-2x`}
+                aria-hidden="true"></i>
+              </a>
+            )
+          })
+        }
         </div>
       </div>
     </div>
-  )
-}
+    <div className="sections">
+      <div className="overview">
+        <div className="text">
+          <h2>App Overview</h2>
+          <p>{ project.summary }</p>
+        </div>
+        <div className="screenshot">
+          <img src={`/images/${project.filename}/screenshot.png`} />
+        </div>
+      </div>
+      <div className="tech">
+        <div className="text">
+          <h2>Tech</h2>
+          <ul>
+          {
+            project.tech && project.tech.map(tech => {
+              return (
+                <li key={tech.id}>
+                  <a href={tech.link} target="_blank">{tech.name}</a>
+                </li>
+              )
+            })
+          }
+          </ul>
+        </div>
+        <div className="screenshot">
+          <img src={`/images/${project.filename}/mobile.png`} />
+        </div>
+      </div>
+    </div>
+  </div>
+)
