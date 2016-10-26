@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ children }) => (
+export default () => (
   <div id="home" className="container-fluid">
     <div className="info">
       <span className="name">Jake Peyser</span>

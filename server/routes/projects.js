@@ -8,8 +8,9 @@ router.get('/', (req, res) => {
   res.json(projects);
 });
 
-router.get('/:projectId', (req, res) => {
-  res.json(projects[0]);
+router.get('/:projectName', (req, res) => {
+  res.json(projects.find(project =>
+    project.filename === req.params.projectName));
 });
 
 module.exports = router;

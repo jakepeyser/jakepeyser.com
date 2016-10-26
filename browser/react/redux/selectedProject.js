@@ -1,17 +1,28 @@
 // ---------------------> TAGS <---------------------
-const SELECT_PROJECT = 'SELECT_PROJECT';
+const RECEIVE_PROJECT = 'RECEIVE_PROJECT';
 
 // ----------------> ACTION CREATORS <----------------
-const selectProject = projectId => ({
-  type: SELECT_PROJECT,
-  projectId
+const receiveProject = project => ({
+  type: RECEIVE_PROJECT,
+  project
 });
 
+// --------------------> THUNKS <--------------------
+
+export const fetchProject = (name) => dispatch => {
+  fetch(`/api/projects/${name}`)
+    .then(res => res.json())
+    .then(project => dispatch(receiveProject(project)))
+    .catch(err => {
+      console.error(`Unable to fetch ${name} project`, err);
+    });
+};
+
 // --------------------> REDUCER <--------------------
-export default function projectId(state = null, action) {
+export default function project(state = {}, action) {
   switch (action.type) {
-    case SELECT_PROJECT:
-      return action.projectId;
+    case RECEIVE_PROJECT:
+      return action.project;
     default:
       return state;
   }

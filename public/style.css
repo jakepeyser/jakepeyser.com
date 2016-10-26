@@ -18,15 +18,15 @@ body,html {
   background-color: #f7f7f7;
 }
 
-#content > div {
-  height: 100%;
-  width: 100%;
-}
-
-#content  * {
+#content, #content  * {
   display: flex;
   align-items: center;
   justify-content: center;
+	text-decoration: none;
+}
+
+#content > div {
+  width: 100%;
 }
 
 /* Home */
@@ -46,6 +46,86 @@ body,html {
   font-size: 3em;
 }
 
+/* Portfolio */
+
+#portfolio {
+  flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	max-width: 900px;
+	padding: 0 4em;
+	justify-content: center;
+}
+
+.project {
+	margin: 10px 20px;
+}
+
+.project-link, .project-link:focus {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 3px solid #8c8c8c;
+	color: inherit;
+}
+
+.project-name-wrapper {
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	justify-content: center;
+	align-items: center;
+	color: transparent;
+}
+
+.project-name-wrapper:hover {
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, .75);
+	color: #f7f7f7;
+	cursor: pointer;
+}
+
+.project-name-wrapper span {
+	text-align: center;
+  font-family: Raleway;
+  font-weight: 600;
+	font-size: 1.2em;
+	padding: 0 7px;
+	cursor: inherit;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none; 
+}
+
+/* Project Icons */
+
+.i-real-time-tone-analysis {
+	background: url(../images/real-time-tone-analysis/icon.png);
+	background-size: 36%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.i-capital-weather {
+	background: url(../images/capital-weather/icon.png);
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.i-parachute-teachers {
+	background: url(../images/parachute-teachers/icon.png);
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.i-runkeeper-hashmatch {
+	background: url(../images/runkeeper-hashmatch/icon.png);
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 
 /* Nav Bar */
 

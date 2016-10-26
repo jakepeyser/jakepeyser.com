@@ -84,21 +84,26 @@
 	
 	var _projects = __webpack_require__(252);
 	
+	var _selectedProject = __webpack_require__(253);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// onEnter functions
 	
 	
-	// React containers and components
-	var onAppEnter = function onAppEnter(nextRouterState) {
-	  _store2.default.dispatch((0, _projects.fetchProjects)());
-	};
-	
-	// Redux thunks
+	// Redux thunks and action creators
 	/* eslint-disable no-unused-vars*/
 	
 	// React/Redux modules
+	var onAppEnter = function onAppEnter() {
+	  _store2.default.dispatch((0, _projects.fetchProjects)());
+	};
 	
+	// React containers and components
+	
+	var getProject = function getProject(nextState) {
+	  _store2.default.dispatch((0, _selectedProject.fetchProject)(nextState.params.projectName));
+	};
 	
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRedux.Provider,
@@ -111,7 +116,8 @@
 	      { path: '/', component: _App2.default, onEnter: onAppEnter },
 	      _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/projects', component: _ProjectsContainer2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: '/projects/:projectId', component: _ProjectContainer2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '/projects/:projectName',
+	        component: _ProjectContainer2.default, onEnter: getProject }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/contact', component: _ContactContainer2.default }),
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default })
 	    )
@@ -28212,7 +28218,7 @@
 	exports.default = (0, _redux.combineReducers)({
 	  messageStatus: _contact2.default,
 	  projects: _projects2.default,
-	  projectId: _selectedProject2.default
+	  project: _selectedProject2.default
 	});
 
 /***/ },
@@ -28338,26 +28344,40 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = projectId;
+	exports.default = project;
 	// ---------------------> TAGS <---------------------
-	var SELECT_PROJECT = 'SELECT_PROJECT';
+	var RECEIVE_PROJECT = 'RECEIVE_PROJECT';
 	
 	// ----------------> ACTION CREATORS <----------------
-	var selectProject = function selectProject(projectId) {
+	var receiveProject = function receiveProject(project) {
 	  return {
-	    type: SELECT_PROJECT,
-	    projectId: projectId
+	    type: RECEIVE_PROJECT,
+	    project: project
+	  };
+	};
+	
+	// --------------------> THUNKS <--------------------
+	
+	var fetchProject = exports.fetchProject = function fetchProject(name) {
+	  return function (dispatch) {
+	    fetch('/api/projects/' + name).then(function (res) {
+	      return res.json();
+	    }).then(function (project) {
+	      return dispatch(receiveProject(project));
+	    }).catch(function (err) {
+	      console.error('Unable to fetch ' + name + ' project', err);
+	    });
 	  };
 	};
 	
 	// --------------------> REDUCER <--------------------
-	function projectId() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	function project() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case SELECT_PROJECT:
-	      return action.projectId;
+	    case RECEIVE_PROJECT:
+	      return action.project;
 	    default:
 	      return state;
 	  }
@@ -29028,7 +29048,7 @@
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/home' },
-	      _react2.default.createElement('img', { src: './jakepeyser_logo.png', alt: 'JP Logo', className: 'logo' })
+	      _react2.default.createElement('img', { src: '/./images/logo.png', alt: 'JP Logo', className: 'logo' })
 	    ),
 	    _react2.default.createElement(
 	      'ul',
@@ -29108,8 +29128,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (_ref) {
-	  var children = _ref.children;
+	exports.default = function () {
 	  return _react2.default.createElement(
 	    "div",
 	    { id: "home", className: "container-fluid" },
@@ -29174,16 +29193,31 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (_ref) {
-	  var projects = _ref.projects;
+	  var projects = _ref.projects,
+	      selectProject = _ref.selectProject;
 	  return _react2.default.createElement(
 	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h3',
-	      null,
-	      'Projects'
-	    ),
-	    _react2.default.createElement('div', { className: 'row' })
+	    { id: 'portfolio' },
+	    projects.map(function (project) {
+	      return _react2.default.createElement(
+	        'div',
+	        { key: project.id, className: 'project' },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/projects/' + project.filename,
+	            className: 'project-link i-' + project.filename },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'project-name-wrapper' },
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              project.name
+	            )
+	          )
+	        )
+	      );
+	    })
 	  );
 	};
 
@@ -29206,11 +29240,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(_ref) {
-	  var projects = _ref.projects,
-	      projectId = _ref.projectId;
-	  return {
-	    project: projects[0] // Dynamically look up using ID
-	  };
+	  var project = _ref.project;
+	  return { project: project };
 	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Project2.default);

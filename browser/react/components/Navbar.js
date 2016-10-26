@@ -10,7 +10,7 @@ const navList = [
 export default ({ children }) => (
   <div id='navbar' className='col-xs-12'>
     <Link to="/home">
-      <img src="./jakepeyser_logo.png" alt="JP Logo" className='logo' />
+      <img src="/./images/logo.png" alt="JP Logo" className='logo' />
     </Link>
     <ul className='nav-list'>
       {

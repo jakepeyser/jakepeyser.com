@@ -14,12 +14,16 @@ import ProjectsContainer from './components/projects/ProjectsContainer';
 import ProjectContainer from './components/projects/ProjectContainer';
 import ContactContainer from './components/contact/ContactContainer';
 
-// Redux thunks
+// Redux thunks and action creators
 import { fetchProjects } from './redux/projects';
+import { fetchProject } from './redux/selectedProject'
 
 // onEnter functions
-const onAppEnter = nextRouterState => {
+const onAppEnter = () => {
   store.dispatch(fetchProjects());
+};
+const getProject = nextState => {
+  store.dispatch(fetchProject(nextState.params.projectName));
 };
 
 ReactDOM.render(
@@ -28,7 +32,8 @@ ReactDOM.render(
       <Route path="/" component={App} onEnter={onAppEnter}>
         <Route path="/home" component={Home} />
         <Route path="/projects" component={ProjectsContainer} />
-        <Route path="/projects/:projectId" component={ProjectContainer} />
+        <Route path="/projects/:projectName"
+          component={ProjectContainer} onEnter={getProject}/>
         <Route path="/contact" component={ContactContainer} />
         <IndexRoute component={Home} />
       </Route>
