@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // ---------------------> TAGS <---------------------
 const RECEIVE_PROJECT = 'RECEIVE_PROJECT';
 
@@ -10,9 +12,8 @@ const receiveProject = project => ({
 // --------------------> THUNKS <--------------------
 
 export const fetchProject = (name) => dispatch => {
-  fetch(`/api/projects/${name}`)
-    .then(res => res.json())
-    .then(project => dispatch(receiveProject(project)))
+  axios.get(`/api/projects/${name}`)
+    .then(res => dispatch(receiveProject(res.data)))
     .catch(err => {
       console.error(`Unable to fetch ${name} project`, err);
     });

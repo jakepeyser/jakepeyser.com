@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // ---------------------> TAGS <---------------------
 const MESSAGE_SENT = 'MESSAGE_SENT';
 const NEW_MESSAGE = 'NEW_MESSAGE';
@@ -21,12 +23,7 @@ export const newMessage = () => ({
 
 // Send the contact message and dispatch success status
 export const sendMessage = data => dispatch => {
-  fetch('/api/contact', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: new window.Headers({ 'Content-Type': 'application/json' })
-  })
-    .then(res => res.json())
+  axios.post('/api/contact', data)
     .then(() => dispatch(showMessageStatus(true)))
     .catch(err => {
       console.error('Error sending contact message', err);
