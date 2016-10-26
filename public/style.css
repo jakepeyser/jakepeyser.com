@@ -8,13 +8,44 @@ body,html {
   color: black;
 }
 
-#app, #main {
+#app, #main, #content {
   all: inherit
 }
 
 #content {
   flex: 1;
+  margin-top: 55px;
+  background-color: #f7f7f7;
 }
+
+#content > div {
+  height: 100%;
+  width: 100%;
+}
+
+#content  * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Home */
+
+.info {
+  flex-direction: column;
+	text-align: center;
+  font-family: Raleway;
+}
+
+.info > .name {
+  font-weight: 700;
+  font-size: 7em;
+}
+
+.info > .title {
+  font-size: 3em;
+}
+
 
 /* Nav Bar */
 

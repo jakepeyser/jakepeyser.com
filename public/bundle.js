@@ -29110,7 +29110,24 @@
 	
 	exports.default = function (_ref) {
 	  var children = _ref.children;
-	  return _react2.default.createElement("div", { id: "home", className: "container-fluid" });
+	  return _react2.default.createElement(
+	    "div",
+	    { id: "home", className: "container-fluid" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "info" },
+	      _react2.default.createElement(
+	        "span",
+	        { className: "name" },
+	        "Jake Peyser"
+	      ),
+	      _react2.default.createElement(
+	        "span",
+	        { className: "title" },
+	        "software engineer"
+	      )
+	    )
+	  );
 	};
 
 /***/ },
