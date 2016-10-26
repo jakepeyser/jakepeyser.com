@@ -12,6 +12,7 @@ import App from './components/App';
 import Home from './components/Home';
 import ProjectsContainer from './components/projects/ProjectsContainer';
 import ProjectContainer from './components/projects/ProjectContainer';
+import Resume from './components/Resume';
 import ContactContainer from './components/contact/ContactContainer';
 
 // Redux thunks and action creators
@@ -34,6 +35,7 @@ ReactDOM.render(
         <Route path="/projects" component={ProjectsContainer} />
         <Route path="/projects/:projectName"
           component={ProjectContainer} onEnter={getProject}/>
+        <Route path="/resume" component={Resume} />
         <Route path="/contact" component={ContactContainer} />
         <IndexRoute component={Home} />
       </Route>

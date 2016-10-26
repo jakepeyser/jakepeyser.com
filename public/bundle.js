@@ -78,6 +78,10 @@
 	
 	var _ProjectContainer2 = _interopRequireDefault(_ProjectContainer);
 	
+	var _Resume = __webpack_require__(272);
+	
+	var _Resume2 = _interopRequireDefault(_Resume);
+	
 	var _ContactContainer = __webpack_require__(269);
 	
 	var _ContactContainer2 = _interopRequireDefault(_ContactContainer);
@@ -92,14 +96,14 @@
 	
 	
 	// Redux thunks and action creators
-	/* eslint-disable no-unused-vars*/
 	
-	// React/Redux modules
-	var onAppEnter = function onAppEnter() {
-	  _store2.default.dispatch((0, _projects.fetchProjects)());
-	};
 	
 	// React containers and components
+	var onAppEnter = function onAppEnter() {
+	  _store2.default.dispatch((0, _projects.fetchProjects)());
+	}; /* eslint-disable no-unused-vars*/
+	
+	// React/Redux modules
 	
 	var getProject = function getProject(nextState) {
 	  _store2.default.dispatch((0, _selectedProject.fetchProject)(nextState.params.projectName));
@@ -118,6 +122,7 @@
 	      _react2.default.createElement(_reactRouter.Route, { path: '/projects', component: _ProjectsContainer2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/projects/:projectName',
 	        component: _ProjectContainer2.default, onEnter: getProject }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '/resume', component: _Resume2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/contact', component: _ContactContainer2.default }),
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default })
 	    )
@@ -29042,7 +29047,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var navList = [{ id: 1, href: '/home', text: 'Home' }, { id: 2, href: '/projects', text: 'Portfolio' }, { id: 3, href: '/contact', text: 'Contact' }];
+	var navList = [{ id: 1, href: '/home', text: 'Home' }, { id: 2, href: '/projects', text: 'Portfolio' }, { id: 3, href: '/resume', text: 'Resume' }, { id: 4, href: '/contact', text: 'Contact' }];
 	
 	exports.default = function (_ref) {
 	  var children = _ref.children;
@@ -29522,6 +29527,31 @@
 	
 	    return FormValidate;
 	  }(_react2.default.Component);
+	};
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// Embedded Google doc located here:
+	// https://drive.google.com/file/d/0B74g2zDubN9jcmFXV3lxWEM4RVE/view?usp=sharing
+	
+	exports.default = function () {
+	  return _react2.default.createElement("iframe", {
+	    id: "resume",
+	    src: "https://docs.google.com/viewer?srcid=0B74g2zDubN9jcmFXV3lxWEM4RVE&pid=explorer&embedded=true" });
 	};
 
 /***/ }
