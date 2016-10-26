@@ -29013,8 +29013,12 @@
 	    _react2.default.createElement(_Navbar2.default, null),
 	    _react2.default.createElement(
 	      'div',
-	      { id: 'content' },
-	      children
+	      { id: 'content-wrapper' },
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'content' },
+	        children
+	      )
 	    ),
 	    _react2.default.createElement(_Footer2.default, null)
 	  );
@@ -29262,9 +29266,48 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var createLink = function createLink(link, icon, id) {
+	  return _react2.default.createElement(
+	    "a",
+	    { key: id, href: link, target: "_blank" },
+	    _react2.default.createElement("i", { className: "profile-icon fa fa-" + icon + " fa-2x", "aria-hidden": "true" })
+	  );
+	};
+	
+	var getLinks = function getLinks(githubUrl, liveUrl) {
+	  var links = [];
+	  if (githubUrl) links.push(createLink(githubUrl, 'github', 1));
+	  if (liveUrl) links.push(createLink(liveUrl, 'desktop', 2));
+	  return links;
+	};
+	
 	exports.default = function (_ref) {
 	  var project = _ref.project;
-	  return _react2.default.createElement("div", { className: "project" });
+	
+	  var links = getLinks(project.github_url, project.live_url);
+	
+	  return _react2.default.createElement(
+	    "div",
+	    { id: "project" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "project-banner bg-" + project.filename },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "project-title-container" },
+	        _react2.default.createElement(
+	          "h1",
+	          { className: "name" },
+	          project.name
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "links" },
+	          links
+	        )
+	      )
+	    )
+	  );
 	};
 
 /***/ },

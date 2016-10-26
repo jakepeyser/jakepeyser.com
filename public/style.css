@@ -8,25 +8,31 @@ body,html {
   color: black;
 }
 
-#app, #main, #content {
+#app, #main, #content-wrapper {
   all: inherit
 }
 
-#content {
+#content-wrapper {
   flex: 1;
   margin-top: 55px;
   background-color: #f7f7f7;
 }
 
-#content, #content  * {
+#content-wrapper, #content-wrapper  * {
   display: flex;
   align-items: center;
   justify-content: center;
 	text-decoration: none;
 }
 
-#content > div {
+#content {
+  height: 100%;
   width: 100%;
+  justify-content: center;
+}
+
+#content > div {
+  width: inherit;
 }
 
 /* Home */
@@ -53,11 +59,11 @@ body,html {
 	-webkit-flex-wrap: wrap;
 	max-width: 900px;
 	padding: 0 4em;
-	justify-content: center;
 }
 
 .project {
 	margin: 10px 20px;
+  justify-content: center;
 }
 
 .project-link, .project-link:focus {
@@ -125,6 +131,67 @@ body,html {
 	background-size: 50%;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+/* Project Banners */
+
+.project-banner {
+  height: 400px;
+  width: inherit;
+}
+
+.bg-real-time-tone-analysis {
+	background: url(../images/real-time-tone-analysis/banner.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.bg-capital-weather {
+	background: url(../images/capital-weather/banner.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.bg-parachute-teachers {
+	background: url(../images/parachute-teachers/banner.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.bg-runkeeper-hashmatch {
+	background: url(../images/runkeeper-hashmatch/banner.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* Project Page */
+
+#project {
+  height: 100%;
+  align-items: flex-start;
+}
+
+.project-title-container {
+	padding: 20px;
+  flex-direction: column;
+	text-align: center;
+  font-family: Raleway;
+	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, .85);
+}
+
+.project-title-container > h1 {
+	margin: 0;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.project-title-container .links {
+	margin-top: 8px;
+}
+
+.project-title-container .links a {
+	margin: 0px 5px;
 }
 
 /* Nav Bar */
