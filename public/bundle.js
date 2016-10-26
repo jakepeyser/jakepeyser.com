@@ -78,11 +78,11 @@
 	
 	var _ProjectContainer2 = _interopRequireDefault(_ProjectContainer);
 	
-	var _Resume = __webpack_require__(272);
+	var _Resume = __webpack_require__(269);
 	
 	var _Resume2 = _interopRequireDefault(_Resume);
 	
-	var _ContactContainer = __webpack_require__(269);
+	var _ContactContainer = __webpack_require__(270);
 	
 	var _ContactContainer2 = _interopRequireDefault(_ContactContainer);
 	
@@ -29368,15 +29368,40 @@
 /* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// Embedded Google doc located here:
+	// https://drive.google.com/file/d/0B74g2zDubN9jcmFXV3lxWEM4RVE/view?usp=sharing
+	
+	exports.default = function () {
+	  return _react2.default.createElement("iframe", {
+	    id: "resume",
+	    src: "https://docs.google.com/viewer?srcid=0B74g2zDubN9jcmFXV3lxWEM4RVE&pid=explorer&embedded=true" });
+	};
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	var _reactRedux = __webpack_require__(254);
 	
-	var _Contact = __webpack_require__(270);
+	var _Contact = __webpack_require__(271);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
-	var _FormValidate = __webpack_require__(271);
+	var _FormValidate = __webpack_require__(272);
 	
 	var _FormValidate2 = _interopRequireDefault(_FormValidate);
 	
@@ -29410,7 +29435,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)((0, _FormValidate2.default)(_Contact2.default));
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29432,7 +29457,7 @@
 	};
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29527,31 +29552,6 @@
 	
 	    return FormValidate;
 	  }(_react2.default.Component);
-	};
-
-/***/ },
-/* 272 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// Embedded Google doc located here:
-	// https://drive.google.com/file/d/0B74g2zDubN9jcmFXV3lxWEM4RVE/view?usp=sharing
-	
-	exports.default = function () {
-	  return _react2.default.createElement("iframe", {
-	    id: "resume",
-	    src: "https://docs.google.com/viewer?srcid=0B74g2zDubN9jcmFXV3lxWEM4RVE&pid=explorer&embedded=true" });
 	};
 
 /***/ }
