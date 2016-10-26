@@ -26427,7 +26427,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = (0, _redux.createStore)(_redux3.default, (0, _redux.applyMiddleware)((0, _reduxLogger2.default)(), _reduxThunk2.default));
+	// Setup Redux middleware based on env
+	var middleware = [_reduxThunk2.default];
+	if (window.location.host.slice(0, 9) === 'localhost') middleware.push((0, _reduxLogger2.default)());
+	
+	exports.default = (0, _redux.createStore)(_redux3.default, _redux.applyMiddleware.apply(undefined, middleware));
 
 /***/ },
 /* 228 */
