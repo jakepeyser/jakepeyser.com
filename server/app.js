@@ -15,7 +15,6 @@ const chalk = require('chalk');
 
 // Redirect requests to custom domain if hitting Heroku domain
 app.use((req, res, next) => {
-  console.log('checking for host!!!!!!')
   return req.headers.host === 'jakepeyser.herokuapp.com' ?
     res.redirect(301, `http://jakepeyser.com${req.originalUrl}`) : next();
 });
