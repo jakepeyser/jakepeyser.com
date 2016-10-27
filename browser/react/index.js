@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import store from './store';
 import { Provider } from 'react-redux';
+require('./staticImports.js');
 
 // React containers and components
 import App from './components/App';

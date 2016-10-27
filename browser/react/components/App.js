@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 export default ({ children }) => (
-  <div id="main" className="container-fluid">
+  <div id="main">
     <Helmet
       defaultTitle="Jake Peyser"
       titleTemplate="Jake Peyser | %s"

@@ -1,14 +1,11 @@
 const express = require('express');
 const app = express();
-const favicon = require('serve-favicon');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const PATHS = {
-  favicon: path.join(__dirname, '../public/favicon.ico'),
-  indexHTML: path.join(__dirname, '../browser/index.html'),
-  public: path.join(__dirname, '../public'),
-  bootstrap: path.join(__dirname, '../node_modules/bootstrap/dist/css')
+  indexHTML: path.join(__dirname, '../browser/build/index.html'),
+  build: path.join(__dirname, '../browser/build')
 }
 const PORT = process.env.PORT || 8080;
 const chalk = require('chalk');
@@ -21,11 +18,9 @@ app.use((req, res, next) => {
     res.redirect(301, `http://jakepeyser.com${req.originalUrl}`) : next();
 });
 
-// Favicon, logging, static, and body-parser middleware
-app.use(favicon(PATHS.favicon));
+// Logging, static, and body-parser middleware
 app.use(morgan('dev'));
-app.use(express.static(PATHS.public));
-app.use(express.static(PATHS.bootstrap));
+app.use(express.static(PATHS.build));
 app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json()); // would be for AJAX requests
 

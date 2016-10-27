@@ -13,11 +13,14 @@ button {
   width: 8em;
   background-color: inherit;
   border: 3px solid #8c8c8c;
+  font-size: .9em;
+  font-weight: 500;
 }
 
 button:hover {
   background-color: #8c8c8c;
   color: white;
+  cursor: pointer;
 }
 
 button:focus {
@@ -359,6 +362,7 @@ button:focus {
 #contact > div > .form > form,
 #contact > div > .form > form > fieldset {
   width: 100%;
+  border: none;
 }
 
 #contact > div > .form > form > fieldset > .contact-form {
@@ -468,7 +472,7 @@ button:focus {
 .nav-list {
   float: right;
   display: inline-flex;
-  margin: 8px 0px;
+  margin: 8px 20px;
   padding: 0;
   list-style-type: none;
   font-family: Raleway;
