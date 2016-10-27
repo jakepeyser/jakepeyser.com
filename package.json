@@ -6,7 +6,7 @@
   "main": "server/app.js",
   "author": "Jake Peyser (https://github.com/JakePeyser)",
   "scripts": {
-    "prod": "webpack & node server/app.js",
+    "start": "webpack & node server/app.js",
     "dev": "webpack -w & nodemon --watch server -e js,html server/app.js",
     "local": "webpack-dev-server"
   },
