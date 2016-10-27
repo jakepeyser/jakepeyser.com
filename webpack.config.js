@@ -81,8 +81,8 @@ switch (process.env.npm_lifecycle_event) {
         name: 'vendor',
         entries: ['react']
       }),
+      tools.setupStatic([ PATHS.stylesheets, PATHS.images ]),
       tools.minify()
-      // tools.setupStatic([ PATHS.stylesheets, PATHS.images ])
     );
     break;
   case 'dev':
