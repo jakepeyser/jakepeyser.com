@@ -7,6 +7,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const tools = require('./libs/webpack.tools');
+const pkg = require('./package.json');
 
 // Init common paths used by config
 const path = require('path');
@@ -79,10 +80,9 @@ switch (process.env.npm_lifecycle_event) {
           new HtmlWebpackPlugin(htmlTemplate)
         ]
       },
-      tools.clean(PATHS.build),
       tools.extractBundle({
         name: 'vendor',
-        entries: ['react']
+        entries: Object.keys(pkg.dependencies)
       }),
       tools.setupStatic([ PATHS.stylesheets, PATHS.images ]),
       tools.minify()
