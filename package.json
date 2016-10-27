@@ -7,7 +7,7 @@
   "author": "Jake Peyser (https://github.com/JakePeyser)",
   "scripts": {
     "start": "node server/app.js",
-    "heroku-postbuild": "webpack --progress",
+    "postinstall": "webpack --progress",
     "dev": "webpack -w & nodemon --watch server -e js,html server/app.js",
     "local": "webpack-dev-server"
   },
