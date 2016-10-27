@@ -20,6 +20,13 @@ const PATHS = {
   html_template: path.join(__dirname, 'browser/src/index.html')
 };
 
+// Vendor dependencies, isolated for chunking
+const vendorDependencies = [
+  'axios',
+  'react', 'react-dom', 'react-helmet', 'react-router',
+  'redux', 'react-redux', 'redux-logger', 'redux-thunk'
+]
+
 // index.html template
 let htmlTemplate = {
   title: 'Jake Peyser',
@@ -82,7 +89,7 @@ switch (process.env.npm_lifecycle_event) {
       },
       tools.extractBundle({
         name: 'vendor',
-        entries: Object.keys(pkg.dependencies)
+        entries: vendorDependencies
       }),
       tools.setupStatic([ PATHS.stylesheets, PATHS.images ]),
       tools.minify()
