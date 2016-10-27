@@ -4,10 +4,8 @@ import axios from 'axios';
 const MESSAGE_SENT = 'MESSAGE_SENT';
 const NEW_MESSAGE = 'NEW_MESSAGE';
 
-const SUCCESS_MESSAGE = `Your message has been received and
-                         I will do my best to get back to you shortly!`;
-const ERROR_MESSAGE = `There was an issue sending your message. Please try
-                       again later or contact me through another medium.`;
+const SUCCESS_MESSAGE = 'I will do my best to get back to you shortly!';
+const ERROR_MESSAGE = 'Unfortunately, there was an issue and it did not go through. Please try again later or contact me through another medium.';
 
 // ----------------> ACTION CREATORS <----------------
 const showMessageStatus = success => ({
@@ -35,7 +33,7 @@ export const sendMessage = data => dispatch => {
 export default function messageStatus(state = {}, action) {
   switch (action.type) {
     case NEW_MESSAGE:
-      return null;
+      return {};
     case MESSAGE_SENT:
       return action.success ?
         { success: true, message: SUCCESS_MESSAGE } :

@@ -66,23 +66,23 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Home = __webpack_require__(289);
+	var _Home = __webpack_require__(290);
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _ProjectsContainer = __webpack_require__(290);
+	var _ProjectsContainer = __webpack_require__(291);
 	
 	var _ProjectsContainer2 = _interopRequireDefault(_ProjectsContainer);
 	
-	var _ProjectContainer = __webpack_require__(292);
+	var _ProjectContainer = __webpack_require__(293);
 	
 	var _ProjectContainer2 = _interopRequireDefault(_ProjectContainer);
 	
-	var _Resume = __webpack_require__(294);
+	var _Resume = __webpack_require__(295);
 	
 	var _Resume2 = _interopRequireDefault(_Resume);
 	
-	var _ContactContainer = __webpack_require__(295);
+	var _ContactContainer = __webpack_require__(296);
 	
 	var _ContactContainer2 = _interopRequireDefault(_ContactContainer);
 	
@@ -28252,8 +28252,8 @@
 	var MESSAGE_SENT = 'MESSAGE_SENT';
 	var NEW_MESSAGE = 'NEW_MESSAGE';
 	
-	var SUCCESS_MESSAGE = 'Your message has been received and\n                         I will do my best to get back to you shortly!';
-	var ERROR_MESSAGE = 'There was an issue sending your message. Please try\n                       again later or contact me through another medium.';
+	var SUCCESS_MESSAGE = 'I will do my best to get back to you shortly!';
+	var ERROR_MESSAGE = 'Unfortunately, there was an issue and it did not go through. Please try again later or contact me through another medium.';
 	
 	// ----------------> ACTION CREATORS <----------------
 	var showMessageStatus = function showMessageStatus(success) {
@@ -28290,7 +28290,7 @@
 	
 	  switch (action.type) {
 	    case NEW_MESSAGE:
-	      return null;
+	      return {};
 	    case MESSAGE_SENT:
 	      return action.success ? { success: true, message: SUCCESS_MESSAGE } : { success: false, message: ERROR_MESSAGE };
 	    default:
@@ -30592,9 +30592,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _SocialIcons = __webpack_require__(289);
 	
-	var profiles = [{ id: 1, href: 'https://github.com/jakepeyser', icon: 'github' }, { id: 2, href: 'https://twitter.com/jakepeyser', icon: 'twitter' }, { id: 3, href: 'https://www.linkedin.com/in/jakepeyser', icon: 'linkedin' }, { id: 4, href: 'http://stackoverflow.com/users/1116896/jake-peyser', icon: 'stack-overflow' }, { id: 5, href: 'https://www.instagram.com/jakepeyser/', icon: 'instagram' }];
+	var _SocialIcons2 = _interopRequireDefault(_SocialIcons);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (_ref) {
 	  var children = _ref.children;
@@ -30606,22 +30608,48 @@
 	      null,
 	      '\xA9 2016 Jake Peyser'
 	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'profiles' },
-	      profiles.map(function (profile) {
-	        return _react2.default.createElement(
-	          'a',
-	          { key: profile.id, href: profile.href, target: '_blank' },
-	          _react2.default.createElement('i', { className: 'profile-icon fa fa-' + profile.icon, 'aria-hidden': 'true' })
-	        );
-	      })
-	    )
+	    _react2.default.createElement(_SocialIcons2.default, null)
 	  );
 	};
 
 /***/ },
 /* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var profiles = [{ id: 1, href: 'https://github.com/jakepeyser', icon: 'github' }, { id: 2, href: 'https://twitter.com/jakepeyser', icon: 'twitter' }, { id: 3, href: 'https://www.linkedin.com/in/jakepeyser', icon: 'linkedin' }, { id: 4, href: 'http://stackoverflow.com/users/1116896/jake-peyser', icon: 'stack-overflow' }, { id: 5, href: 'https://www.instagram.com/jakepeyser/', icon: 'instagram' }];
+	
+	exports.default = function (_ref) {
+	  var size = _ref.size;
+	
+	  var magnify = size ? 'fa-' + size + 'x' : '';
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'profiles' },
+	    profiles.map(function (profile) {
+	      return _react2.default.createElement(
+	        'a',
+	        { key: profile.id, href: profile.href, target: '_blank' },
+	        _react2.default.createElement('i', { className: 'profile-icon fa fa-' + profile.icon + ' ' + magnify,
+	          'aria-hidden': 'true' })
+	      );
+	    })
+	  );
+	};
+
+/***/ },
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30658,7 +30686,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30669,7 +30697,7 @@
 	
 	var _reactRedux = __webpack_require__(279);
 	
-	var _Projects = __webpack_require__(291);
+	var _Projects = __webpack_require__(292);
 	
 	var _Projects2 = _interopRequireDefault(_Projects);
 	
@@ -30683,7 +30711,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Projects2.default);
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30730,7 +30758,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30741,7 +30769,7 @@
 	
 	var _reactRedux = __webpack_require__(279);
 	
-	var _Project = __webpack_require__(293);
+	var _Project = __webpack_require__(294);
 	
 	var _Project2 = _interopRequireDefault(_Project);
 	
@@ -30755,7 +30783,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Project2.default);
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30864,7 +30892,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30889,18 +30917,18 @@
 	};
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var _reactRedux = __webpack_require__(279);
 	
-	var _Contact = __webpack_require__(296);
+	var _Contact = __webpack_require__(297);
 	
 	var _Contact2 = _interopRequireDefault(_Contact);
 	
-	var _FormValidate = __webpack_require__(297);
+	var _FormValidate = __webpack_require__(299);
 	
 	var _FormValidate2 = _interopRequireDefault(_FormValidate);
 	
@@ -30908,33 +30936,43 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// const noError = { disabled: false, error: {} };
-	// const disable = { disabled: true };
-	// const warning = { severity: 'warning' };
-	// const maxLengthWarning = { message: 'Must be at least 16 characters' };
-	// const nameEmptyWarning = { message: 'Name must not be empty' };
-	// const tooLong = Object.assign({}, disable, { error: Object.assign({}, warning, maxLengthWarning) });
-	// const tooShort = Object.assign({}, disable, { error: Object.assign({}, warning, nameEmptyWarning) });
+	// Validate the contact form
+	var EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/gi;
+	var validateContactForm = function validateContactForm(_ref) {
+	  var name = _ref.name,
+	      email = _ref.email,
+	      message = _ref.message;
+	
+	  var formErrors = [];
+	  if (!name) formErrors.push('I need to know your name');
+	  if (!email) formErrors.push('I am going to need an email to get back to you');else if (!EMAIL_REGEX.test(email)) formErrors.push('Please enter a valid email address');
+	  if (!message) formErrors.push('You forgot to leave a message');else if (message.length > 1000) formErrors.push('Please limit your message to 1000 characters');
+	  return formErrors;
+	};
+	
+	var mapStateToProps = function mapStateToProps(_ref2) {
+	  var messageStatus = _ref2.messageStatus;
+	  return { messageStatus: messageStatus };
+	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    send: function send(obj) {
-	      return dispatch((0, _contact.sendMessage)(obj));
+	    send: function send(data) {
+	      return dispatch((0, _contact.sendMessage)(data));
+	    },
+	    another: function another() {
+	      return dispatch((0, _contact.newMessage)());
+	    },
+	    validate: function validate(data) {
+	      return validateContactForm(data);
 	    }
-	    // validate: entry => {
-	    //   if (entry.length > 16)
-	    //     return tooLong;
-	    //   else if (!entry)
-	    //     return tooShort;
-	    //   else return noError;
-	    // }
 	  };
 	};
 	
-	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)((0, _FormValidate2.default)(_Contact2.default));
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)((0, _FormValidate2.default)(_Contact2.default));
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30947,16 +30985,176 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _FormError = __webpack_require__(298);
+	
+	var _FormError2 = _interopRequireDefault(_FormError);
+	
+	var _SocialIcons = __webpack_require__(289);
+	
+	var _SocialIcons2 = _interopRequireDefault(_SocialIcons);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function (_ref) {
-	  var handleSubmit = _ref.handleSubmit,
-	      handleChange = _ref.handleChange;
-	  return _react2.default.createElement('div', { id: 'contact' });
+	exports.default = function (props) {
+	
+	  var formDiv = void 0;
+	  if (Object.keys(props.messageStatus).length) {
+	    formDiv = _react2.default.createElement(
+	      'div',
+	      { className: 'form-sent' },
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Thank you for your message, ' + props.name + '. ' + props.messageStatus.message + ' '
+	      ),
+	      props.messageStatus.success ? _react2.default.createElement(
+	        'button',
+	        { onClick: props.handleAnother },
+	        'Send Another'
+	      ) : null
+	    );
+	  } else {
+	    formDiv = _react2.default.createElement(
+	      'div',
+	      { className: 'form' },
+	      _react2.default.createElement(
+	        'form',
+	        { name: 'playlistForm', noValidate: true, onSubmit: props.handleSubmit },
+	        _react2.default.createElement(
+	          'fieldset',
+	          null,
+	          _react2.default.createElement(_FormError2.default, { errors: props.errors }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'form-group contact-form' },
+	            _react2.default.createElement(
+	              'label',
+	              { htmlFor: 'name' },
+	              'Name'
+	            ),
+	            _react2.default.createElement('input', {
+	              name: 'name',
+	              type: 'text',
+	              required: true,
+	              onChange: function onChange(evt) {
+	                return props.onFieldChange('name', evt.target.value);
+	              },
+	              value: props.name }),
+	            _react2.default.createElement(
+	              'label',
+	              { htmlFor: 'email' },
+	              'Email'
+	            ),
+	            _react2.default.createElement('input', {
+	              name: 'email',
+	              type: 'text',
+	              required: true,
+	              onChange: function onChange(evt) {
+	                return props.onFieldChange('email', evt.target.value);
+	              },
+	              value: props.email }),
+	            _react2.default.createElement(
+	              'label',
+	              { htmlFor: 'message' },
+	              'Message'
+	            ),
+	            _react2.default.createElement('textarea', {
+	              name: 'message',
+	              required: true,
+	              onChange: function onChange(evt) {
+	                return props.onFieldChange('message', evt.target.value);
+	              },
+	              value: props.message }),
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              1000 - props.message.length,
+	              ' characters remaining'
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { type: 'submit' },
+	              'Send'
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'contact' },
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'info' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Reach Out'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Please don\'t hesitate to send me a message if you have any questions or comments about the work I do or potential freelance opportunities. I am also not averse to the occasional message that simply says hello!'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'details' },
+	          'Jake Peyser',
+	          _react2.default.createElement('br', null),
+	          '442 3rd Ave, Apt 18',
+	          _react2.default.createElement('br', null),
+	          'New York, NY 10016',
+	          _react2.default.createElement('br', null),
+	          'jakepeyser@gmail.com',
+	          _react2.default.createElement('br', null)
+	        ),
+	        _react2.default.createElement(_SocialIcons2.default, { size: '2' })
+	      ),
+	      formDiv
+	    )
+	  );
 	};
 
 /***/ },
-/* 297 */
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (_ref) {
+	  var errors = _ref.errors;
+	
+	  if (!errors || !errors.length) return null;
+	  return _react2.default.createElement(
+	    "div",
+	    { id: "contact-form-errors" },
+	    errors.map(function (err, i) {
+	      return _react2.default.createElement(
+	        "span",
+	        { key: i, className: "alert" },
+	        err
+	      );
+	    })
+	  );
+	};
+
+/***/ },
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30981,6 +31179,13 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var initialState = {
+	  errors: [],
+	  name: '',
+	  email: '',
+	  message: ''
+	};
+	
 	exports.default = function (InnerComponent) {
 	  return function (_React$Component) {
 	    _inherits(FormValidate, _React$Component);
@@ -30990,61 +31195,64 @@
 	
 	      var _this = _possibleConstructorReturn(this, (FormValidate.__proto__ || Object.getPrototypeOf(FormValidate)).call(this, props));
 	
-	      _this.state = {
-	        error: {},
-	        value: props.defaultValue || '',
-	        disabled: true
-	      };
-	      _this.handleChange = _this.handleChange.bind(_this);
+	      _this.state = Object.assign({}, initialState);
+	      _this.onFieldChange = _this.onFieldChange.bind(_this);
 	      _this.handleSubmit = _this.handleSubmit.bind(_this);
+	      _this.handleAnother = _this.handleAnother.bind(_this);
 	      return _this;
 	    }
 	
+	    // Clear the state and show the form again
+	
+	
 	    _createClass(FormValidate, [{
-	      key: 'componentWillReceiveProps',
-	      value: function componentWillReceiveProps(next) {
-	        var value = next.defaultValue;
-	        if (!this.props.defaultValue && value) this.setState({ value: value });
+	      key: 'handleAnother',
+	      value: function handleAnother() {
+	        this.setState(initialState);
+	        this.props.another();
 	      }
+	
+	      // Validate and submit the form to the server
+	
 	    }, {
 	      key: 'handleSubmit',
 	      value: function handleSubmit(evt) {
-	        var _this2 = this;
-	
-	        var submit = this.props.submit;
-	        var value = this.state.value;
-	
-	
 	        evt.preventDefault();
+	        var _state = this.state,
+	            name = _state.name,
+	            email = _state.email,
+	            message = _state.message;
+	        var _props = this.props,
+	            validate = _props.validate,
+	            send = _props.send;
 	
-	        return submit(value).catch(function (err) {
-	          return _this2.setState({
-	            error: {
-	              message: err.message,
-	              severity: 'danger'
-	            }
-	          });
-	        });
+	        // Check form data for errors
+	
+	        var messageData = { name: name, email: email, message: message };
+	        var formErrors = validate(messageData);
+	
+	        // If valid, send to server. Otherwise, show errors
+	        if (!formErrors.length) {
+	          send(messageData);
+	        } else this.setState({ errors: formErrors });
 	      }
-	    }, {
-	      key: 'handleChange',
-	      value: function handleChange(evt) {
-	        var validate = this.props.validate;
 	
-	        var value = evt.target.value;
-	        this.setState(Object.assign({ value: value }, validate(value)));
+	      // Keep track of input field updates
+	
+	    }, {
+	      key: 'onFieldChange',
+	      value: function onFieldChange(field, value) {
+	        var newState = {};
+	        newState[field] = value;
+	        this.setState(newState);
 	      }
 	    }, {
 	      key: 'render',
 	      value: function render() {
-	        var _state = this.state,
-	            error = _state.error,
-	            value = _state.value;
-	
-	
 	        return _react2.default.createElement(InnerComponent, _extends({
-	          handleChange: this.handleChange,
-	          handleSubmit: this.handleSubmit
+	          onFieldChange: this.onFieldChange,
+	          handleSubmit: this.handleSubmit,
+	          handleAnother: this.handleAnother
 	        }, this.state, this.props));
 	      }
 	    }]);

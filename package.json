@@ -37,10 +37,12 @@
     "redux-logger": "^2.7.x",
     "redux-thunk": "^2.1.x",
     "request": "^2.76.x",
+    "sendgrid": "^4.7.1",
     "serve-favicon": "^2.3.x",
     "webpack": "^1.13.x"
   },
   "devDependencies": {
+    "dotenv": "^2.0.x",
     "nodemon": "^1.11.x"
   },
   "engines": {

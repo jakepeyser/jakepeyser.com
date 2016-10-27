@@ -12,6 +12,7 @@ const PATHS = {
 }
 const PORT = process.env.PORT || 8080;
 const chalk = require('chalk');
+require('dotenv').config();
 
 // Redirect requests to custom domain if hitting Heroku domain
 app.use((req, res, next) => {
