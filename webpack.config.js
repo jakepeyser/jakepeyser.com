@@ -39,6 +39,9 @@ const common = {
     filename: '[name].js'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
     new ExtractTextPlugin('style.css')
   ],
   module: {
@@ -59,7 +62,6 @@ const common = {
 let config;
 switch (process.env.npm_lifecycle_event) {
   case 'start':
-  case 'build':
     config = merge(
       common,
       {
