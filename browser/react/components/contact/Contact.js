@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import FormError from '../form/FormError';
 import SocialIcons from '../SocialIcons';
 
@@ -55,6 +56,7 @@ export default (props) => {
 
   return (
     <div id="contact">
+      <Helmet title="Contact" />
       <div>
         <div className="info">
           <h2>Reach Out</h2>
