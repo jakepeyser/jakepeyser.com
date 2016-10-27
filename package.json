@@ -49,7 +49,7 @@
     "webpack": "^1.13.x",
     "webpack-dev-server": "^1.16.x",
     "webpack-merge": "^0.15.x",
-    "webpack-validator": "^2.2.x",
+    "webpack-validator": "^2.2.x"
   },
   "devDependencies": {
     "dotenv": "^2.0.x",
