@@ -58,6 +58,7 @@ const common = {
 // Detect how npm is run and switch based on this
 let config;
 switch (process.env.npm_lifecycle_event) {
+  case 'start':
   case 'build':
     config = merge(
       common,
