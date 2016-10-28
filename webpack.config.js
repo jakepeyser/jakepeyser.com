@@ -15,10 +15,20 @@ const PATHS = {
   app: path.join(__dirname, 'browser/react'),
   build: path.join(__dirname, 'browser/build'),
   favicon: path.join(__dirname, 'browser/src/favicon.ico'),
-  stylesheets: path.join(__dirname, 'browser/src/stylesheets'),
-  images: path.join(__dirname, 'browser/src/images'),
+  stylesheets: path.join(__dirname, 'browser/src/stylesheets', 'style.css'),
+  logo: path.join(__dirname, 'browser/src/images/logo.png'),
   html_template: path.join(__dirname, 'browser/src/index.html')
 };
+
+// Generate image file locations in an array
+const IMAGE_PATHS = [ PATHS.logo ];
+const projects = ['capital-weather', 'parachute-teachers', 'real-time-tone-analysis', 'runkeeper-hashmatch'];
+const imageTypes = ['banner', 'icon', 'screenshot', 'mobile'];
+for (let i = 0; i < imageTypes.length; i++) {
+  for (let j = 0; j < projects.length; j++) {
+    IMAGE_PATHS.push(path.join(__dirname, `browser/src/images/${projects[j]}/${imageTypes[i]}.png`))
+  }
+}
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
@@ -40,7 +50,11 @@ let htmlTemplate = {
 
 // Standard build artifacts for all envs
 const common = {
-  entry: { app: PATHS.app },
+  entry: {
+    app: PATHS.app,
+    style: PATHS.stylesheets,
+    images: IMAGE_PATHS
+  },
   output: {
     path: PATHS.build,
     sourceMapFilename: '[file].map',
@@ -49,8 +63,7 @@ const common = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    }),
-    new ExtractTextPlugin('style.css')
+    })
   ],
   module: {
     loaders: [
@@ -81,7 +94,7 @@ switch (process.env.npm_lifecycle_event) {
         plugins: [
           ...common.plugins,
           new FaviconsWebpackPlugin({
-            logo: `${PATHS.images}/logo.png`,
+            logo: PATHS.logo,
             emitStats: false
           }),
           new HtmlWebpackPlugin(htmlTemplate)
@@ -91,7 +104,9 @@ switch (process.env.npm_lifecycle_event) {
         name: 'vendor',
         entries: vendorDependencies
       }),
-      tools.setupStatic([ PATHS.stylesheets, PATHS.images ]),
+      tools.clean(PATHS.build),
+      tools.extractCSS(PATHS.stylesheets),
+      tools.extractImages(PATHS.images),
       tools.minify()
     );
     break;
@@ -107,7 +122,8 @@ switch (process.env.npm_lifecycle_event) {
         ]
       },
       tools.clean(PATHS.build),
-      tools.setupStatic([ PATHS.stylesheets, PATHS.images ])
+      tools.extractCSS(PATHS.stylesheets),
+      tools.extractImages(PATHS.images)
       // tools.devServer({
       //   port: 3000
       // })

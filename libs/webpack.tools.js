@@ -19,8 +19,8 @@ exports.devServer = function(options) {
   };
 }
 
-// Add images/CSS to the bundle
-exports.setupStatic = function(paths) {
+// Add CSS to the bundle
+exports.extractCSS = function(paths) {
   return {
     module: {
       loaders: [
@@ -28,7 +28,20 @@ exports.setupStatic = function(paths) {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract('style', 'css'),
           include: paths
-        },
+        }
+      ]
+    },
+    plugins: [
+      new ExtractTextPlugin('[name].[chunkhash].css')
+    ]
+  };
+}
+
+// Add images to the bundle
+exports.extractImages = function(paths) {
+  return {
+    module: {
+      loaders: [
         {
           test: /\.(gif|png|jpe?g|svg)$/,
           loader: 'file?name=[path][name].[ext]',
