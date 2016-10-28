@@ -2,16 +2,17 @@ import React from'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router';
 
-export default ({ projects, selectProject }) => (
-  <div id="portfolio">
+export default ({ projects, fullView, children }) => (
+  <div id="portfolio-wrapper">
     <Helmet title="Portfolio" />
+    <div id={fullView ? 'portfolio' : 'portfolio-switcher'}>
     {
       projects.map(project => {
         return (
-          <div key={project.id} className="project">
+          <div key={project.id} className={fullView ? 'project' : 'project-switcher'}>
             <Link to={`/projects/${project.filename}`}
-            className={`project-link i-${project.filename}`}>
-              <div className="project-name-wrapper">
+            className={`project-bubble i-${project.filename}`} activeClassName="active-bubble">
+              <div className="project-text-wrapper">
                 <span>{project.name}</span>
               </div>
             </Link>
@@ -19,5 +20,7 @@ export default ({ projects, selectProject }) => (
         )
       })
     }
+    </div>
+    { children }
   </div>
 );

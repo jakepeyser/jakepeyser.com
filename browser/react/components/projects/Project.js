@@ -1,7 +1,9 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 
 export default ({ project }) => (
   <div id="project">
+    <Helmet title={ project.name } />
     <div className={`project-banner bg-${project.filename}`}>
       <div className="project-title-container">
         <h1 className="name">{project.name}</h1>

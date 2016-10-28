@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Navbar from './Navbar';
+import NavbarContainer from './navbar/NavbarContainer';
 import Footer from './Footer';
 
 export default ({ children }) => (
@@ -9,7 +9,7 @@ export default ({ children }) => (
       defaultTitle="Jake Peyser"
       titleTemplate="Jake Peyser | %s"
     />
-    <Navbar />
+    <NavbarContainer />
     <div id="content-wrapper">
       <div id="content">
         { children }

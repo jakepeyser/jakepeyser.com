@@ -109,6 +109,10 @@ button:focus {
 
 /* Portfolio */
 
+#portfolio-wrapper {
+  flex-direction: column;
+}
+
 #portfolio {
   flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
@@ -117,11 +121,21 @@ button:focus {
 	padding: 0 4em;
 }
 
+#portfolio-switcher {
+  position: fixed;
+  top: 0;
+  margin-top: 55px;
+  background-color: rgba(255, 255, 255, .9);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 1px solid black;
+}
+
 .project {
 	margin: 10px 20px;
 }
 
-.project-link, .project-link:focus {
+.project > a {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
@@ -129,7 +143,7 @@ button:focus {
 	color: inherit;
 }
 
-.project-name-wrapper {
+.project > a > div {
 	width: 100%;
 	height: 100%;
 	border-radius: inherit;
@@ -138,18 +152,66 @@ button:focus {
 	color: transparent;
 }
 
-.project-name-wrapper:hover {
+.project > a > div:hover {
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, .75);
 	color: #f7f7f7;
 	cursor: pointer;
 }
 
-.project-name-wrapper span {
+.project > a > div > span {
 	text-align: center;
   font-family: Raleway;
   font-weight: 600;
 	font-size: 1.2em;
+	padding: 0 7px;
+	cursor: inherit;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none; 
+}
+
+.project-switcher {
+	margin: 10px 10px;
+}
+
+.project-bubble {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	border: 2px solid black;
+	color: inherit;
+  background-color: #f7f7f7;
+}
+
+.project-switcher > a > div {
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	justify-content: center;
+	align-items: center;
+	color: transparent;
+}
+
+.active-bubble > .project-text-wrapper {
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, .75);
+	color: #f7f7f7;
+}
+
+.project-bubble > div:hover {
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, .75);
+	color: #f7f7f7;
+	cursor: pointer;
+}
+
+.project-bubble > div > span {
+	text-align: center;
+  font-family: Raleway;
+  font-weight: 600;
+	font-size: .7em;
 	padding: 0 7px;
 	cursor: inherit;
 	-webkit-user-select: none;  /* Chrome all / Safari all */
@@ -223,6 +285,7 @@ button:focus {
 
 #project {
   height: 100%;
+  width: 100%;
   align-items: center;
   align-content: flex-start;
   justify-content: flex-start;
@@ -526,7 +589,6 @@ button:focus {
 
 .active-nav {
   color: #8b9dc3;
-  cursor: default;
 }
 
 /* Footer */

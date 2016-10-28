@@ -32,9 +32,10 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App} onEnter={onAppEnter}>
         <Route path="/home" component={Home} />
-        <Route path="/projects" component={ProjectsContainer} />
-        <Route path="/projects/:projectName"
-          component={ProjectContainer} onEnter={getProject}/>
+        <Route path="/projects" component={ProjectsContainer}>
+          <Route path="/projects/:projectName"
+            component={ProjectContainer} onEnter={getProject}/>
+        </Route>
         <Route path="/resume" component={Resume} />
         <Route path="/contact" component={ContactContainer} />
         <IndexRoute component={Home} />
