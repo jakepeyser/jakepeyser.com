@@ -82,8 +82,29 @@ button:focus {
 /* Resume */
 
 #resume {
+  flex-direction: column;
+}
+
+#resume > iframe {
   min-height: inherit;
   width: inherit;
+}
+
+#resume > .resume-download {
+  font-size: 1.2em;
+}
+
+#resume > .resume-download > p {
+  margin: 15px 0;
+}
+
+#resume > .resume-download a {
+  color: #8b9dc3;
+}
+
+#resume > .resume-download a:hover {
+  color: #8c8c8c;
+  font-weight: bold;
 }
 
 /* Portfolio */

@@ -110,6 +110,7 @@ switch (process.env.npm_lifecycle_event) {
       tools.minify()
     );
     break;
+  case 'stats': // Used to generate stats to stats.json
   case 'dev':
     htmlTemplate.favicon = PATHS.favicon;
     config = merge(
@@ -124,9 +125,6 @@ switch (process.env.npm_lifecycle_event) {
       tools.clean(PATHS.build),
       tools.extractCSS(PATHS.stylesheets),
       tools.extractImages(PATHS.images)
-      // tools.devServer({
-      //   port: 3000
-      // })
     );
     break;
   default:
@@ -134,4 +132,4 @@ switch (process.env.npm_lifecycle_event) {
     config = merge(common)
 }
 
-module.exports = validate(config);
+module.exports = validate(config, { quiet: true });
