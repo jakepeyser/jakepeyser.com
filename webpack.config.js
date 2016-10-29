@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const SitemapPlugin = require('sitemap-webpack-plugin');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const tools = require('./libs/webpack.tools');
@@ -48,6 +49,18 @@ let htmlTemplate = {
   template: PATHS.html_template
 }
 
+// Sitemap paths
+const sitePaths = [
+  '/home',
+  '/portfolio',
+  '/portfolio/real-time-tone-analysis',
+  '/portfolio/capital-weather',
+  '/portfolio/parachute-teachers',
+  '/portfolio/runkeeper-hashmatch',
+  '/resume',
+  '/contact'
+]
+
 // Standard build artifacts for all envs
 const common = {
   entry: {
@@ -63,7 +76,8 @@ const common = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    })
+    }),
+    new SitemapPlugin('https://jakepeyser.com', sitePaths)
   ],
   module: {
     loaders: [

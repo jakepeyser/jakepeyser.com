@@ -52,7 +52,8 @@
   },
   "devDependencies": {
     "dotenv": "^2.0.x",
-    "nodemon": "^1.11.x"
+    "nodemon": "^1.11.x",
+    "sitemap-webpack-plugin": "^0.1.0"
   },
   "engines": {
     "node": "6.9.x"

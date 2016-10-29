@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const PATHS = {
   indexHTML: path.join(__dirname, '../browser/build/index.html'),
+  robots: path.join(__dirname, '../robots.txt'),
   build: path.join(__dirname, '../browser/build')
 }
 const PORT = process.env.PORT || 8080;
@@ -24,11 +25,10 @@ app.use(express.static(PATHS.build));
 app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
 app.use(bodyParser.json()); // would be for AJAX requests
 
-// Handle API and React requests
+// Handle API and all browser requests
+app.get('/robots.txt', (req, res) => res.sendFile(PATHS.robots));
 app.use('/api', require('./routes'));
-app.get('/*', (req, res) => {
-  res.sendFile(PATHS.indexHTML);
-});
+app.get('/*', (req, res) => res.sendFile(PATHS.indexHTML));
 
 // Error handler
 app.use((err, req, res, next) => {
