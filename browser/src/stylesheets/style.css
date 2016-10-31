@@ -20,10 +20,11 @@ button {
 button:hover {
   background-color: #8c8c8c;
   color: white;
-  -webkit-transition: background-color 0.2s linear, color 0.2s linear;
-  -moz-transition: background-color 0.2s linear, color 0.2s linear;
-  -o-transition: background-color 0.2s linear, color 0.2s linear;
-  transition: background-color 0.2s linear, color 0.2s linear;
+  -webkit-text-fill-color: white;
+  -webkit-transition: background-color 0.2s linear, color 0.2s linear, -webkit-text-fill-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear, color 0.2s linear, -webkit-text-fill-color 0.2s linear;
+  -o-transition: background-color 0.2s linear, color 0.2s linear, -webkit-text-fill-color 0.2s linear;
+  transition: background-color 0.2s linear, color 0.2s linear, -webkit-text-fill-color 0.2s linear;
   cursor: pointer;
 }
 
@@ -99,26 +100,30 @@ button:focus {
 }
 
 #resume > .resume-download > p {
-  margin: 15px 0;
+  margin: 0;
+  padding: 15px 0;
 }
 
 #resume > .resume-download a {
   color: #8b9dc3;
+  -webkit-text-fill-color: #8b9dc3;
 }
 
 #resume > .resume-download a:hover {
   color: #8c8c8c;
+  -webkit-text-fill-color: #8c8c8c;
   font-weight: bold;
 }
 
 /* Portfolio */
 
 #portfolio-wrapper {
-  flex-direction: column;
 }
 
 .portfolio-lg {
 	max-width: 900px;
+  left: 0; /* TODO: hack for safari/ff */
+  right: 0;
 	padding: 0 4em;
   flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
@@ -129,6 +134,12 @@ button:focus {
   z-index: 2;
   position: fixed;
   top: 55px;
+  left: calc(50% - 208px); /* TODO: hack for safari/ff */
+  right: calc(50% - 208px);
+  -webkit-transition: left 0.5s ease-in, right 0.5s ease-in;
+  -moz-transition: left 0.5s ease-in, right 0.5s ease-in;
+  -o-transition: left 0.5s ease-in, right 0.5s ease-in;
+  transition: left 0.5s ease-in, right 0.5s ease-in;
   background-color: rgb(255, 255, 255);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -146,6 +157,7 @@ button:focus {
 	border-radius: 50%;
 	border: 3px solid #8c8c8c;
 	color: inherit;
+  -webkit-text-fill-color: inherit;
 }
 
 .project-text-wrapper {
@@ -154,18 +166,20 @@ button:focus {
 	border-radius: inherit;
 	justify-content: center;
 	align-items: center;
-	color: transparent;
+	color: #f7f7f7;
+  -webkit-text-fill-color: #f7f7f7;
+	opacity: 0;
 }
 
 .project-text-wrapper:hover {
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, .75);
-	color: #f7f7f7;
-  -webkit-transition: background-color 0.2s linear, color 0.2s linear;
-  -moz-transition: background-color 0.2s linear, color 0.2s linear;
-  -o-transition: background-color 0.2s linear, color 0.2s linear;
-  transition: background-color 0.2s linear, color 0.2s linear;
+  -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -moz-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -o-transition: background-color 0.2s linear, opacity 0.2s linear;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
 	cursor: pointer;
+  opacity: 1;
 }
 
 .project-bubble-text {
@@ -213,6 +227,8 @@ button:focus {
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, .75);
 	color: #f7f7f7;
+  -webkit-text-fill-color: #f7f7f7;
+  opacity: 1;
 }
 
 .project-bubble-text-sm {
@@ -386,6 +402,7 @@ button:focus {
 
 #project > .sections > div > div > ul > li > a:hover {
 	color: #8b9dc3;
+  -webkit-text-fill-color: #8b9dc3;
 }
 
 /* Contact */
@@ -488,6 +505,7 @@ button:focus {
 
 #contact > div > .form > form > fieldset > .contact-form > button {
   margin-top: 1.5em;
+  display: inline-block;
 }
 
 #contact > div > .form > form > fieldset > .contact-form > button:focus {
@@ -502,6 +520,7 @@ button:focus {
   border-radius: 6px;
   background-color: #8c8c8c;
   color: white;
+  -webkit-text-fill-color: white;
 }
 
 #contact-form-errors > span::before {
@@ -580,11 +599,13 @@ button:focus {
 
 .nav-link {
   color: black;
+  -webkit-text-fill-color: black;
 	text-decoration: none;
 }
 
 .nav-link:hover, .nav-link:focus {
 	color: #8b9dc3;
+  -webkit-text-fill-color: #8b9dc3;
 }
 
 .nav-link:focus {
@@ -593,6 +614,7 @@ button:focus {
 
 .active-nav {
   color: #8b9dc3;
+  -webkit-text-fill-color: #8b9dc3;
 }
 
 /* Footer */
@@ -605,6 +627,7 @@ button:focus {
   display: flex;
   background-color: white;
   color: black;
+  -webkit-text-fill-color: black;
 }
 
 #footer > .profiles {
@@ -620,9 +643,11 @@ button:focus {
 
 .profile-icon {
   color: black;
+  -webkit-text-fill-color: black;
 }
 
 .profile-icon:hover {
   cursor: pointer;
   color: #8b9dc3;
+  -webkit-text-fill-color: #8b9dc3;
 }
