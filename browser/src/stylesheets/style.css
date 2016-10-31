@@ -117,7 +117,8 @@ button:focus {
 
 /* Portfolio */
 
-#portfolio-wrapper {
+#portfolio-wrapper-sm {
+  align-items: flex-start;
 }
 
 .portfolio-lg {
@@ -133,7 +134,7 @@ button:focus {
 .portfolio-sm {
   z-index: 2;
   position: fixed;
-  top: 55px;
+  top: 54px;
   left: calc(50% - 208px); /* TODO: hack for safari/ff */
   right: calc(50% - 208px);
   -webkit-transition: left 0.5s ease-in, right 0.5s ease-in;
