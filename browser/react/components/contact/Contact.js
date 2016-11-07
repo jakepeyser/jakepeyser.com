@@ -2,6 +2,15 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import FormError from '../form/FormError';
 import SocialIcons from '../SocialIcons';
+import { TextField } from 'material-ui';
+import { black } from 'material-ui/styles/colors';
+
+// Material element styles
+const floatingLabelStyle = { color: black, fontSize: "1.2em" };
+const floatingLabelFocusStyle = { color: "#8b9dc3" };
+const underlineStyle = { borderBottomColor: black }
+const underlineFocusStyle = { borderBottomColor: "#8b9dc3" }
+const textareaStyle = { marginTop: "-5px" }
 
 export default (props) => {
 
@@ -23,29 +32,37 @@ export default (props) => {
           <fieldset>
             <FormError errors={ props.errors } />
             <div className="form-group contact-form">
-              <label htmlFor="name">Name</label>
-              <input
-                name="name"
-                type="text"
-                required
-                onChange={ (evt) =>
-                  props.onFieldChange('name', evt.target.value) }
-                value={ props.name } />
-              <label htmlFor="email">Email</label>
-              <input
-                name="email"
-                type="text"
-                required
-                onChange={ (evt) =>
-                  props.onFieldChange('email', evt.target.value) }
-                value={ props.email } />
-              <label htmlFor="message">Message</label>
-              <textarea
-                name="message"
-                required
-                onChange={ (evt) => 
-                  props.onFieldChange('message', evt.target.value) }
-                value={ props.message } />
+              <TextField
+                floatingLabelText="Name"
+                floatingLabelStyle={floatingLabelStyle}
+                floatingLabelFocusStyle={floatingLabelFocusStyle}
+                underlineStyle={underlineStyle}
+                underlineFocusStyle={underlineFocusStyle}
+                fullWidth={true}
+                onChange={(evt) => props.onFieldChange('name', evt.target.value) }
+              />
+              <TextField
+                floatingLabelText="Email"
+                floatingLabelStyle={floatingLabelStyle}
+                floatingLabelFocusStyle={floatingLabelFocusStyle}
+                underlineStyle={underlineStyle}
+                underlineFocusStyle={underlineFocusStyle}
+                fullWidth={true}
+                onChange={(evt) => props.onFieldChange('email', evt.target.value) }
+              />
+              <TextField
+                floatingLabelText="Message"
+                floatingLabelStyle={floatingLabelStyle}
+                floatingLabelFocusStyle={floatingLabelFocusStyle}
+                underlineStyle={underlineStyle}
+                underlineFocusStyle={underlineFocusStyle}
+                textareaStyle={textareaStyle}
+                fullWidth={true}
+                multiLine={true}
+                rows={5}
+                rowsMax={5}
+                onChange={(evt) => props.onFieldChange('message', evt.target.value) }
+              />
               <span>{1000 - props.message.length} characters remaining</span>
               <button type="submit">Send</button>
             </div>
