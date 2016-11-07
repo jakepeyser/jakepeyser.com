@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars*/
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -96,7 +95,7 @@ const common = {
 // Detect how npm is run and switch based on this
 let config;
 switch (process.env.npm_lifecycle_event) {
-  case 'start':
+  case 'build':
     config = merge(
       common,
       {
@@ -125,7 +124,7 @@ switch (process.env.npm_lifecycle_event) {
     );
     break;
   case 'stats': // Used to generate stats to stats.json
-  case 'dev':
+  case 'build-watch':
     htmlTemplate.favicon = PATHS.favicon;
     config = merge(
       common,
