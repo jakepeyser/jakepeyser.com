@@ -5,11 +5,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 exports.devServer = function(options) {
   return {
     devServer: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          secure: false
+        }
+      },
       historyApiFallback: true,
       hot: true,
       inline: true,
       stats: 'errors-only',
-      port: options.port // Defaults to 8080
+      port: options.port
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin({
@@ -21,12 +27,13 @@ exports.devServer = function(options) {
 
 // Add CSS to the bundle
 exports.extractCSS = function(paths) {
+  const isDev = process.env.NODE_ENV !== 'production';
   return {
     module: {
       loaders: [
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css'),
+          loader: isDev ? 'style!css' : ExtractTextPlugin.extract('style', 'css'),
           include: paths
         }
       ]

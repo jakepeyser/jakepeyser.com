@@ -11,8 +11,9 @@
   "scripts": {
     "start": "node server/app.js",
     "dev": "nodemon --watch server -e js server/app.js",
+    "hmr": "webpack-dev-server",
     "build": "webpack",
-    "build-watch": "webpack -w --progress",
+    "build-watch": "webpack -w --progress --colors",
     "stats": "webpack --profile --json > stats.json"
   },
   "license": "MIT",
@@ -25,15 +26,17 @@
   },
   "dependencies": {
     "axios": "^0.15.x",
-    "chalk": "^1.1.x",
     "body-parser": "^1.15.x",
+    "chalk": "^1.1.x",
     "express": "^4.14.x",
+    "material-ui": "^0.16.1",
     "morgan": "^1.7.x",
     "react": "^15.3.x",
     "react-dom": "^15.3.x",
     "react-helmet": "^3.1.0",
     "react-redux": "^4.4.x",
     "react-router": "^3.0.x",
+    "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.6.x",
     "redux-logger": "^2.7.x",
     "redux-thunk": "^2.1.x",
@@ -57,6 +60,7 @@
     "sitemap-webpack-plugin": "^0.1.x",
     "style-loader": "^0.13.x",
     "webpack": "^1.13.x",
+    "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.15.x",
     "webpack-validator": "^2.2.x"
   }

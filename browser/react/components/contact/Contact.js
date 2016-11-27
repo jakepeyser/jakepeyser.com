@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import FormError from '../form/FormError';
 import SocialIcons from '../SocialIcons';
+import { JPTextField } from '../material-style';
 
 export default (props) => {
 
@@ -21,32 +21,29 @@ export default (props) => {
       <div className="form">
         <form name="playlistForm" noValidate onSubmit={props.handleSubmit}>
           <fieldset>
-            <FormError errors={ props.errors } />
             <div className="form-group contact-form">
-              <label htmlFor="name">Name</label>
-              <input
-                name="name"
-                type="text"
-                required
-                onChange={ (evt) =>
-                  props.onFieldChange('name', evt.target.value) }
-                value={ props.name } />
-              <label htmlFor="email">Email</label>
-              <input
-                name="email"
-                type="text"
-                required
-                onChange={ (evt) =>
-                  props.onFieldChange('email', evt.target.value) }
-                value={ props.email } />
-              <label htmlFor="message">Message</label>
-              <textarea
-                name="message"
-                required
-                onChange={ (evt) => 
-                  props.onFieldChange('message', evt.target.value) }
-                value={ props.message } />
-              <span>{1000 - props.message.length} characters remaining</span>
+              <JPTextField
+                floatingLabelText="Name"
+                errorText={props.errors.name}
+                fullWidth={true}
+                onChange={(evt) => props.onFieldChange('name', evt.target.value) }
+              />
+              <JPTextField
+                floatingLabelText="Email"
+                errorText={props.errors.email}
+                fullWidth={true}
+                onChange={(evt) => props.onFieldChange('email', evt.target.value) }
+              />
+              <JPTextField
+                floatingLabelText="Message"
+                textareaStyle={{ marginTop: '-5px' }}
+                errorText={props.errors.message}
+                fullWidth={true}
+                multiLine={true}
+                rows={4} rowsMax={4}
+                onChange={(evt) => props.onFieldChange('message', evt.target.value) }
+              />
+              <span>{1000 - props.message.length}</span>
               <button type="submit">Send</button>
             </div>
           </fieldset>
@@ -63,12 +60,11 @@ export default (props) => {
           <p>
             Please don't hesitate to send me a message if you have any questions
             or comments about the work I do or potential freelance opportunities.
-            I am also not averse to the occasional message that simply says hello!
+            I am also not averse to the occasional random hello!
           </p>
           <p className="details">
             Jake Peyser<br/>
-            442 3rd Ave, Apt 18<br/>
-            New York, NY 10016<br/>
+            New York, NY<br/>
             jakepeyser@gmail.com<br/>
           </p>
           <SocialIcons size="2" />
