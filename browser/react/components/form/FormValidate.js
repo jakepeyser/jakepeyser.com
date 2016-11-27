@@ -1,17 +1,17 @@
 import React from 'react';
 
 const initialState = {
-  errors: [],
   name: '',
   email: '',
-  message: ''
+  message: '',
+  errors: {}
 }
 
 export default InnerComponent =>
   class FormValidate extends React.Component {
     constructor(props) {
       super(props);
-      this.state = Object.assign({}, initialState);
+      this.state = initialState;
       this.onFieldChange = this.onFieldChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleAnother = this.handleAnother.bind(this);
@@ -34,16 +34,19 @@ export default InnerComponent =>
       const formErrors = validate(messageData);
 
       // If valid, send to server. Otherwise, show errors
-      if (!formErrors.length) {
-        send(messageData);
-      } else
-        this.setState({ errors: formErrors });
+      if (!Object.keys(formErrors).length) send(messageData);
+      else this.setState({ errors: formErrors });
     }
 
-    // Keep track of input field updates
+    // Update changed field and reset potential corresponding error
     onFieldChange(field, value) {
       let newState = {};
       newState[field] = value;
+      if (this.state.errors[field]) {
+        let newErrs = this.state.errors;
+        delete newErrs[field]
+        newState.errors = newErrs;
+      }
       this.setState(newState);
     }
 

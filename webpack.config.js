@@ -32,7 +32,7 @@ for (let i = 0; i < imageTypes.length; i++) {
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
-  'axios',
+  'axios', 'material-ui',
   'react', 'react-dom', 'react-helmet', 'react-router',
   'redux', 'react-redux', 'redux-logger', 'redux-thunk'
 ]
@@ -83,10 +83,7 @@ const common = {
       {
         test: /jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        loader: 'babel'
       }
     ]
   }
@@ -129,7 +126,7 @@ switch (process.env.npm_lifecycle_event) {
     config = merge(
       common,
       {
-        devtool: 'eval',
+        devtool: 'eval-source-map',
         plugins: [
           ...common.plugins,
           new HtmlWebpackPlugin(htmlTemplate)
@@ -138,6 +135,24 @@ switch (process.env.npm_lifecycle_event) {
       tools.clean(PATHS.build),
       tools.extractCSS(PATHS.stylesheets),
       tools.extractImages(PATHS.images)
+    );
+    break;
+  case 'hmr':
+    htmlTemplate.favicon = PATHS.favicon;
+    config = merge(
+      common,
+      {
+        devtool: 'eval-source-map',
+        plugins: [
+          ...common.plugins,
+          new HtmlWebpackPlugin(htmlTemplate)
+        ]
+      },
+      tools.extractCSS(PATHS.stylesheets),
+      tools.extractImages(PATHS.images),
+      tools.devServer({
+        port: 3000
+      })
     );
     break;
   default:

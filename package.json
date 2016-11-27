@@ -11,8 +11,9 @@
   "scripts": {
     "start": "node server/app.js",
     "dev": "nodemon --watch server -e js server/app.js",
+    "hmr": "webpack-dev-server",
     "build": "webpack",
-    "build-watch": "webpack -w --progress",
+    "build-watch": "webpack -w --progress --colors",
     "stats": "webpack --profile --json > stats.json"
   },
   "license": "MIT",
@@ -59,6 +60,7 @@
     "sitemap-webpack-plugin": "^0.1.x",
     "style-loader": "^0.13.x",
     "webpack": "^1.13.x",
+    "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.15.x",
     "webpack-validator": "^2.2.x"
   }

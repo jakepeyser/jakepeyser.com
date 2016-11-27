@@ -1,16 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import FormError from '../form/FormError';
 import SocialIcons from '../SocialIcons';
-import { TextField } from 'material-ui';
-import { black } from 'material-ui/styles/colors';
-
-// Material element styles
-const floatingLabelStyle = { color: black, fontSize: "1.2em" };
-const floatingLabelFocusStyle = { color: "#8b9dc3" };
-const underlineStyle = { borderBottomColor: black }
-const underlineFocusStyle = { borderBottomColor: "#8b9dc3" }
-const textareaStyle = { marginTop: "-5px" }
+import { JPTextField } from '../material-style';
 
 export default (props) => {
 
@@ -30,40 +21,29 @@ export default (props) => {
       <div className="form">
         <form name="playlistForm" noValidate onSubmit={props.handleSubmit}>
           <fieldset>
-            <FormError errors={ props.errors } />
             <div className="form-group contact-form">
-              <TextField
+              <JPTextField
                 floatingLabelText="Name"
-                floatingLabelStyle={floatingLabelStyle}
-                floatingLabelFocusStyle={floatingLabelFocusStyle}
-                underlineStyle={underlineStyle}
-                underlineFocusStyle={underlineFocusStyle}
+                errorText={props.errors.name}
                 fullWidth={true}
                 onChange={(evt) => props.onFieldChange('name', evt.target.value) }
               />
-              <TextField
+              <JPTextField
                 floatingLabelText="Email"
-                floatingLabelStyle={floatingLabelStyle}
-                floatingLabelFocusStyle={floatingLabelFocusStyle}
-                underlineStyle={underlineStyle}
-                underlineFocusStyle={underlineFocusStyle}
+                errorText={props.errors.email}
                 fullWidth={true}
                 onChange={(evt) => props.onFieldChange('email', evt.target.value) }
               />
-              <TextField
+              <JPTextField
                 floatingLabelText="Message"
-                floatingLabelStyle={floatingLabelStyle}
-                floatingLabelFocusStyle={floatingLabelFocusStyle}
-                underlineStyle={underlineStyle}
-                underlineFocusStyle={underlineFocusStyle}
-                textareaStyle={textareaStyle}
+                textareaStyle={{ marginTop: '-5px' }}
+                errorText={props.errors.message}
                 fullWidth={true}
                 multiLine={true}
-                rows={5}
-                rowsMax={5}
+                rows={4} rowsMax={4}
                 onChange={(evt) => props.onFieldChange('message', evt.target.value) }
               />
-              <span>{1000 - props.message.length} characters remaining</span>
+              <span>{1000 - props.message.length}</span>
               <button type="submit">Send</button>
             </div>
           </fieldset>
@@ -80,12 +60,11 @@ export default (props) => {
           <p>
             Please don't hesitate to send me a message if you have any questions
             or comments about the work I do or potential freelance opportunities.
-            I am also not averse to the occasional message that simply says hello!
+            I am also not averse to the occasional random hello!
           </p>
           <p className="details">
             Jake Peyser<br/>
-            442 3rd Ave, Apt 18<br/>
-            New York, NY 10016<br/>
+            New York, NY<br/>
             jakepeyser@gmail.com<br/>
           </p>
           <SocialIcons size="2" />

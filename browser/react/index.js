@@ -20,7 +20,8 @@ import { fetchProjects } from './redux/projects';
 import { fetchProject } from './redux/selectedProject'
 
 // onEnter functions
-const onAppEnter = () => {
+const onAppEnter = (nextState, replace) => {
+  if (nextState.location.pathname === '/') replace('/home');
   store.dispatch(fetchProjects());
 };
 const getProject = nextState => {

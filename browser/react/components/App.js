@@ -13,7 +13,7 @@ export default ({ children }) => (
     <div id="main">
       <Helmet
         defaultTitle="Jake Peyser"
-        titleTemplate="Jake Peyser | %s"
+        titleTemplate="%s | Jake Peyser"
       />
       <NavbarContainer />
       <div id="content-wrapper">
