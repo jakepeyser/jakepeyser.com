@@ -32,8 +32,8 @@ exports.extractCSS = function(paths) {
     module: {
       loaders: [
         {
-          test: /\.css$/,
-          loader: isDev ? 'style!css' : ExtractTextPlugin.extract('style', 'css'),
+          test: /\.scss$/,
+          loader: isDev ? 'style!css!sass' : ExtractTextPlugin.extract('style', 'css', 'sass'),
           include: paths
         }
       ]

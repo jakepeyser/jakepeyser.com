@@ -1,0 +1,16 @@
+#footer {
+  height: 30px;
+  margin-top: 11px;
+  padding: 0px 20px;
+  display: flex;
+  background-color: $foreground;
+  color: $text-dark;
+  -webkit-text-fill-color: $text-dark;
+  > .profiles {
+    float: right;
+    margin-left: auto;
+    > a + a {
+      margin-left: 10px;
+    }
+  }
+}

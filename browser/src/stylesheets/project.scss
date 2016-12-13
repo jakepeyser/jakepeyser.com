@@ -1,0 +1,93 @@
+#project {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.project-banner {
+  height: 400px;
+  width: inherit;
+}
+
+@each $name, $icon-size in $projects { // banner background images
+	.bg-#{$name} {
+    background: url("../images/#{$name}/banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+	}
+}
+
+.project-title-container {
+	padding: 20px;
+  flex-direction: column;
+	text-align: center;
+  font-family: $headers;
+	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, .85);
+  > h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+  .links { // project links
+	  margin-top: 8px;
+    > a + a {
+	    margin-left: 10px;
+    }
+  }
+}
+
+.sections { // project sections
+  max-width: 1050px;
+  flex-direction: column;
+  margin: 20px 0;
+  > div {
+    max-height: 400px;
+    width: 100%;
+    padding: 15px 0;
+    &:nth-child(odd) {
+      flex-direction: row;
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    > div { // both section text and image
+      width: 50%;
+      flex-direction: column;
+      padding: 0 2em;
+      > h2 {
+        margin-top: 0;
+        font-family: $headers;
+        font-weight: 500;
+        font-size: 2em;
+      }
+      img {
+        max-width: 100%;
+        max-height: 400px;
+      }
+    }
+    > .text {
+      align-items: flex-start !important;
+      text-align: justify;
+      > ul { // tech list
+        flex-direction: column;
+        align-items: flex-start !important;
+        font-size: 1.3em;
+        > li {
+          display: list-item !important;
+          > a { // link to tech info
+            display: inline !important;
+            color: black;
+            &:hover {
+              color: $hover;
+              -webkit-text-fill-color: $hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

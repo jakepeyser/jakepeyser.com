@@ -1,0 +1,30 @@
+#resume {
+  flex-direction: column;
+  > iframe {
+    min-height: inherit;
+    width: inherit;
+  }
+}
+
+.resume-download {
+  font-size: 1.2em;
+  > p {
+    display: inline-block !important;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    @media (max-width: $md) {
+      padding: 10px 5px;
+    }
+  }
+  a { // download link
+    display: inline-block !important;
+    color: $link;
+    -webkit-text-fill-color: $link;
+    &:hover {
+      color: $hover;
+      -webkit-text-fill-color: $hover;
+      font-weight: bold;
+    }
+  }
+}

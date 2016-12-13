@@ -1,0 +1,80 @@
+@import "colors";
+@import "fonts";
+@import "constants";
+@import "screens";
+@import "navbar";
+@import "home";
+@import "portfolio";
+@import "project";
+@import "resume";
+@import "contact";
+@import "footer";
+@import "social-icon";
+
+body,html {
+  width : 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-family: $primary, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: $text-dark;
+}
+
+button {
+  height: 3em;
+  width: 8em;
+  background-color: inherit;
+  border: 3px solid $borders;
+  font-size: .9em;
+  font-weight: 500;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+button:hover {
+  background-color: $borders;
+  color: $text-light;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+#app {
+  all: inherit;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#content-wrapper {
+  min-height: calc(100vh - 55px - 44px);
+  margin-top: 55px;
+  background-color: $background;
+}
+
+#content-wrapper, #content-wrapper  * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	text-decoration: none;
+}
+
+#content {
+  min-height: inherit;
+  width: 100%;
+  justify-content: center;
+}
+
+#content > div {
+  min-height: inherit;
+  width: inherit;
+}

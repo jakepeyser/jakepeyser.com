@@ -1,0 +1,12 @@
+.info {
+  flex-direction: column;
+	text-align: center;
+  font-family: $headers;
+  > .name {
+    font-weight: 700;
+    font-size: 7em;
+  }
+  > .title {
+    font-size: 3em;
+  }
+}

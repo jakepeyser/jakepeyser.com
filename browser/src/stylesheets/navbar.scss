@@ -1,0 +1,51 @@
+#navbar {
+  position: fixed;
+  height: 55px;
+  z-index: 1;
+  width: inherit;
+  top: 0px;
+  left: 0px;
+  background-color: $foreground;
+  border-bottom: 1px solid $borders;
+}
+
+.logo {
+  width: 40px;
+  padding: 7px 0px;
+  margin: 0px 20px;
+}
+
+.nav-list { // navigation menu
+  float: right;
+  display: inline-flex;
+  margin: 8px 20px;
+  padding: 0;
+  list-style-type: none;
+  font-family: $headers;
+  font-weight: 600;
+  > li {
+    font-size: 1.3em;
+    margin-top: 9px;
+    + li::before { // menu item separators
+      padding-left: 0.4em;
+      padding-right: 0.4em;
+      content: '|';
+    }
+  }
+}
+
+.nav-link {
+  color: $text-dark;
+  -webkit-text-fill-color: $text-dark;
+	text-decoration: none;
+  &:hover, &:focus {
+    color: $hover;
+    -webkit-text-fill-color: $hover;
+    text-decoration: none;
+  }
+}
+
+.active-nav { // currently active menu item
+  color: $active;
+  -webkit-text-fill-color: $active;
+}

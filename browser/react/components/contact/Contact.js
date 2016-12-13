@@ -19,7 +19,7 @@ export default (props) => {
   } else {
     formDiv =
       <div className="form">
-        <form name="playlistForm" noValidate onSubmit={props.handleSubmit}>
+        <form name="contactForm" noValidate onSubmit={props.handleSubmit}>
           <fieldset>
             <div className="form-group contact-form">
               <JPTextField
@@ -55,7 +55,7 @@ export default (props) => {
     <div id="contact">
       <Helmet title="Contact" />
       <div>
-        <div className="info">
+        <div className="contact-info">
           <h2>Reach Out</h2>
           <p>
             Please don't hesitate to send me a message if you have any questions

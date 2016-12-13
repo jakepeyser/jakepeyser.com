@@ -7,7 +7,6 @@ const SitemapPlugin = require('sitemap-webpack-plugin');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const tools = require('./libs/webpack.tools');
-const pkg = require('./package.json');
 
 // Init common paths used by config
 const path = require('path');
@@ -15,7 +14,7 @@ const PATHS = {
   app: path.join(__dirname, 'browser/react'),
   build: path.join(__dirname, 'browser/build'),
   favicon: path.join(__dirname, 'browser/src/favicon.ico'),
-  stylesheets: path.join(__dirname, 'browser/src/stylesheets', 'style.css'),
+  stylesheets: path.join(__dirname, 'browser/src/stylesheets', 'style.scss'),
   logo: path.join(__dirname, 'browser/src/images/logo.png'),
   html_template: path.join(__dirname, 'browser/src/index.html')
 };
