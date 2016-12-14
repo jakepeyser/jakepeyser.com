@@ -73,5 +73,20 @@ module.exports = [
     id: 15,
     name: 'Twitter API',
     link: 'https://dev.twitter.com/rest/public'
+  },
+  {
+    id: 16,
+    name: 'PostgreSQL',
+    link: 'https://www.postgresql.org/'
+  },
+  {
+    id: 17,
+    name: 'D3.js',
+    link: 'https://d3js.org/'
+  },
+  {
+    id: 18,
+    name: 'Material-UI',
+    link: 'http://www.material-ui.com/'
   }
 ];

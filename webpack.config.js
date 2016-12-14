@@ -21,7 +21,7 @@ const PATHS = {
 
 // Generate image file locations in an array
 const IMAGE_PATHS = [ PATHS.logo ];
-const projects = ['capital-weather', 'parachute-teachers', 'real-time-tone-analysis', 'runkeeper-hashmatch'];
+const projects = ['capital-weather', 'parachute-teachers', 'real-time-tone-analysis', 'runkeeper-hashmatch', 'steps'];
 const imageTypes = ['banner', 'icon', 'screenshot', 'mobile'];
 for (let i = 0; i < imageTypes.length; i++) {
   for (let j = 0; j < projects.length; j++) {
