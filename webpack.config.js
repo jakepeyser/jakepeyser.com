@@ -8,6 +8,15 @@ const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const tools = require('./libs/webpack.tools');
 
+// Projects in my portfolio
+const projects = [
+  'capital-weather',
+  'parachute-teachers',
+  'real-time-tone-analysis',
+  'runkeeper-hashmatch',
+  'steps'
+];
+
 // Init common paths used by config
 const path = require('path');
 const PATHS = {
@@ -21,7 +30,6 @@ const PATHS = {
 
 // Generate image file locations in an array
 const IMAGE_PATHS = [ PATHS.logo ];
-const projects = ['capital-weather', 'parachute-teachers', 'real-time-tone-analysis', 'runkeeper-hashmatch', 'steps'];
 const imageTypes = ['banner', 'icon', 'screenshot', 'mobile'];
 for (let i = 0; i < imageTypes.length; i++) {
   for (let j = 0; j < projects.length; j++) {
@@ -47,17 +55,16 @@ let htmlTemplate = {
   template: PATHS.html_template
 }
 
-// Sitemap paths
+// Desginate sitemap paths
 const sitePaths = [
   '/home',
   '/portfolio',
-  '/portfolio/real-time-tone-analysis',
-  '/portfolio/capital-weather',
-  '/portfolio/parachute-teachers',
-  '/portfolio/runkeeper-hashmatch',
   '/resume',
   '/contact'
-]
+];
+projects.forEach(project => {
+  sitePaths.push(`/portfolio/${project}`);
+})
 
 // Standard build artifacts for all envs
 const common = {
