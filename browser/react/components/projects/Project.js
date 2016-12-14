@@ -28,8 +28,10 @@ export default ({ project }) => (
           <p>{ project.summary }</p>
         </div>
         <div className="screenshot">
-          <img src={`/browser/src/images/${project.filename}/screenshot.png`}
-            alt={ `${project.name} Screenshot` }/>
+          <div className="img-wrapper">
+            <img src={`/browser/src/images/${project.filename}/screenshot.png`}
+              alt={ `${project.name} Screenshot` }/>
+          </div>
         </div>
       </div>
       <div className="tech">
@@ -48,8 +50,10 @@ export default ({ project }) => (
           </ul>
         </div>
         <div className="screenshot">
-          <img src={`/browser/src/images/${project.filename}/mobile.png`}
+          <div className="img-wrapper">
+            <img src={`/browser/src/images/${project.filename}/mobile.png`}
             alt={ `${project.name} Mobile View` }/>
+          </div>
         </div>
       </div>
     </div>

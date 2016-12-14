@@ -48,31 +48,33 @@
   flex-direction: column;
   margin: 20px 0;
   > div {
-    max-height: 400px;
+    max-height: 800px;
+    flex-direction: column-reverse;
     width: 100%;
     padding: 15px 0;
-    &:nth-child(odd) {
-      flex-direction: row;
-    }
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-    }
     > div { // both section text and image
-      width: 50%;
       flex-direction: column;
-      padding: 0 2em;
+      padding: 0 20px;
       > h2 {
-        margin-top: 0;
+        margin: 0;
         font-family: $headers;
         font-weight: 500;
         font-size: 2em;
       }
-      img {
-        max-width: 100%;
-        max-height: 400px;
+    }
+    > .screenshot {
+      align-items: center;
+      justify-content: center;
+      > .img-wrapper {
+        display: block !important;
+        > img {
+          max-width: 100%;
+          max-height: 400px;
+        }
       }
     }
     > .text {
+      padding-top: 10px;
       align-items: flex-start;
       text-align: justify;
       > ul { // tech list
@@ -90,6 +92,22 @@
             }
           }
         }
+      }
+    }
+    @media (min-width: $lg) {
+      max-height: 400px;
+      &:nth-child(odd) {
+        flex-direction: row;
+      }
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+      > div { // both section text and image
+        width: 50%;
+        padding: 0 30px;
+      }
+      > .text {
+        padding-top: 0;
       }
     }
   }
