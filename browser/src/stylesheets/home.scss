@@ -1,18 +1,38 @@
 #home {
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  background-color: black;
 }
 
-.info {
-  flex-direction: column;
+.wallpaper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  opacity: .5;
+  background: url(../images/home_wallpaper.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.info-wrapper {
+  position: absolute;
+  justify-content: center;
   align-items: center;
-	text-align: center;
-  font-family: $headers;
-  > .name {
-    font-weight: 700;
-    font-size: 7em;
-  }
-  > .title {
-    font-size: 3em;
+  width: 100%;
+  height: 100%;
+  > .info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: $headers;
+    color: $text-light;
+    -webkit-text-fill-color: $text-light;
+    > .name {
+      font-weight: 700;
+      font-size: 7em;
+    }
+    > .title {
+      font-size: 3em;
+    }
   }
 }
