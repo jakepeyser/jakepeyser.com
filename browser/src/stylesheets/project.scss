@@ -10,6 +10,8 @@
 .project-banner {
   height: 400px;
   width: inherit;
+  align-items: center;
+  justify-content: center;
 }
 
 @each $name, $icon-size in $projects { // banner background images
@@ -23,6 +25,7 @@
 .project-title-container {
 	padding: 20px;
   flex-direction: column;
+  align-items: center;
 	text-align: center;
   font-family: $headers;
 	background-color: rgb(255, 255, 255);
@@ -70,11 +73,11 @@
       }
     }
     > .text {
-      align-items: flex-start !important;
+      align-items: flex-start;
       text-align: justify;
       > ul { // tech list
         flex-direction: column;
-        align-items: flex-start !important;
+        align-items: flex-start;
         font-size: 1.3em;
         > li {
           display: list-item !important;

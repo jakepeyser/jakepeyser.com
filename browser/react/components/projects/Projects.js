@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 export default ({ projects, fullView, children }) => {
   const size = fullView ? 'lg' : 'sm';
   return (
-    <div id={`portfolio-wrapper-${size}`}>
+    <div id="portfolio-wrapper">
       <Helmet title="Portfolio" />
       <div className={`portfolio portfolio-${size}`}>
       {

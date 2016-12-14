@@ -37,6 +37,7 @@ button {
 button:hover {
   background-color: $borders;
   color: $text-light;
+  -webkit-text-fill-color: $text-light;
   cursor: pointer;
 }
 
@@ -63,9 +64,12 @@ button:focus {
 
 #content-wrapper, #content-wrapper  * {
   display: flex;
+	text-decoration: none;
+}
+
+#content-wrapper {
   align-items: center;
   justify-content: center;
-	text-decoration: none;
 }
 
 #content {

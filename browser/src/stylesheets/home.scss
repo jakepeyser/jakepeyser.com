@@ -1,5 +1,11 @@
+#home {
+  justify-content: center;
+  align-items: center;
+}
+
 .info {
   flex-direction: column;
+  align-items: center;
 	text-align: center;
   font-family: $headers;
   > .name {
