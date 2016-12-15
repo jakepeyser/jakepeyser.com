@@ -24,6 +24,7 @@ app.use(morgan('dev'));
 app.use('*.pdf', function(req, res, next) { // allow CORS for PDF requests
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Expose-Headers', 'Accept-Ranges, Content-Encoding, Content-Length, Content-Range');
   next();
 });
 app.use(express.static(PATHS.build));
