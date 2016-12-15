@@ -50,7 +50,7 @@ exports.extractImages = function(paths) {
     module: {
       loaders: [
         {
-          test: /\.(gif|png|jpe?g|svg)$/,
+          test: /\.(pdf|gif|png|jpe?g|svg)$/,
           loader: 'file?name=[path][name].[ext]',
           include: paths
         }

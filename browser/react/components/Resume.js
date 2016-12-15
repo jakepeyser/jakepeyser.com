@@ -1,10 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-
-// Embedded Google doc located here:
-// https://drive.google.com/file/d/0B74g2zDubN9jcmFXV3lxWEM4RVE/view?usp=sharing
-const resumeDownLoadLink =
-  <a download href="https://drive.google.com/uc?export=download&id=0B74g2zDubN9jcmFXV3lxWEM4RVE">download</a>
+import resume from '../../src/resume.pdf';
 
 export default () => (
   <div id="resume">
@@ -12,13 +8,12 @@ export default () => (
     <div className="resume-download">
       <p>
         If you are having trouble viewing the resume, you can
-        &nbsp;{ resumeDownLoadLink }&nbsp;
+        &nbsp;{ <a download href={ resume }>download</a> }&nbsp;
         a copy
       </p>
     </div>
     <iframe
-      id="resume"
-      src="https://docs.google.com/viewer?srcid=0B74g2zDubN9jcmFXV3lxWEM4RVE&pid=explorer&embedded=true" >
-    </iframe>
+      src={`http://mozilla.github.io/pdf.js/web/viewer.html?file=http://jakepeyser.com/${resume}`}
+    />
   </div>
 );
