@@ -41,6 +41,7 @@
     "redux-logger": "^2.7.x",
     "redux-thunk": "^2.1.x",
     "request": "^2.76.x",
+    "reselect": "^2.5.4",
     "sendgrid": "^4.7.1"
   },
   "devDependencies": {
