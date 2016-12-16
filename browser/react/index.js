@@ -17,15 +17,15 @@ import ContactContainer from './components/contact/ContactContainer';
 
 // Redux thunks and action creators
 import { fetchProjects } from './redux/projects';
-import { fetchProject } from './redux/selectedProject'
+import { selectProject } from './redux/selectedProject'
 
 // onEnter functions
-const onAppEnter = (nextState, replace) => {
+const onAppEnter = (nextState, replace, cb) => {
   if (nextState.location.pathname === '/') replace('/home');
-  store.dispatch(fetchProjects());
+  store.dispatch(fetchProjects(cb)); // don't load app until projects retrieved
 };
 const getProject = nextState => {
-  store.dispatch(fetchProject(nextState.params.projectName));
+  store.dispatch(selectProject(nextState.params.projectName));
 };
 
 ReactDOM.render(

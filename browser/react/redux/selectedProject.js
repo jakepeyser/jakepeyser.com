@@ -1,36 +1,26 @@
 import axios from 'axios';
 
 // ---------------------> TAGS <---------------------
-const RECEIVE_PROJECT = 'RECEIVE_PROJECT';
+const SELECT_PROJECT = 'SELECT_PROJECT';
 const LEAVE_PROJECT = 'LEAVE_PROJECT';
 
 // ----------------> ACTION CREATORS <----------------
-const receiveProject = project => ({
-  type: RECEIVE_PROJECT,
-  project
+export const selectProject = projectName => ({
+  type: SELECT_PROJECT,
+  projectName
 });
 
 export const leaveProject = () => ({
   type: LEAVE_PROJECT
 });
 
-// --------------------> THUNKS <--------------------
-
-export const fetchProject = (name) => dispatch => {
-  axios.get(`/api/projects/${name}`)
-    .then(res => dispatch(receiveProject(res.data)))
-    .catch(err => {
-      console.error(`Unable to fetch ${name} project`, err);
-    });
-};
-
 // --------------------> REDUCER <--------------------
-export default function project(state = {}, action) {
+export default function project(state = null, action) {
   switch (action.type) {
-    case RECEIVE_PROJECT:
-      return action.project;
+    case SELECT_PROJECT:
+      return action.projectName;
     case LEAVE_PROJECT:
-      return {};
+      return null;
     default:
       return state;
   }

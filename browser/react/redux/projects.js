@@ -11,11 +11,15 @@ const receiveProjects = projects => ({
 
 // --------------------> THUNKS <--------------------
 
-export const fetchProjects = () => dispatch => {
+export const fetchProjects = (done) => dispatch => {
   axios.get('/api/projects')
-    .then(res => dispatch(receiveProjects(res.data)))
+    .then(res => {
+      dispatch(receiveProjects(res.data))
+      if (done) done();
+    })
     .catch(err => {
       console.error('Unable to fetch projects', err);
+      if (done) done(err);
     });
 };
 

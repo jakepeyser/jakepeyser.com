@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import messageStatus from './contact';
 import projects from './projects';
-import project from './selectedProject';
+import projectName from './selectedProject';
 
 export default combineReducers({
   messageStatus,
   projects,
-  project
+  projectName
 });
