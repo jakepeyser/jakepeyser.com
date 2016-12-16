@@ -4,7 +4,7 @@
   > div {
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 30px;
+    padding: 30px 0;
     margin: 0 15px;
     > div { // info and form sections
       width: 100%;
@@ -55,6 +55,7 @@
       > .contact-form {
         flex-direction: column;
         align-items: flex-start;
+        width: inherit;
         > div > div { // adjust textarea location
           align-items: center;
         }
