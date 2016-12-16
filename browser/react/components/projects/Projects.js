@@ -12,17 +12,20 @@ export default ({ projects, fullView, children }) => {
       {
         projects.map(project => {
           return (
-            <div key={project.id} className={`project project-${size}`}>
-              <Link to={`/projects/${project.filename}`}
-                className={`project-bubble project-bubble-${size} i-${project.filename}`}
-                activeClassName="active-bubble">
-                <div className={"project-text-wrapper"}>
-                  <span className={`project-bubble-text project-bubble-text-${size}`}>
-                    { project.name }
-                  </span>
+            <Link key={project.id}
+              to={`/projects/${project.filename}`}
+              className={`project-bubble project-bubble-${size}`}
+              activeClassName="active-bubble">
+              <div className="project-background">
+                <div className={`project-icon i-${project.filename}`}>
+                  <div className="project-text-wrapper">
+                    <span className={`project-bubble-text project-bubble-text-${size}`}>
+                      { project.name }
+                    </span>
+                  </div>
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
           )
         })
       }
