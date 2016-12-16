@@ -41,7 +41,7 @@ for (let i = 0; i < imageTypes.length; i++) {
 const vendorDependencies = [
   'axios', 'material-ui',
   'react', 'react-dom', 'react-helmet', 'react-router',
-  'redux', 'react-redux', 'redux-logger', 'redux-thunk'
+  'redux', 'react-redux', 'redux-logger', 'redux-thunk', 'reselect'
 ]
 
 // index.html template

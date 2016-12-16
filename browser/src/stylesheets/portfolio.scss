@@ -11,6 +11,9 @@
   flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
   justify-content: space-around;
+	@media (max-width: $md) {
+		padding: 15px 0;
+	}
 }
 
 .portfolio-sm {

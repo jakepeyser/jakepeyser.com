@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Projects from './Projects';
 
-const mapStateToProps = ({ projects, project }) => ({
+const mapStateToProps = ({ projects, projectName }) => ({
   projects,
-  fullView: !Object.keys(project).length
+  fullView: !projectName
 })
 
 export default connect(
