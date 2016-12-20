@@ -8,12 +8,14 @@ $project-select-transition: all 0.5s ease-out;
 
 #portfolio-wrapper {
 	position: relative;
+	align-items: center;
 	&.portfolio-wrapper-lg {
 		background-color: black;
 	}
 }
 
 .portfolio-background-lg {
+  top: 0;
   left: 0; /* TODO: hack for safari/ff */
   right: 0;
   position: absolute;
@@ -31,7 +33,7 @@ $project-select-transition: all 0.5s ease-out;
 	right: 0;
 	align-items: center;
 	&.portfolio-lg {
-		position: absolute;
+		position: relative;
 		flex-wrap: wrap;
 		-webkit-flex-wrap: wrap;
 		justify-content: space-around;
