@@ -10,7 +10,7 @@ const PATHS = {
 }
 const PORT = process.env.PORT || 8080;
 const chalk = require('chalk');
-if (process.env.NODE_ENV !== 'production')
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'staging')
   require('dotenv').config();
 
 // Redirect requests to custom domain if hitting Heroku domain
