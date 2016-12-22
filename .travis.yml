@@ -6,7 +6,7 @@ cache:
     - node_modules
 install: npm install
 script:
-  - NODE_ENV=production
+  - NODE_ENV="production"
   - npm run build
 before_deploy: rm -rf node_modules
 deploy:
