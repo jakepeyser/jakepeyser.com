@@ -5,10 +5,7 @@ cache:
   directories:
     - node_modules
 install: npm install
-before_script: NODE_ENV=production
-script:
-  - echo $NODE_ENV
-  - npm run build
+script: npm run build
 before_deploy: rm -rf node_modules
 deploy:
   skip_cleanup: true

@@ -86,12 +86,6 @@ const common = {
       'CSSPlugin': 'gsap/src/uncompressed/plugins/CSSPlugin.js'
     }
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    }),
-    new SitemapPlugin('https://jakepeyser.com', sitePaths)
-  ],
   module: {
     loaders: [
       {
@@ -120,12 +114,15 @@ switch (process.env.npm_lifecycle_event) {
           chunkFilename: '[chunkhash].js'
         }),
         plugins: [
-          ...common.plugins,
           new FaviconsWebpackPlugin({
             logo: PATHS.logo,
             emitStats: false
           }),
-          new HtmlWebpackPlugin(htmlTemplate)
+          new HtmlWebpackPlugin(htmlTemplate),
+          new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+          }),
+          new SitemapPlugin('https://jakepeyser.com', sitePaths)
         ]
       },
       tools.extractBundle({
@@ -146,8 +143,10 @@ switch (process.env.npm_lifecycle_event) {
       {
         devtool: 'eval-source-map',
         plugins: [
-          ...common.plugins,
-          new HtmlWebpackPlugin(htmlTemplate)
+          new HtmlWebpackPlugin(htmlTemplate),
+          new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development')
+          })
         ]
       },
       tools.clean(PATHS.build),
@@ -162,8 +161,10 @@ switch (process.env.npm_lifecycle_event) {
       {
         devtool: 'eval-source-map',
         plugins: [
-          ...common.plugins,
-          new HtmlWebpackPlugin(htmlTemplate)
+          new HtmlWebpackPlugin(htmlTemplate),
+          new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development')
+          })
         ]
       },
       tools.extractCSS(PATHS.stylesheets),
