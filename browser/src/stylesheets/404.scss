@@ -3,6 +3,7 @@
   overflow: hidden;
   flex-direction: row;
   > .zipper-wrapper {
+    z-index: 0;
     width: 60%;
     justify-content: center;
   }
