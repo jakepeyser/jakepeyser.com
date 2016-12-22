@@ -28,7 +28,7 @@ export default () => (
     </div>
     <div className="zipper-wrapper">
       <Zipper
-        numTeeth={ 29 }
+        numTeeth={ 26 }
         message="404"
         style={{ backgroundColor: background }}
         startUnzipped={ true } />

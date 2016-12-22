@@ -25,8 +25,11 @@ const onAppEnter = (nextState, replace, cb) => {
   if (nextState.location.pathname === '/') replace('/home');
   store.dispatch(fetchProjects(cb)); // don't load app until projects retrieved
 };
-const getProject = nextState => {
-  store.dispatch(selectProject(nextState.params.projectName));
+const getProject = (nextState, replace) => {
+  const newProject = nextState.params.projectName;
+  if (!store.getState().projects.find(proj => proj.filename === newProject))
+    replace('/invalid-project');
+  store.dispatch(selectProject(newProject));
 };
 
 ReactDOM.render(
