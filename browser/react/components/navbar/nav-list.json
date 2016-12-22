@@ -1,0 +1,6 @@
+[
+  { "id": 1, "href": "/home", "text": "Home" },
+  { "id": 2, "href": "/projects", "text": "Portfolio"},
+  { "id": 3, "href": "/resume", "text": "Resume" },
+  { "id": 4, "href": "/contact", "text": "Contact" }
+]

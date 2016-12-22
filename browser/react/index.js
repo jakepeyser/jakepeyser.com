@@ -14,6 +14,7 @@ import ProjectsContainer from './components/projects/ProjectsContainer';
 import ProjectContainer from './components/projects/ProjectContainer';
 import Resume from './components/Resume';
 import ContactContainer from './components/contact/ContactContainer';
+import FourOhFour from './components/404/FourOhFour'
 
 // Redux thunks and action creators
 import { fetchProjects } from './redux/projects';
@@ -39,6 +40,7 @@ ReactDOM.render(
         </Route>
         <Route path="/resume" component={Resume} />
         <Route path="/contact" component={ContactContainer} />
+        <Route path="/*" component={ FourOhFour } />
         <IndexRoute component={Home} />
       </Route>
     </Router>

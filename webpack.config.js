@@ -39,7 +39,7 @@ for (let i = 0; i < imageTypes.length; i++) {
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
-  'axios', 'material-ui',
+  'axios', 'material-ui', 'gsap',
   'react', 'react-dom', 'react-helmet', 'react-router',
   'redux', 'react-redux', 'redux-logger', 'redux-thunk', 'reselect'
 ]
@@ -78,6 +78,14 @@ const common = {
     sourceMapFilename: '[file].map',
     filename: '[name].js'
   },
+  resolve: {
+    root: path.resolve(__dirname),
+    extensions: ['', '.js'],
+    alias: {
+      'TweenLite': 'gsap/src/uncompressed/TweenLite.js',
+      'CSSPlugin': 'gsap/src/uncompressed/plugins/CSSPlugin.js'
+    }
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
@@ -90,6 +98,10 @@ const common = {
         test: /jsx?$/,
         exclude: /node_modules/,
         loader: 'babel'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   }
