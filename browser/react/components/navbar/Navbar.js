@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 import navList from './nav-list.json';
+import Logo from '../../../src/images/logo.svg';
 
 export default ({ removeProject }) => (
   <div id='navbar'>
-    <Link to="/home">
-      <img src="/browser/src/images/logo.png" alt="JP Logo" className='logo' />
+    <Link className="logo-link" to="/home">
+      <Logo className="logo" />
     </Link>
     <ul className='nav-list'>
       {

@@ -86,7 +86,7 @@
           display: list-item !important;
           > a { // link to tech info
             display: inline !important;
-            color: black;
+            color: $link;
             &:hover {
               color: $hover;
               -webkit-text-fill-color: $hover;

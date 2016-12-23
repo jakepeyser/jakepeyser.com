@@ -9,10 +9,29 @@
   border-bottom: 1px solid $borders;
 }
 
-.logo {
-  width: 40px;
-  padding: 7px 0px;
+.logo-link {
   margin: 0px 20px;
+  > .logo {
+    width: 40px;
+    height: 40px;
+    margin: 7px 0px;
+    &:hover #jakepeyser-logo {
+      animation: rainbow 3s infinite linear;
+      @keyframes rainbow {
+        0%   { fill: #2a30ff; }
+        10%  { fill: #9d24ff; }
+        20%  { fill: #ff0080; }
+        30%  { fill: #ff1c0d; }
+        40%  { fill: #ff7f27; }
+        50%  { fill: #ffb72c; }
+        60%  { fill: #55c439; }
+        70%  { fill: #00ff00; }
+        80%  { fill: #00ff80; }
+        90%  { fill: #70b1ff; }
+        100% { fill: #2a30ff; }
+      }
+    }
+  }
 }
 
 .nav-list { // navigation menu

@@ -1,6 +1,4 @@
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.devServer = function(options) {
   return {
@@ -22,40 +20,6 @@ exports.devServer = function(options) {
         multiStep: true
       })
     ]
-  };
-}
-
-// Add CSS to the bundle
-exports.extractCSS = function(paths) {
-  const isDev = process.env.NODE_ENV !== 'production';
-  return {
-    module: {
-      loaders: [
-        {
-          test: /\.scss$/,
-          loader: isDev ? 'style!css!sass' : ExtractTextPlugin.extract('style', 'css!sass'),
-          include: paths
-        }
-      ]
-    },
-    plugins: [
-      new ExtractTextPlugin('[name].[chunkhash].css')
-    ]
-  };
-}
-
-// Add images to the bundle
-exports.extractImages = function(paths) {
-  return {
-    module: {
-      loaders: [
-        {
-          test: /\.(pdf|gif|png|jpe?g|svg)$/,
-          loader: 'file?name=[path][name].[ext]',
-          include: paths
-        }
-      ]
-    }
   };
 }
 
@@ -81,17 +45,6 @@ exports.extractBundle = function(options) {
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({
         names: [options.name, 'manifest']
-      })
-    ]
-  };
-}
-
-// Removes the previous build folder
-exports.clean = function(path) {
-  return {
-    plugins: [
-      new CleanWebpackPlugin([path], {
-        root: process.cwd()
       })
     ]
   };
