@@ -1,6 +1,7 @@
 #fourohfour {
   position: relative;
   overflow: hidden;
+  max-width: 1200px;
   flex-direction: row;
   > .zipper-wrapper {
     z-index: 0;
