@@ -1,7 +1,8 @@
-/* eslint-disable no-unused-vars*/
+/* eslint-disable no-unused-vars, no-fallthrough*/
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin');
 const merge = require('webpack-merge');
@@ -48,7 +49,7 @@ const vendorDependencies = [
 let htmlTemplate = {
   title: 'Jake Peyser',
   meta: {
-    description: 'The personal website of Jake Peyser, software engineer and international adventurer extraordinaire',
+    description: 'The personal website of Jake Peyser, full stack developer and international adventurer extraordinaire',
     author: 'Jake Peyser',
     keywords: 'software,developer,web,freelance,nodejs,react'
   },
@@ -86,23 +87,45 @@ const common = {
       'CSSPlugin': 'gsap/src/uncompressed/plugins/CSSPlugin.js'
     }
   },
+  plugins: [
+    new ExtractTextPlugin('[name].[chunkhash].css'),
+    new CleanWebpackPlugin( // remove old build before each bundling
+      [ PATHS.build ],
+      { root: process.cwd() }
+    )
+  ],
   module: {
     loaders: [
-      {
+      { // Convert React code into vanilla ES5
         test: /jsx?$/,
         exclude: /node_modules/,
         loader: 'babel'
       },
-      {
+      { // Transpile SASS and load CSS
+        test: /\.scss$/,
+        loader: process.env.NODE_ENV !== 'production' ?
+          'style!css!sass' : ExtractTextPlugin.extract('style', 'css!sass'),
+        include: PATHS.stylesheets
+      },
+      { // Load required JSON files
         test: /\.json$/,
         loader: 'json'
+      },
+      { // Transfer static files to build
+        test: /\.(pdf|gif|png|jpe?g)$/,
+        loader: 'file?name=[path][name].[ext]',
+        include: PATHS.images
+      },
+      { // Inline SVGs where required in components
+        test: /\.svg$/,
+        loader: 'babel!svg-react'
       }
     ]
   }
 }
 
 // Detect how npm is run and switch based on this
-let config;
+let config, devServer;
 switch (process.env.npm_lifecycle_event) {
   case 'build':
     config = merge(
@@ -114,6 +137,7 @@ switch (process.env.npm_lifecycle_event) {
           chunkFilename: '[chunkhash].js'
         }),
         plugins: [
+          ...common.plugins,
           new FaviconsWebpackPlugin({
             logo: PATHS.logo,
             emitStats: false
@@ -122,56 +146,34 @@ switch (process.env.npm_lifecycle_event) {
           new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
           }),
-          new SitemapPlugin('https://jakepeyser.com', sitePaths)
+          new SitemapPlugin('http://jakepeyser.com', sitePaths)
         ]
       },
       tools.extractBundle({
         name: 'vendor',
         entries: vendorDependencies
       }),
-      tools.clean(PATHS.build),
-      tools.extractCSS(PATHS.stylesheets),
-      tools.extractImages(PATHS.images),
       tools.minify()
     );
     break;
-  case 'stats': // Used to generate stats to stats.json
+  case 'hmr': // Establish a HMR dev server
+    devServer = tools.devServer({ port: 3000 });
+  case 'stats': // Used to generate build stats
   case 'build-watch':
     htmlTemplate.favicon = PATHS.favicon;
     config = merge(
       common,
+      devServer,
       {
         devtool: 'eval-source-map',
         plugins: [
+          ...common.plugins,
           new HtmlWebpackPlugin(htmlTemplate),
           new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development')
           })
         ]
-      },
-      tools.clean(PATHS.build),
-      tools.extractCSS(PATHS.stylesheets),
-      tools.extractImages(PATHS.images)
-    );
-    break;
-  case 'hmr':
-    htmlTemplate.favicon = PATHS.favicon;
-    config = merge(
-      common,
-      {
-        devtool: 'eval-source-map',
-        plugins: [
-          new HtmlWebpackPlugin(htmlTemplate),
-          new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
-          })
-        ]
-      },
-      tools.extractCSS(PATHS.stylesheets),
-      tools.extractImages(PATHS.images),
-      tools.devServer({
-        port: 3000
-      })
+      }
     );
     break;
   default:
@@ -180,3 +182,4 @@ switch (process.env.npm_lifecycle_event) {
 }
 
 module.exports = validate(config, { quiet: true });
+

@@ -123,7 +123,6 @@ export default class Zipper extends React.Component {
 
     // Event listener for zipper dragging
     const onDrag = function(evt) {
-      console.log(evt)
       TweenMax.set(zipToothMask, {
         y: this.y - zipToothMaskInitY
       })
