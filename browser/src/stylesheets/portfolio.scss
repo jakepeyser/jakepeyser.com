@@ -1,10 +1,4 @@
 $project-select-transition: all 0.5s ease-out;
-.bubble-transition {
-	-webkit-transition: $project-select-transition;
-	-moz-transition: $project-select-transition;
-	-o-transition: $project-select-transition;
-	transition: $project-select-transition;
-}
 
 #portfolio-wrapper {
 	position: relative;
@@ -43,17 +37,28 @@ $project-select-transition: all 0.5s ease-out;
 	&.portfolio-sm {
 		z-index: 2;
 		position: fixed;
-		top: 55px;
-		left: calc(50% - 250px); /* TODO: hack for safari/ff */
-		right: calc(50% - 250px);
 		align-items: center;
-		justify-content: center;
+		justify-content: space-around;
 		background-color: rgb(255, 255, 255);
-		border-bottom-left-radius: 15px;
-		border-bottom-right-radius: 15px;
-		border: 1px solid $borders;
-		border-top: none;
-		@extend .bubble-transition;
+		top: 55px;
+		// Small panel sizes
+		$panels: (
+      ( 0, 0, 0, 0px ),
+      ( $sm, calc(50% - 200px), 10px, 1px ),
+      ( $md, calc(50% - 250px), 15px, 1px )
+    );
+		@each $size in $panels {
+			@media (min-width: nth($size, 1)) {
+				left: nth($size, 2);
+				right: nth($size, 2);
+				border-bottom-left-radius: nth($size, 3);
+				border-bottom-right-radius: nth($size, 3);
+				border: nth($size, 4) solid $borders;
+				border-top: none;
+				border-bottom-width: 1px;
+			}
+		}
+		transition: $project-select-transition;
 	}
 }
 
@@ -63,22 +68,40 @@ $project-select-transition: all 0.5s ease-out;
 	border-radius: inherit;
 }
 
+@mixin make-project-bubbles ($bubbles) {
+  @each $size in $bubbles {
+		@media (min-width: nth($size, 1)) {
+			height: nth($size, 2);
+			width: nth($size, 2);
+			margin: nth($size, 3);
+			border: nth($size, 4) solid $borders;
+		}
+	}
+}
+
 .project-bubble {
 	border-radius: 50%;
 	color: inherit;
 	-webkit-text-fill-color: inherit;
-	@extend .bubble-transition;
+	transition: $project-select-transition;
 	&.project-bubble-sm {
-		height: 75px;
-		width: 75px;
-		margin: 10px 10px;
-		border: 3px solid $borders;
+		// Panel bubble sizes
+		$bubbles: (
+      ( 0, 50px, 5px 0, 2px ),
+      ( $sm, 60px, 7px 0, 2px ),
+      ( $md, 75px, 10px 0, 3px )
+    );
+		@include make-project-bubbles($bubbles);
 	}
 	&.project-bubble-lg {
-		height: 150px;
-		width: 150px;
-		margin: 20px 30px;
-		border: 5px solid $borders;
+		// Main bubble sizes
+		$bubbles: (
+      ( 0, 120px, 10px 20px, 4px ),
+      ( $sm, 120px, 10px 20px, 4px ),
+      ( $md, 120px, 20px 25px, 4px ),
+      ( $lg, 150px, 20px 30px, 5px )
+    );
+		@include make-project-bubbles($bubbles);
 		animation: 2s infinite border-pulse;
 		&:hover {
 			animation: none;
@@ -90,15 +113,9 @@ $project-select-transition: all 0.5s ease-out;
 			100% {border-color: $borders}
 		}
 	}
-	&:first-child {
-		margin-left: 20px;
-	}
-	&:last-child {
-		margin-right: 20px;
-	}
 	/* Active Project Bubble */
 	&.active-bubble {
-		border: 3px solid $active;
+		border-color: $active;
 		> .project-background > .project-icon > .project-text-wrapper {
 			background-color: rgb(0, 0, 0);
 			background-color: rgba(0, 0, 0, .75);
@@ -128,9 +145,6 @@ $project-select-transition: all 0.5s ease-out;
 				color: $text-light;
 				-webkit-text-fill-color: $text-light;
 				opacity: 0;
-				-webkit-transition: opacity 0.2s linear, color 0.2s linear, background 0.2s linear;
-				-moz-transition: opacity 0.2s linear, color 0.2s linear, background 0.2s linear;
-				-o-transition: opacity 0.2s linear, color 0.2s linear, background 0.2s linear;
 				transition: opacity 0.2s linear, color 0.2s linear, background 0.2s linear;
 				&:hover {
 					background-color: rgb(0, 0, 0);
@@ -141,18 +155,26 @@ $project-select-transition: all 0.5s ease-out;
 				> .project-bubble-text {
 					text-align: center;
 					font-family: $headers;
-					font-weight: 600;
-					font-size: 1.2em;
+					$text: (
+						( 0, 500, 1em ),
+						( $lg, 600, 1.2em )
+					);
+					@each $size in $text {
+						@media (min-width: nth($size, 1)) {
+							font-weight: nth($size, 2);
+							font-size: nth($size, 3);
+						}
+					}
 					padding: 0 7px;
 					cursor: inherit;
-					-webkit-user-select: none;
-					-moz-user-select: none;
-					-ms-user-select: none;
-					user-select: none; 
+					user-select: none;
 					&.project-bubble-text-sm {
 						font-weight: 600;
 						font-size: .7em;
-						@extend .bubble-transition;
+						transition: $project-select-transition;
+						@media (max-width: $md) {
+							display: none !important;
+						}
 					}
 				}
 			}

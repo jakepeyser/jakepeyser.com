@@ -12,6 +12,10 @@
   width: inherit;
   align-items: center;
   justify-content: center;
+  @media (max-width: $sm) {
+    align-items: flex-start;
+    margin-top: 64px;
+  }
 }
 
 @each $name, $icon-size in $projects { // banner background images
@@ -25,17 +29,26 @@
 .project-title-container {
   flex-direction: column;
   align-items: center;
-  min-width: 300px;
-	padding: 20px;
 	text-align: center;
   font-family: $headers;
 	background-color: rgb(255, 255, 255);
 	background-color: rgba(255, 255, 255, .85);
-  > h1 {
-    margin: 0;
-    font-size: 2.5em;
-    font-weight: 600;
-  }
+  $banners: (
+    ( 0, 100%, 15px 0, 600, 1.8em ),
+    ( $sm, 300px, 20px, 600, 2em ),
+    ( $md, 300px, 20px, 600, 2.5em )
+  );
+  @each $size in $banners {
+      @media (min-width: nth($size, 1)) {
+        min-width: nth($size, 2);
+        padding: nth($size, 3);
+        > h1 {
+          margin: 0;
+          font-weight: nth($size, 4);
+          font-size: nth($size, 5);
+        }
+      }
+    }
   .links { // project links
 	  margin-top: 8px;
     > a + a {
@@ -61,6 +74,9 @@
         font-family: $headers;
         font-weight: 500;
         font-size: 2em;
+      }
+      > p {
+        overflow: scroll;
       }
     }
     > .screenshot {
