@@ -25,16 +25,29 @@
   > .info {
     flex-direction: column;
     align-items: center;
+    padding: 0 10px;
     text-align: center;
     font-family: $headers;
     color: $text-light;
     -webkit-text-fill-color: $text-light;
-    > .name {
-      font-weight: 700;
-      font-size: 7em;
-    }
-    > .title {
-      font-size: 3em;
+
+    // Dynamic sizes of name and title
+    $titles: (
+      ( 0, 600, 3em, 1.5em ),
+      ( $sm, 600, 4em, 2em ),
+      ( $md, 600, 6em, 2.5em ),
+      ( $lg, 700, 7em, 3em ),
+    );
+    @each $size in $titles {
+      @media (min-width: nth($size, 1)) {
+        > .name {
+          font-weight: nth($size, 2);
+          font-size: nth($size, 3);
+        }
+        > .title {
+          font-size: nth($size, 4);
+        }
+      }
     }
   }
 }

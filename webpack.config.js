@@ -51,7 +51,8 @@ let htmlTemplate = {
   meta: {
     description: 'The personal website of Jake Peyser, full stack developer and international adventurer extraordinaire',
     author: 'Jake Peyser',
-    keywords: 'software,developer,web,freelance,nodejs,react'
+    keywords: 'software,developer,web,freelance,nodejs,react',
+    viewport: 'width=device-width, initial-scale=1.0'
   },
   template: PATHS.html_template
 }

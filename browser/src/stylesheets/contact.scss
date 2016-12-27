@@ -56,8 +56,15 @@
         flex-direction: column;
         align-items: flex-start;
         width: inherit;
-        > div > div { // adjust textarea location
-          align-items: center;
+        > div {
+          > div { // adjust textarea location
+            align-items: center;
+          }
+          + span { // character counters
+            align-self: flex-end;
+            font-size: 12px;
+            line-height: 12px;
+          }
         }
         > button { // send button
           margin-top: 1.5em;
@@ -78,18 +85,22 @@
   }
 }
 
+$box-padding: 20px;
 .form-sent { // div after sending email
-  height: 100%;
-  padding: 30px;
   border-radius: 15px;
   background-color: $foreground;
-  justify-content: center;
+  align-items: center;
   > p {
-    margin: 0;
+    margin: $box-padding $box-padding 0;
     font-size: 1.2em;
     text-align: center;
   }
   > button {
-    margin: 1em 1.5em 0;
+    display: block !important;
+    margin: $box-padding 0;
+    width: 150px;
+  }
+  @media (max-width: $md) {
+    margin-top: 20px;
   }
 }
