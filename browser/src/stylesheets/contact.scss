@@ -78,18 +78,21 @@
   }
 }
 
+$box-padding: 20px;
 .form-sent { // div after sending email
   height: 100%;
-  padding: 30px;
   border-radius: 15px;
   background-color: $foreground;
-  justify-content: center;
+  align-items: center;
   > p {
-    margin: 0;
+    margin: $box-padding $box-padding 0;
     font-size: 1.2em;
     text-align: center;
   }
   > button {
-    margin: 1em 1.5em 0;
+    margin: $box-padding 0;
+  }
+  @media (max-width: $md) {
+    margin-top: 20px;
   }
 }

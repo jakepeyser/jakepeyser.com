@@ -1,6 +1,6 @@
 import React from 'react';
-import { TextField } from 'material-ui';
-import { active, placeholderText, errorText} from './colors'
+import { TextField, Menu, MenuItem } from 'material-ui';
+import { foreground, active, placeholderText, errorText } from './colors'
 
 // Regular text input
 export const JPTextField = props => (
@@ -10,6 +10,26 @@ export const JPTextField = props => (
     underlineStyle={{ borderBottomColor: placeholderText }}
     underlineFocusStyle={{ borderBottomColor: active }}
     errorStyle={{ color: errorText }}
+    { ...props }
+  />
+);
+
+export const JPMenu = props => (
+  <Menu
+    style={{ backgroundColor: foreground }}
+    listStyle={{ paddingTop: '0px', paddingBottom: '0px' }}
+    selectedMenuItemStyle={{ color: active }}
+    { ...props } >
+    { props.children }
+  </Menu>
+)
+
+// Menu item children of Menu
+export const JPMenuItem = props => (
+  <MenuItem
+    style={{ minHeight: '20px', lineHeight: '20px', padding: '10px 5px' }}
+    disableFocusRipple={ true }
+    disableTouchRipple={ true }
     { ...props }
   />
 );
