@@ -30,6 +30,7 @@ export default (props) => {
               />
               <JPTextField
                 floatingLabelText="Email"
+                type="email"
                 errorText={props.errors.email}
                 fullWidth={true}
                 onChange={(evt) => props.onFieldChange('email', evt.target.value) }
