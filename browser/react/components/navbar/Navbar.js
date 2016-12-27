@@ -74,7 +74,6 @@ export default class Navbar extends React.Component {
                 <JPMenuItem key={ navItem.id }
                   primaryText={ navItem.text }
                   onTouchTap={ () => {
-                    console.log(navItem.text)
                     if (navItem.href === '/projects')
                       removeProject()
                     this.handleMenuClose()

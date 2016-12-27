@@ -80,7 +80,6 @@
 
 $box-padding: 20px;
 .form-sent { // div after sending email
-  height: 100%;
   border-radius: 15px;
   background-color: $foreground;
   align-items: center;
@@ -90,7 +89,9 @@ $box-padding: 20px;
     text-align: center;
   }
   > button {
+    display: block !important;
     margin: $box-padding 0;
+    width: 150px;
   }
   @media (max-width: $md) {
     margin-top: 20px;
