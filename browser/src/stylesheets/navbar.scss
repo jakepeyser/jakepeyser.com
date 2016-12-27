@@ -73,6 +73,9 @@
   > .menu-icon { // hamburger menu icon
     @media (min-width: $md) { display: none; }
     margin-right: 10px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

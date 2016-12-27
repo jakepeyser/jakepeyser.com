@@ -56,8 +56,15 @@
         flex-direction: column;
         align-items: flex-start;
         width: inherit;
-        > div > div { // adjust textarea location
-          align-items: center;
+        > div {
+          > div { // adjust textarea location
+            align-items: center;
+          }
+          + span { // character counters
+            align-self: flex-end;
+            font-size: 12px;
+            line-height: 12px;
+          }
         }
         > button { // send button
           margin-top: 1.5em;
