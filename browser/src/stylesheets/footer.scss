@@ -9,6 +9,9 @@
   > .profiles {
     float: right;
     margin-left: auto;
+		@media (max-width: $sm) {
+			display: none;
+		}
     > a + a {
       margin-left: 10px;
     }

@@ -9,8 +9,8 @@ $project-select-transition: all 0.5s ease-out;
 }
 
 .portfolio-background-lg {
-  top: 0;
-  left: 0; /* TODO: hack for safari/ff */
+  top: 0; /* TODO: hack for safari/ff */
+  left: 0;
   right: 0;
   position: absolute;
   width: 100%;
@@ -19,11 +19,13 @@ $project-select-transition: all 0.5s ease-out;
   opacity: .7;
   background: url(../images/wallpaper/portfolio.png);
   background-size: cover;
+	background-position: center;
   background-repeat: no-repeat;
 }
 
 .portfolio {
-	left: 0; /* TODO: hack for safari/ff */
+	top: 0; /* TODO: hack for safari/ff */
+	left: 0;
 	right: 0;
 	align-items: center;
 	&.portfolio-lg {
