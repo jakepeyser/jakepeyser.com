@@ -9,8 +9,8 @@ $project-select-transition: all 0.5s ease-out;
 }
 
 .portfolio-background-lg {
-  top: 0;
-  left: 0; /* TODO: hack for safari/ff */
+  top: 0; /* TODO: hack for safari/ff */
+  left: 0;
   right: 0;
   position: absolute;
   width: 100%;
@@ -23,16 +23,20 @@ $project-select-transition: all 0.5s ease-out;
 }
 
 .portfolio {
-	left: 0; /* TODO: hack for safari/ff */
+	top: 0; /* TODO: hack for safari/ff */
+	left: 0;
 	right: 0;
 	align-items: center;
 	&.portfolio-lg {
-		position: relative;
+		position: absolute;
 		flex-wrap: wrap;
 		-webkit-flex-wrap: wrap;
 		justify-content: space-around;
 		width: 100%;
 		height: 100%;
+		@media (max-width: $sm) {
+			position: relative;
+		}
 	}
 	&.portfolio-sm {
 		z-index: 2;
