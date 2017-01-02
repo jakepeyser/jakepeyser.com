@@ -55,7 +55,7 @@ export default class Navbar extends React.Component {
           </ul>
           <MenuIcon
             className="menu-icon"
-            onTouchTap={ this.handleMenuOpen } />
+            onClick={ this.handleMenuOpen } />
         </div>
         <Popover
           className="menu-popover"
@@ -69,14 +69,15 @@ export default class Navbar extends React.Component {
             navList.map(navItem => {
               const linkWrapper = <Link
                                     to={ navItem.href }
+                                    className="nav-link"
                                     activeClassName="active-nav" />
               return (
                 <JPMenuItem key={ navItem.id }
                   primaryText={ navItem.text }
-                  onTouchTap={ () => {
+                  onClick={ (evt) => {
                     if (navItem.href === '/projects')
-                      removeProject()
-                    this.handleMenuClose()
+                      removeProject();
+                    this.handleMenuClose();
                   }}
                   containerElement={ linkWrapper } />
               )

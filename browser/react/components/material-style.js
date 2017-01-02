@@ -16,9 +16,9 @@ export const JPTextField = props => (
 
 export const JPMenu = props => (
   <Menu
+    className="menu"
     style={{ backgroundColor: foreground }}
     listStyle={{ paddingTop: '0px', paddingBottom: '0px' }}
-    selectedMenuItemStyle={{ color: active }}
     { ...props } >
     { props.children }
   </Menu>
@@ -27,7 +27,6 @@ export const JPMenu = props => (
 // Menu item children of Menu
 export const JPMenuItem = props => (
   <MenuItem
-    style={{ minHeight: '20px', lineHeight: '20px', padding: '10px 5px' }}
     disableFocusRipple={ true }
     disableTouchRipple={ true }
     { ...props }

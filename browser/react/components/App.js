@@ -5,8 +5,6 @@ import Footer from './Footer';
 
 /* Material Theme components */
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin();
 
 export default ({ children }) => (
   <MuiThemeProvider>
