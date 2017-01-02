@@ -18,7 +18,8 @@ export default ({ projects, fullView, children }) => {
               className={`project-bubble project-bubble-${size}`}
               activeClassName="active-bubble">
               <div className="project-background">
-                <div className={`project-icon i-${project.filename}`}>
+                <div className={'project-wrapper'}>
+                  <div className={`project-icon i-${project.filename}`} />
                   <div className="project-text-wrapper">
                     <span className={`project-bubble-text project-bubble-text-${size}`}>
                       { project.name }

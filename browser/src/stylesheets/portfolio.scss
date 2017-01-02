@@ -92,6 +92,20 @@ $project-select-transition: all 0.5s ease-out;
       ( $md, 75px, 10px 0, 3px )
     );
 		@include make-project-bubbles($bubbles);
+		&:hover > .project-background > .project-wrapper { // small bubble colored icons
+			> .project-icon {
+				@media (max-width: $md) {
+					filter: brightness(0) invert(90%);
+					z-index: 1;
+				}
+			}
+			> .project-text-wrapper {
+				background-color: rgb(0, 0, 0);
+				background-color: rgba(0, 0, 0, .75);
+				cursor: pointer;
+				opacity: 1;
+			}
+		}
 	}
 	&.project-bubble-lg {
 		// Main bubble sizes
@@ -116,30 +130,46 @@ $project-select-transition: all 0.5s ease-out;
 	/* Active Project Bubble */
 	&.active-bubble {
 		border-color: $active;
-		> .project-background > .project-icon > .project-text-wrapper {
-			background-color: rgb(0, 0, 0);
-			background-color: rgba(0, 0, 0, .75);
-			color: $text-light;
-			-webkit-text-fill-color: $text-light;
-			opacity: 1;
+		> .project-background > .project-wrapper {
+			> .project-icon {
+				@media (max-width: $md) {
+					filter: brightness(0) invert(90%);
+					z-index: 1;
+				}
+			}
+			> .project-text-wrapper {
+				filter: none;
+				background-color: rgb(0, 0, 0);
+				background-color: rgba(0, 0, 0, .75);
+				color: $text-light;
+				-webkit-text-fill-color: $text-light;
+				opacity: 1;
+			}
 		}
 	}
 	> .project-background {
 		@extend .bubble-child;
 		background: $background;
-		> .project-icon {
+		> .project-wrapper {
 			@extend .bubble-child;
+			position: relative;
 			/* Project Bubble Icons */
 			@each $name, $icon-size in $projects {
-				&.i-#{$name} {
+				> .i-#{$name} {
+					@extend .bubble-child;
+					position: absolute;
 					background: url("../images/#{$name}/icon.png");
 					background-size: $icon-size;
 					background-repeat: no-repeat;
 					background-position: center;
 				}
 			}
+			> .project-icon {
+				transition: filter 0.2s linear, z-index .2s linear;
+			}
 			> .project-text-wrapper {
 				@extend .bubble-child;
+				position: absolute;
 				justify-content: center;
 				align-items: center;
 				color: $text-light;
