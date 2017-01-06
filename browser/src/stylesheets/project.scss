@@ -1,130 +1,167 @@
 #project {
+  position: absolute;
   height: 100%;
   width: 100%;
   align-items: center;
   align-content: flex-start;
   justify-content: flex-start;
-  flex-direction: column;
+  // Lock perspective and render children relative to fixed
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  > .project-banner, > .project-content {
+    position: absolute;
+    width: inherit;
+  }
 }
 
-.project-banner {
+// Dynamic size of project banner
+.banner-height {
   height: 400px;
-  width: inherit;
-  align-items: center;
-  justify-content: center;
   @media (max-width: $sm) {
-    align-items: flex-start;
+    height: 250px;
     margin-top: 64px;
   }
 }
 
-@each $name, $icon-size in $projects { // banner background images
-	.bg-#{$name} {
-    background: url("../images/#{$name}/banner.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-	}
-}
 
-.project-title-container {
-  flex-direction: column;
-  align-items: center;
-	text-align: center;
-  font-family: $headers;
-	background-color: rgb(255, 255, 255);
-	background-color: rgba(255, 255, 255, .85);
-  $banners: (
-    ( 0, 100%, 15px 0, 600, 1.8em ),
-    ( $sm, 300px, 20px, 600, 2em ),
-    ( $md, 300px, 20px, 600, 2.5em )
-  );
-  @each $size in $banners {
-      @media (min-width: nth($size, 1)) {
-        min-width: nth($size, 2);
-        padding: nth($size, 3);
-        > h1 {
-          margin: 0;
-          font-weight: nth($size, 4);
-          font-size: nth($size, 5);
-        }
-      }
-    }
-  .links { // project links
-	  margin-top: 8px;
-    > a + a {
-	    margin-left: 10px;
+.project-banner {
+  transform: translateZ(-1px) scale(2);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  @each $name, $icon-size in $projects { // banner background images
+    > .bg-#{$name} {
+      width: 100%;
+      @extend .banner-height;
+      background: url("../images/#{$name}/banner.png");
+      background-size: cover;
+      background-repeat: no-repeat;
     }
   }
 }
 
-.sections { // project sections
-  max-width: 1050px;
+.project-content {
+  transform: translateZ(0);
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
   flex-direction: column;
-  margin: 20px 0;
-  > div {
-    max-height: 800px;
-    flex-direction: column-reverse;
-    width: 100%;
-    padding: 15px 0;
-    > div { // both section text and image
-      flex-direction: column;
-      padding: 0 20px;
-      > h2 {
-        margin: 0;
-        font-family: $headers;
-        font-weight: 500;
-        font-size: 2em;
-      }
-      > p {
-        overflow: scroll;
-      }
-    }
-    > .screenshot {
-      align-items: center;
-      justify-content: center;
-      > .img-wrapper {
-        display: block !important;
-        > img {
-          max-width: 100%;
-          max-height: 400px;
+}
+
+.project-title-wrapper {
+  @extend .banner-height;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: $sm) {
+    align-items: flex-start;
+  }
+  > .project-title-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: $headers;
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, .85);
+    $banners: (
+      ( 0, 100%, 15px 0, 600, 1.8em ),
+      ( $sm, 300px, 20px, 600, 2em ),
+      ( $md, 300px, 20px, 600, 2.5em )
+    );
+    @each $size in $banners {
+        @media (min-width: nth($size, 1)) {
+          min-width: nth($size, 2);
+          padding: nth($size, 3);
+          > h1 {
+            margin: 0;
+            font-weight: nth($size, 4);
+            font-size: nth($size, 5);
+          }
         }
       }
+    .links { // project links
+      margin-top: 8px;
+      > a + a {
+        margin-left: 10px;
+      }
     }
-    > .text {
-      padding-top: 10px;
-      align-items: flex-start;
-      text-align: justify;
-      > ul { // tech list
+  }
+}
+
+.sections-wrapper {
+  justify-content: center;
+  background: $background;
+  > .sections { // project sections
+    max-width: 1050px;
+    flex-direction: column;
+    margin: 20px 0;
+    > div {
+      max-height: 800px;
+      flex-direction: column-reverse;
+      width: 100%;
+      padding: 15px 0;
+      > div { // both section text and image
         flex-direction: column;
+        padding: 0 20px;
+        > h2 {
+          margin: 0;
+          font-family: $headers;
+          font-weight: 500;
+          font-size: 2em;
+        }
+        > p {
+          overflow: scroll;
+        }
+      }
+      > .screenshot {
+        align-items: center;
+        justify-content: center;
+        > .img-wrapper {
+          display: block !important;
+          > img {
+            max-width: 100%;
+            max-height: 400px;
+          }
+        }
+      }
+      > .text {
+        padding-top: 10px;
         align-items: flex-start;
-        font-size: 1.3em;
-        > li {
-          display: list-item !important;
-          > a { // link to tech info
-            display: inline !important;
-            color: $link;
-            &:hover {
-              color: $hover;
-              -webkit-text-fill-color: $hover;
+        text-align: justify;
+        > ul { // tech list
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: 1.3em;
+          > li {
+            display: list-item !important;
+            > a { // link to tech info
+              display: inline !important;
+              color: $link;
+              &:hover {
+                color: $hover;
+                -webkit-text-fill-color: $hover;
+              }
             }
           }
         }
       }
-    }
-    @media (min-width: $lg) {
-      max-height: 400px;
-      &:nth-child(odd) {
-        flex-direction: row;
-      }
-      &:nth-child(even) {
-        flex-direction: row-reverse;
-      }
-      > div { // both section text and image
-        width: 50%;
-        padding: 0 30px;
-      }
-      > .text {
-        padding-top: 0;
+      @media (min-width: $lg) {
+        max-height: 400px;
+        &:nth-child(odd) {
+          flex-direction: row;
+        }
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+        > div { // both section text and image
+          width: 50%;
+          padding: 0 30px;
+        }
+        > .text {
+          padding-top: 0;
+        }
       }
     }
   }
