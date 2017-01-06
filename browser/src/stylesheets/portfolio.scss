@@ -150,7 +150,7 @@ $project-select-transition: all 0.5s ease-out;
 		border-color: $active;
 		> .project-background > .project-wrapper {
 			> .project-icon {
-				@media (max-width: $md) {
+				@media (max-width: $md), (max-height: $md) {
 					filter: brightness(0) invert(90%);
 					z-index: 1;
 				}
@@ -228,7 +228,7 @@ $project-select-transition: all 0.5s ease-out;
 						font-weight: 600;
 						font-size: .7em;
 						transition: $project-select-transition;
-						@media (max-width: $md) {
+						@media (max-width: $md), (max-height: $md) {
 							display: none !important;
 						}
 					}
