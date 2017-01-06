@@ -53,7 +53,9 @@ $project-select-transition: all 0.5s ease-out;
 			// Media queries for screen sizes and handheld landscape mode
 			$media-query: "(min-width: #{nth($size, 1)})";
 			@if nth($size, 1) == $sm {
-				$media-query: "#{$media-query}, handheld and (orientation: landscape)";
+				$media-query: "#{$media-query}, (max-height: #{$md}) AND (min-width: #{$sm})";
+			} @else if nth($size, 1) == $md {
+				$media-query: "#{$media-query} AND (min-height: #{$md})";
 			}
 
 			@media #{$media-query} {
@@ -81,7 +83,9 @@ $project-select-transition: all 0.5s ease-out;
 			// Media queries for screen sizes and handheld landscape mode
 			$media-query: "(min-width: #{nth($size, 1)})";
 			@if nth($size, 1) == $sm {
-				$media-query: "#{$media-query}, handheld and (orientation: landscape)";
+				$media-query: "#{$media-query}, (max-height: #{$md}) AND (min-width: #{$sm})";
+			} @else if nth($size, 1) == $md {
+				$media-query: "#{$media-query} AND (min-height: #{$md})";
 			}
 
 			@media #{$media-query} {
@@ -207,7 +211,9 @@ $project-select-transition: all 0.5s ease-out;
 							// Media queries for screen sizes and handheld landscape mode
 							$media-query: "(min-width: #{nth($size, 1)})";
 							@if nth($size, 1) == 0 {
-								$media-query: "#{$media-query}, handheld and (orientation: landscape)";
+								$media-query: "#{$media-query}, (max-height: #{$md})";
+							} @else if nth($size, 1) == $md {
+								$media-query: "#{$media-query} AND (min-height: #{$md})";
 							}
 
 							@media #{$media-query} {
