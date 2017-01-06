@@ -50,7 +50,13 @@ $project-select-transition: all 0.5s ease-out;
       ( $md, calc(50% - 250px), 15px, 1px )
     );
 		@each $size in $panels {
-			@media (min-width: nth($size, 1)) {
+			// Media queries for screen sizes and handheld landscape mode
+			$media-query: "(min-width: #{nth($size, 1)})";
+			@if nth($size, 1) == $sm {
+				$media-query: "#{$media-query}, handheld and (orientation: landscape)";
+			}
+
+			@media #{$media-query} {
 				left: nth($size, 2);
 				right: nth($size, 2);
 				border-bottom-left-radius: nth($size, 3);
@@ -72,7 +78,13 @@ $project-select-transition: all 0.5s ease-out;
 
 @mixin make-project-bubbles ($bubbles) {
   @each $size in $bubbles {
-		@media (min-width: nth($size, 1)) {
+			// Media queries for screen sizes and handheld landscape mode
+			$media-query: "(min-width: #{nth($size, 1)})";
+			@if nth($size, 1) == $sm {
+				$media-query: "#{$media-query}, handheld and (orientation: landscape)";
+			}
+
+			@media #{$media-query} {
 			height: nth($size, 2);
 			width: nth($size, 2);
 			margin: nth($size, 3);
@@ -192,7 +204,13 @@ $project-select-transition: all 0.5s ease-out;
 						( $lg, 600, 1.2em )
 					);
 					@each $size in $text {
-						@media (min-width: nth($size, 1)) {
+							// Media queries for screen sizes and handheld landscape mode
+							$media-query: "(min-width: #{nth($size, 1)})";
+							@if nth($size, 1) == 0 {
+								$media-query: "#{$media-query}, handheld and (orientation: landscape)";
+							}
+
+							@media #{$media-query} {
 							font-weight: nth($size, 2);
 							font-size: nth($size, 3);
 						}
