@@ -20,6 +20,7 @@
   height: 400px;
   @media (max-width: $sm) {
     height: 300px;
+    margin-top: 64px;
   }
 }
 
@@ -54,10 +55,8 @@
   @extend .banner-height;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
   @media (max-width: $sm) {
     align-items: flex-start;
-    padding-top: 64px;
   }
   > .project-title-container {
     flex-direction: column;
