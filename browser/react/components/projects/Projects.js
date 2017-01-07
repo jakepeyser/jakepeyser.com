@@ -12,22 +12,24 @@ export default ({ projects, fullView, children }) => {
       {
         projects.map(project => {
           return (
-            <Link key={project.id}
-              to={`/projects/${project.filename}`}
-              onClick={ () => document.body.scrollTop = 0 }
-              className={`project-bubble project-bubble-${size}`}
-              activeClassName="active-bubble">
-              <div className="project-background">
-                <div className={'project-wrapper'}>
-                  <div className={`project-icon i-${project.filename}`} />
-                  <div className="project-text-wrapper">
-                    <span className={`project-bubble-text project-bubble-text-${size}`}>
-                      { project.name }
-                    </span>
+            <div key={project.id}
+              className={`${fullView ? 'animated rollIn' : ''}`}>
+              <Link to={`/projects/${project.filename}`}
+                onClick={ () => document.body.scrollTop = 0 }
+                className={`project-bubble project-bubble-${size}`}
+                activeClassName="active-bubble">
+                <div className="project-background">
+                  <div className={'project-wrapper'}>
+                    <div className={`project-icon i-${project.filename}`} />
+                    <div className="project-text-wrapper">
+                      <span className={`project-bubble-text project-bubble-text-${size}`}>
+                        { project.name }
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           )
         })
       }

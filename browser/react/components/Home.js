@@ -4,7 +4,7 @@ export default () => (
   <div id="home">
     <div className="wallpaper"></div>
     <div className="info-wrapper">
-      <div className="info">
+      <div className="info animated fadeInDown">
         <span className="name">Jake Peyser</span>
         <span className="title">full stack developer</span>
       </div>

@@ -25,6 +25,7 @@
     "url": "https://github.com/jakepeyser/jakepeyser.com/issues"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "axios": "^0.15.x",
     "body-parser": "^1.15.x",
     "chalk": "^1.1.x",

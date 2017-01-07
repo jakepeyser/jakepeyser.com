@@ -8,7 +8,7 @@ export default (props) => {
   let formDiv;
   if (Object.keys(props.messageStatus).length) {
     formDiv =
-      <div className="form-sent">
+      <div className="form-sent animated flipInY">
         <p>{`Thank you for your message, ${props.name}. ${props.messageStatus.message} `}</p>
         {
           props.messageStatus.success ?
