@@ -8,7 +8,7 @@
   // Lock perspective and render children relative to fixed
   perspective: 1px;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   > .project-banner, > .project-content {
     position: absolute;
     width: inherit;
