@@ -14,7 +14,7 @@ export default ({ projects, fullView, children }) => {
           return (
             <Link key={project.id}
               to={`/projects/${project.filename}`}
-              onClick={ () => document.body.scrollTop = 0 }
+              onClick={ () => document.querySelector('#project').scrollTop = 0 }
               className={`project-bubble project-bubble-${size}`}
               activeClassName="active-bubble">
               <div className="project-background">
