@@ -40,7 +40,7 @@ for (let i = 0; i < imageTypes.length; i++) {
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
-  'axios', 'material-ui', 'gsap',
+  'axios', 'material-ui', 'gsap', 'animate.css',
   'react', 'react-dom', 'react-helmet', 'react-router',
   'redux', 'react-redux', 'redux-logger', 'redux-thunk', 'reselect'
 ]
