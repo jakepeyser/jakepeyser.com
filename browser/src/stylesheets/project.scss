@@ -133,6 +133,7 @@
         > ul { // tech list
           flex-direction: column;
           align-items: flex-start;
+          text-align: start;
           font-size: 1.3em;
           > li {
             display: list-item !important;

@@ -13,7 +13,11 @@ export default ({ projects, fullView, children }) => {
         projects.map(project => {
           return (
             <div key={project.id}
-              onClick={ () => document.querySelector('#project').scrollTop = 0 }
+              onClick={ () => {
+                const projContainer = document.querySelector('#project');
+                if (projContainer)
+                  projContainer.scrollTop = 0;
+              }}
               className={`${fullView ? 'animated rollIn' : ''}`}>
               <Link to={`/projects/${project.filename}`}
                 className={`project-bubble project-bubble-${size}`}
