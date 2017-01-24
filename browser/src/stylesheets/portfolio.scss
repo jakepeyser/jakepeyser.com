@@ -101,7 +101,6 @@ $project-select-transition: all 0.5s ease-out;
 	border-radius: 50%;
 	color: inherit;
 	-webkit-text-fill-color: inherit;
-	transition: $project-select-transition;
 	&.project-bubble-sm {
 		// Panel bubble sizes
 		$bubbles: (
@@ -110,6 +109,7 @@ $project-select-transition: all 0.5s ease-out;
       ( $md, 75px, 10px 0, 3px )
     );
 		@include make-project-bubbles($bubbles);
+		transition: $project-select-transition;
 		&:hover > .project-background > .project-wrapper { // small bubble colored icons
 			> .project-icon {
 				@media (max-width: $md) {
