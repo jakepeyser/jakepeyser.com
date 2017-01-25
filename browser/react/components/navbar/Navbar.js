@@ -41,13 +41,20 @@ export default class Navbar extends React.Component {
             {
               navList.map(navItem => {
                 return (
-                  <li key={navItem.id}>
-                    <Link to={navItem.href}
-                      className="nav-link"
-                      activeClassName="active-nav"
-                      onClick={ navItem.href === '/projects' ? removeProject : null }>
-                      {navItem.text}
-                    </Link>
+                  <li key={navItem.href}>
+                  { // Render Link or <a> based on internal/external link
+                    navItem.href.includes('http') ?
+                      <a href={navItem.href}
+                        className="nav-link">
+                        { navItem.text }
+                      </a> :
+                      <Link to={navItem.href}
+                        className="nav-link"
+                        activeClassName="active-nav"
+                        onClick={ navItem.href === '/projects' ? removeProject : null }>
+                        { navItem.text }
+                      </Link>
+                  }
                   </li>
                 )
               })
@@ -67,19 +74,27 @@ export default class Navbar extends React.Component {
           <JPMenu>
           {
             navList.map(navItem => {
-              const linkWrapper = <Link
-                                    to={ navItem.href }
-                                    className="nav-link"
-                                    activeClassName="active-nav" />
               return (
-                <JPMenuItem key={ navItem.id }
-                  primaryText={ navItem.text }
+                <JPMenuItem key={ navItem.href }
                   onClick={ (evt) => {
                     if (navItem.href === '/projects')
                       removeProject();
                     this.handleMenuClose();
-                  }}
-                  containerElement={ linkWrapper } />
+                  }}>
+                {
+                  navItem.href.includes('http') ?
+                    <a href={navItem.href}
+                      className="nav-link">
+                      { navItem.text }
+                    </a> :
+                    <Link to={navItem.href}
+                      className="nav-link"
+                      activeClassName="active-nav"
+                      onClick={ navItem.href === '/projects' ? removeProject : null }>
+                      { navItem.text }
+                    </Link>
+                }
+                </JPMenuItem>
               )
             })
           }

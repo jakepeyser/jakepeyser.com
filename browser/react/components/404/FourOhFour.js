@@ -17,8 +17,12 @@ export default () => (
         {
           navList.map(link => {
             return (
-              <li key={link.id}>
-                <Link to={link.href}>{ link.text }</Link>
+              <li key={link.href}>
+              { // Render Link or <a> based on internal/external link
+                link.href.includes('http') ?
+                  <a href={link.href}>{ link.text }</a> :
+                  <Link to={link.href}>{ link.text }</Link>
+              }
               </li>
             )
           })

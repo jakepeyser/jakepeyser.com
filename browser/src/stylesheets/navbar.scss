@@ -1,20 +1,30 @@
 #navbar {
   position: fixed;
-  height: 55px;
+  height: $lg-nav;
   z-index: 1;
   width: inherit;
   top: 0px;
   left: 0px;
   background-color: $foreground;
   border-bottom: 1px solid $borders;
+  box-sizing: border-box;
+  transition: all 0.5s ease-out;
+  @media screen and (max-width: $md) {
+    height: $sm-nav;
+  }
 }
 
 .logo-link {
+  position: absolute;
+  height: 100%;
   margin: 0px 20px;
   > .logo {
     width: 40px;
-    height: 40px;
-    margin: 7px 0px;
+    height: 100%;
+    transition: all 0.5s ease-out;
+    @media screen and (max-width: $md) {
+      width: 30px;
+    }
     &:hover #jakepeyser-logo {
       animation: rainbow 3s infinite linear;
       @keyframes rainbow {
@@ -41,7 +51,9 @@
   height: 100%;
   > .nav-list { // navigation menu
     display: inline-flex;
-    @media (max-width: $md) { display: none; }
+    @media screen and (max-width: $md) {
+      display: none;
+    }
     padding: 0;
     margin: 0 20px;
     list-style-type: none;
@@ -68,6 +80,9 @@
           -webkit-text-fill-color: $active;
         }
       }
+      @media screen and (max-width: $lg) {
+        font-size: 1.15em;
+      }
     }
   }
   > .menu-icon { // hamburger menu icon
@@ -81,22 +96,33 @@
 
 // Popover menu when user clicks hamburger icon
 .menu-popover {
-  top: 55px !important;
+  display: none;
+  top: $lg-nav !important;
   left: 0 !important;
   width: 100%;
-  @media (min-width: $md) { display: none; }
   > div > div > div, .menu { // menu wrapper
     display: block !important;
     width: 100% !important;
   }
+  .menu > div > span > div { // link wrapper
+    padding: 0 !important;
+  }
   .nav-link {
+    position: absolute;
+    width: 100%;
     text-align: center;
+    text-decoration: none;
     font-size: 20px !important;
     font-family: $headers !important;
+    color: $text-dark;
     &.active-nav { // active menu item
       font-weight: 600 !important;
       color: $active !important;
     }
+  }
+  @media screen and (max-width: $md) {
+    display: initial;
+    top: $sm-nav !important;
   }
 }
 

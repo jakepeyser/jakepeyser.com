@@ -42,7 +42,10 @@ $project-select-transition: all 0.5s ease-out;
 		align-items: center;
 		justify-content: space-around;
 		background-color: rgb(255, 255, 255);
-		top: 55px;
+		top: calc(#{$lg-nav} - 1px);
+		@media screen and (max-width: $md) {
+			top: calc(#{$sm-nav} - 1px);
+		}
 		// Small panel sizes
 		$panels: (
       ( 0, 0, 0, 0px ),
