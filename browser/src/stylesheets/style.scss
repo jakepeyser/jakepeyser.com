@@ -59,9 +59,14 @@ button:focus {
 }
 
 #content-wrapper {
-  min-height: calc(100vh - 55px - 44px);
-  margin-top: 55px;
+  min-height: calc(100vh - #{$lg-nav} - 30px);
+  margin-top: $lg-nav;
   background-color: $background;
+  transition: all 0.5s ease-out;
+  @media screen and (max-width: $md) {
+    min-height: calc(100vh - #{$sm-nav} - 30px);
+    margin-top: $sm-nav;
+  }
 }
 
 #content-wrapper, #content-wrapper  * {

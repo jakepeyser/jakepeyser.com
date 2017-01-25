@@ -1,12 +1,15 @@
 #footer {
-  height: 30px;
-  margin-top: 11px;
-  padding: 0px 20px;
   display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0px 20px;
   background-color: $foreground;
   color: $text-dark;
   -webkit-text-fill-color: $text-dark;
-  > .profiles {
+  > span { // copyright
+    font-size: 14px;
+  }
+  > .profiles { // social icons
     float: right;
     margin-left: auto;
 		@media (max-width: $sm) {
