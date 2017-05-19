@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Zipper from './Zipper';
-import navList from '../navbar/nav-list.json';
+import navList from '../navbar/nav-list'
 import { COLORS } from '../../utils/constants';
 
 export default () => (
