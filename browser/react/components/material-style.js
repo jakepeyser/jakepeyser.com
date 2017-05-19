@@ -1,15 +1,15 @@
 import React from 'react';
 import { TextField, Menu, MenuItem } from 'material-ui';
-import { foreground, active, placeholderText, errorText } from './colors'
+import { COLORS } from '../utils/constants'
 
 // Regular text input
 export const JPTextField = props => (
   <TextField
-    floatingLabelStyle={{ color: placeholderText, fontSize: '1.2em' }}
-    floatingLabelFocusStyle={{ color: active }}
-    underlineStyle={{ borderBottomColor: placeholderText }}
-    underlineFocusStyle={{ borderBottomColor: active }}
-    errorStyle={{ color: errorText, webkitTextFillColor: errorText }}
+    floatingLabelStyle={{ color: COLORS.PLACEHOLDER_TEXT, fontSize: '1.2em' }}
+    floatingLabelFocusStyle={{ color: COLORS.ACTIVE }}
+    underlineStyle={{ borderBottomColor: COLORS.PLACEHOLDER_TEXT }}
+    underlineFocusStyle={{ borderBottomColor: COLORS.ACTIVE }}
+    errorStyle={{ color: errorText, webkitTextFillColor: COLORS.ERROR_TEXT }}
     { ...props }
   />
 );
@@ -17,7 +17,7 @@ export const JPTextField = props => (
 export const JPMenu = props => (
   <Menu
     className="menu"
-    style={{ backgroundColor: foreground }}
+    style={{ backgroundColor: COLORS.FOREGROUND }}
     listStyle={{ paddingTop: '0px', paddingBottom: '0px' }}
     { ...props } >
     { props.children }

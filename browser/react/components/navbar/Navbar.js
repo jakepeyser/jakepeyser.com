@@ -7,7 +7,6 @@ import MenuIcon from '../../../src/images/menu-icon.svg';
 // material-ui elements
 import { JPMenu, JPMenuItem } from '../material-style'
 import Popover from 'material-ui/Popover/Popover';
-import { hover } from '../colors.js'
 
 export default class Navbar extends React.Component {
   constructor(props) {
