@@ -7,7 +7,6 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
-const tools = require('./libs/webpack.tools');
 
 // Projects in my portfolio
 const projects = [
@@ -117,6 +116,7 @@ switch (process.env.npm_lifecycle_event) {
     config = merge(
       common,
       {
+        entry: { vendor: vendorDependencies },
         devtool: 'source-map',
         output: Object.assign(common.output, {
           filename: '[name].[chunkhash].js',
@@ -132,18 +132,38 @@ switch (process.env.npm_lifecycle_event) {
           new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
           }),
-          new SitemapPlugin('http://jakepeyser.com', sitePaths)
+          new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false }
+          }),
+          new SitemapPlugin('http://jakepeyser.com', sitePaths),
+          new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'manifest']
+          })
         ]
-      },
-      tools.extractBundle({
-        name: 'vendor',
-        entries: vendorDependencies
-      }),
-      tools.minify()
+      }
     );
     break;
   case 'hmr': // Establish a HMR dev server
-    devServer = tools.devServer({ port: 3000 });
+    devServer = {
+      devServer: {
+        proxy: {
+          '/api': {
+            target: 'http://localhost:8080',
+            secure: false
+          }
+        },
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        stats: 'errors-only',
+        port: 3000
+      },
+      plugins: [
+        new webpack.HotModuleReplacementPlugin({
+          multiStep: true
+        })
+      ]
+    }
   case 'stats': // Used to generate build stats
   case 'build-watch':
     htmlTemplate.favicon = PATHS.favicon;

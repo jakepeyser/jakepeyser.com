@@ -9,7 +9,7 @@ export const JPTextField = props => (
     floatingLabelFocusStyle={{ color: COLORS.ACTIVE }}
     underlineStyle={{ borderBottomColor: COLORS.PLACEHOLDER_TEXT }}
     underlineFocusStyle={{ borderBottomColor: COLORS.ACTIVE }}
-    errorStyle={{ color: errorText, webkitTextFillColor: COLORS.ERROR_TEXT }}
+    errorStyle={{ color: COLORS.ERROR_TEXT, webkitTextFillColor: COLORS.ERROR_TEXT }}
     { ...props }
   />
 );
