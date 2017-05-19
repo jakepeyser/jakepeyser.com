@@ -6,7 +6,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin');
 const merge = require('webpack-merge');
-const validate = require('webpack-validator');
 
 // Projects in my portfolio
 const projects = [
@@ -70,8 +69,8 @@ const common = {
     filename: '[name].js'
   },
   resolve: {
-    root: path.resolve(__dirname),
-    extensions: ['', '.js'],
+    modules: ['node_modules'],
+    extensions: ['.js'],
     alias: {
       'TweenLite': 'gsap/src/uncompressed/TweenLite.js',
       'CSSPlugin': 'gsap/src/uncompressed/plugins/CSSPlugin.js'
@@ -85,25 +84,28 @@ const common = {
     )
   ],
   module: {
-    loaders: [
+    rules: [
       { // Convert React code into vanilla ES5
         test: /jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       { // Transpile SASS and load CSS
         test: /\.scss$/,
-        loader: process.env.NODE_ENV !== 'production' ?
-          'style!css!sass' : ExtractTextPlugin.extract('style', 'css!sass'),
+        use: process.env.NODE_ENV === 'production'
+          ? ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [ 'css-loader', 'sass-loader' ]
+          })
+          : [ 'style-loader', 'css-loader', 'sass-loader' ],
         include: PATHS.stylesheets
-      },
-      { // Load required JSON files
-        test: /\.json$/,
-        loader: 'json'
       },
       { // Inline SVGs where required in components
         test: /\.svg$/,
-        loader: 'babel!svg-react'
+        use: [
+          'babel-loader',
+          'svg-react-loader'
+        ]
       }
     ]
   }
@@ -132,9 +134,7 @@ switch (process.env.npm_lifecycle_event) {
           new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
           }),
-          new webpack.optimize.UglifyJsPlugin({
-            compress: { warnings: false }
-          }),
+          new webpack.optimize.UglifyJsPlugin(),
           new SitemapPlugin('http://jakepeyser.com', sitePaths),
           new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest']
@@ -187,5 +187,5 @@ switch (process.env.npm_lifecycle_event) {
     config = merge(common)
 }
 
-module.exports = validate(config, { quiet: true });
+module.exports = config
 

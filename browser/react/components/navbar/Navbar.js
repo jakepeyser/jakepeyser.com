@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import navList from './nav-list.json';
 import Logo from '../../../src/images/logo.svg';
+import navList from './nav-list'
 import MenuIcon from '../../../src/images/menu-icon.svg';
 
 // material-ui elements
