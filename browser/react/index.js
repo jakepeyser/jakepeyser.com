@@ -17,8 +17,8 @@ import ContactContainer from './components/contact/ContactContainer';
 import FourOhFour from './components/404/FourOhFour'
 
 // Redux thunks and action creators
-import { fetchProjects } from './redux/projects';
-import { selectProject } from './redux/selectedProject'
+import { fetchProjects } from './store/modules/projects';
+import { selectProject } from './store/modules/selectedProject'
 
 // onEnter functions
 const onAppEnter = (nextState, replace, cb) => {
