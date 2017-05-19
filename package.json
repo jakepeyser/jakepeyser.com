@@ -56,7 +56,6 @@
     "dotenv": "^2.0.x",
     "extract-text-webpack-plugin": "^1.0.x",
     "favicons-webpack-plugin": "0.0.x",
-    "file-loader": "^0.9.x",
     "html-webpack-plugin": "^2.24.x",
     "json-loader": "^0.5.4",
     "node-sass": "^3.13.x",

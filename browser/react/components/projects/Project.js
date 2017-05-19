@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { getStaticResourceLink } from '../../../utils'
 
 export default ({ project }) => (
   <div id="project">
@@ -34,7 +35,7 @@ export default ({ project }) => (
             </div>
             <div className="screenshot">
               <div className="img-wrapper">
-                <img src={`/browser/src/images/${project.filename}/screenshot.png`}
+                <img src={ getStaticResourceLink(`images/${project.filename}/screenshot.png`) }
                   alt={ `${project.name} Screenshot` }/>
               </div>
             </div>
@@ -56,7 +57,7 @@ export default ({ project }) => (
             </div>
             <div className="screenshot">
               <div className="img-wrapper">
-                <img src={`/browser/src/images/${project.filename}/mobile.png`}
+                <img src={ getStaticResourceLink(`images/${project.filename}/mobile.png`) }
                 alt={ `${project.name} Mobile View` }/>
               </div>
             </div>

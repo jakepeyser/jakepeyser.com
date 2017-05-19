@@ -29,15 +29,6 @@ const PATHS = {
   html_template: path.join(__dirname, 'browser/src/index.html')
 };
 
-// Generate image file locations in an array
-const IMAGE_PATHS = [ PATHS.logo ];
-const imageTypes = ['banner', 'icon', 'screenshot', 'mobile'];
-for (let i = 0; i < imageTypes.length; i++) {
-  for (let j = 0; j < projects.length; j++) {
-    IMAGE_PATHS.push(path.join(__dirname, `browser/src/images/${projects[j]}/${imageTypes[i]}.png`))
-  }
-}
-
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
   'axios', 'material-ui', 'gsap',
@@ -72,8 +63,7 @@ projects.forEach(project => {
 const common = {
   entry: {
     app: PATHS.app,
-    style: PATHS.stylesheets,
-    images: IMAGE_PATHS
+    style: PATHS.stylesheets
   },
   output: {
     path: PATHS.build,
@@ -111,11 +101,6 @@ const common = {
       { // Load required JSON files
         test: /\.json$/,
         loader: 'json'
-      },
-      { // Transfer static files to build
-        test: /\.(pdf|gif|png|jpe?g)$/,
-        loader: 'file?name=[path][name].[ext]',
-        include: PATHS.images
       },
       { // Inline SVGs where required in components
         test: /\.svg$/,
