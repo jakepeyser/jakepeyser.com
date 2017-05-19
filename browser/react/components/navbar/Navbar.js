@@ -30,7 +30,6 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    const { removeProject } = this.props;
     return (
       <div id='navbar'>
         <Link className="logo-link" to="/home">
@@ -50,8 +49,7 @@ export default class Navbar extends React.Component {
                       </a> :
                       <Link to={navItem.href}
                         className="nav-link"
-                        activeClassName="active-nav"
-                        onClick={ navItem.href === '/projects' ? removeProject : null }>
+                        activeClassName="active-nav">
                         { navItem.text }
                       </Link>
                   }
@@ -76,11 +74,7 @@ export default class Navbar extends React.Component {
             navList.map(navItem => {
               return (
                 <JPMenuItem key={ navItem.href }
-                  onClick={ (evt) => {
-                    if (navItem.href === '/projects')
-                      removeProject();
-                    this.handleMenuClose();
-                  }}>
+                  onClick={ (evt) => this.handleMenuClose() }>
                 {
                   navItem.href.includes('http') ?
                     <a href={navItem.href}
@@ -89,8 +83,7 @@ export default class Navbar extends React.Component {
                     </a> :
                     <Link to={navItem.href}
                       className="nav-link"
-                      activeClassName="active-nav"
-                      onClick={ navItem.href === '/projects' ? removeProject : null }>
+                      activeClassName="active-nav">
                       { navItem.text }
                     </Link>
                 }

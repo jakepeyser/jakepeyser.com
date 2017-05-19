@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     id: 1,
     name: 'Node.js',
@@ -89,4 +89,4 @@ module.exports = [
     name: 'Material-UI',
     link: 'http://www.material-ui.com/'
   }
-];
+]

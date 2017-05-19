@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { getStaticResourceLink } from '../../utils';
+import { getStaticResourceLink } from '../utils';
 
 export default () => {
   const resumeLink = getStaticResourceLink('resume.pdf')
