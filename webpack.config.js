@@ -33,7 +33,7 @@ const PATHS = {
 const vendorDependencies = [
   'axios', 'material-ui', 'gsap',
   'react', 'react-dom', 'react-helmet', 'react-router',
-  'redux', 'react-redux', 'redux-logger', 'redux-thunk', 'reselect'
+  'redux', 'react-redux', 'redux-logger', 'redux-thunk'
 ]
 
 // index.html template

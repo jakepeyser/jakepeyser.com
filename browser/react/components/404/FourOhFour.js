@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Zipper from './Zipper';
 import navList from '../navbar/nav-list.json';
-
-import { background } from '../colors';
+import { COLORS } from '../../utils/constants';
 
 export default () => (
   <div id="fourohfour">
@@ -34,7 +33,7 @@ export default () => (
       <Zipper
         numTeeth={ 26 }
         message="404"
-        style={{ backgroundColor: background }}
+        style={{ backgroundColor: COLORS.BACKGROUND }}
         startUnzipped={ true } />
     </div>
   </div>

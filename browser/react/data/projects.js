@@ -1,6 +1,7 @@
-const tech = require('./tech')
+/* eslint-disable max-len */
+import tech from './tech'
 
-module.exports = [
+export default [
   {
     id: 1,
     name: 'Steps',
@@ -59,4 +60,4 @@ module.exports = [
     summary: 'Leading up to IBM InterConnect 2016, we had been collaborating with one of IBM\'s business partners, Runkeeper, on ways to deliver unique experiences to their users. Early on I was toying with the prospect of delivering relevant content to users based on what type of runner they were. Using their Twitter feed and Watson, we can ascertain a user\'s general personality breakdown and correlate it with the aggregate personality of runners of a certain type. To help visualize this concept, I decided to adapt my colleagues\' popular Celebrity Match demo, expanding it to compare users against the people who tweet using specific hashtags. The result was an interactive demo that analyzes and matches you with a popular running hashtag based on your personality, needs, and values.',
     tech: [tech[0], tech[12], tech[13], tech[14]]
   }
-];
+]

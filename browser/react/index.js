@@ -6,30 +6,25 @@ import ReactDOM from 'react-dom';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import store from './store';
 import { Provider } from 'react-redux';
+import { getProject } from './utils';
 
 // React containers and components
 import App from './components/App';
 import Home from './components/Home';
-import ProjectsContainer from './components/projects/ProjectsContainer';
-import ProjectContainer from './components/projects/ProjectContainer';
+import Projects from './components/projects/Projects';
+import Project from './components/projects/Project';
 import Resume from './components/Resume';
 import ContactContainer from './components/contact/ContactContainer';
 import FourOhFour from './components/404/FourOhFour'
 
-// Redux thunks and action creators
-import { fetchProjects } from './redux/projects';
-import { selectProject } from './redux/selectedProject'
 
 // onEnter functions
-const onAppEnter = (nextState, replace, cb) => {
+const onAppEnter = (nextState, replace) => {
   if (nextState.location.pathname === '/') replace('/home');
-  store.dispatch(fetchProjects(cb)); // don't load app until projects retrieved
 };
-const getProject = (nextState, replace) => {
-  const newProject = nextState.params.projectName;
-  if (!store.getState().projects.find(proj => proj.filename === newProject))
+const validProject = (nextState, replace) => {
+  if (!getProject(nextState.params.projectName))
     replace('/invalid-project');
-  store.dispatch(selectProject(newProject));
 };
 
 ReactDOM.render(
@@ -37,9 +32,8 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App} onEnter={onAppEnter}>
         <Route path="/home" component={Home} />
-        <Route path="/projects" component={ProjectsContainer}>
-          <Route path="/projects/:projectName"
-            component={ProjectContainer} onEnter={getProject}/>
+        <Route path="/projects" component={Projects}>
+          <Route path="/projects/:projectName" component={Project} onEnter={validProject}/>
         </Route>
         <Route path="/resume" component={Resume} />
         <Route path="/contact" component={ContactContainer} />

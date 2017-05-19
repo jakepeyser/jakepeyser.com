@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Contact from './Contact';
 import FormValidate from '../form/FormValidate';
-import { newMessage, sendMessage } from '../../redux/contact';
+import { newMessage, sendMessage } from '../../store/modules/contact';
 
 // Validate the contact form
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/gi;

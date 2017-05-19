@@ -1,8 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router';
+import projects from '../../data/projects'
 
-export default ({ projects, fullView, children }) => {
+export default ({ children, location }) => {
+  const fullView = location.pathname === '/projects'
   const size = fullView ? 'lg' : 'sm';
   return (
     <div id="portfolio-wrapper" className={`portfolio-wrapper-${size}`}>
