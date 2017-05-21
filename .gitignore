@@ -1,5 +1,5 @@
 node_modules
-browser/build
+build/
 stats.json
 .DS_STORE
 *.log

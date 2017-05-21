@@ -19,12 +19,12 @@ const projects = [
 // Init common paths used by config
 const path = require('path');
 const PATHS = {
-  app: path.join(__dirname, 'browser/react'),
-  build: path.join(__dirname, 'browser/build'),
-  favicon: path.join(__dirname, 'browser/assets/favicon.ico'),
-  stylesheets: path.join(__dirname, 'browser/style', 'style.scss'),
-  logo: path.join(__dirname, 'browser/assets/logo.png'),
-  html_template: path.join(__dirname, 'browser/assets/index.html')
+  app: path.join(__dirname, 'client/react'),
+  build: path.join(__dirname, 'build/'),
+  favicon: path.join(__dirname, 'client/assets', 'favicon.ico'),
+  stylesheets: path.join(__dirname, 'client/style', 'style.scss'),
+  logo: path.join(__dirname, 'client/assets', 'logo.png'),
+  html_template: path.join(__dirname, 'client/assets', 'index.html')
 };
 
 // Vendor dependencies, isolated for chunking
