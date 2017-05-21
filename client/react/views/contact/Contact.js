@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import SocialIcons from '../SocialIcons';
-import { JPTextField } from '../material-style';
+import SocialIcons from '../../components/SocialIcons';
+import { JPTextField } from '../../utils/material-style';
 
 export default (props) => {
 

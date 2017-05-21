@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router';
-import projects from '../../data/projects'
+import projects from '../data/projects'
 
 export default ({ children, location }) => {
   const fullView = location.pathname === '/projects'

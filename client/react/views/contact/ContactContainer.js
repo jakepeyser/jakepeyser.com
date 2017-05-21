@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Contact from './Contact';
-import FormValidate from '../form/FormValidate';
+import FormValidate from '../../components/form/FormValidate';
 import { newMessage, sendMessage } from '../../store/modules/contact';
 
 // Validate the contact form

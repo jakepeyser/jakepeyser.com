@@ -5,7 +5,7 @@ import navList from './nav-list'
 import MenuIcon from '../../../assets/menu-icon.svg';
 
 // material-ui elements
-import { JPMenu, JPMenuItem } from '../material-style'
+import { JPMenu, JPMenuItem } from '../../utils/material-style'
 import Popover from 'material-ui/Popover/Popover';
 
 export default class Navbar extends React.Component {

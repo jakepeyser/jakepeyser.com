@@ -19,7 +19,7 @@ const projects = [
 // Init common paths used by config
 const path = require('path');
 const PATHS = {
-  app: path.join(__dirname, 'client/react'),
+  app: path.join(__dirname, 'client/react/views', 'root.js'),
   build: path.join(__dirname, 'build/'),
   favicon: path.join(__dirname, 'client/assets', 'favicon.ico'),
   stylesheets: path.join(__dirname, 'client/style', 'style.scss'),
