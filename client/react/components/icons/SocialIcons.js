@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from './Icon';
 
 const profiles = [
   { id: 1, href: 'https://github.com/jakepeyser', icon: 'github' },
@@ -8,21 +9,14 @@ const profiles = [
   { id: 5, href: 'https://www.instagram.com/jakepeyser/', icon: 'instagram' }
 ]
 
-export default ({ size }) => {
-  const magnify = size ? `fa-${size}x` : '';
-  return (
-    <div className="profiles">
-    {
-      profiles.map(profile => {
-        return (
-          <a key={profile.id} href={profile.href} target="_blank">
-            <i className={`profile-icon fa fa-${profile.icon} ${magnify}`}
-              aria-hidden="true">
-            </i>
-          </a>
-        )
-      })
-    }
-    </div>
-  )
-};
+export default ({ size }) =>
+  <div className="profiles">
+  {profiles.map(profile =>
+    <Icon
+      key={ profile.id }
+      icon={ profile.icon }
+      link={ profile.href }
+      size={ size }
+    />
+  )}
+  </div>
