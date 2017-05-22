@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Zipper from './Zipper';
-import navList from '../navbar/nav-list'
-import { COLORS } from '../../utils/constants';
+import Zipper from '../components/Zipper';
+import navList from '../components/navbar/nav-list'
+import { COLORS } from '../utils/constants';
 
 export default () => (
   <div id="fourohfour">

@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { getProject, getStaticResourceLink } from '../../utils'
+import { getProject, getStaticResourceLink } from '../utils'
 
 export default ({ params }) => {
   const project = getProject(params.projectName)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField, Menu, MenuItem } from 'material-ui';
-import { COLORS } from '../utils/constants'
+import { COLORS } from './constants'
 
 // Regular text input
 export const JPTextField = props => (

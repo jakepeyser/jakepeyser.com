@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Logo from '../../../src/images/logo.svg';
+import Logo from '../../../assets/logo.svg';
 import navList from './nav-list'
-import MenuIcon from '../../../src/images/menu-icon.svg';
+import MenuIcon from '../../../assets/menu-icon.svg';
 
 // material-ui elements
-import { JPMenu, JPMenuItem } from '../material-style'
+import { JPMenu, JPMenuItem } from '../../utils/material-style'
 import Popover from 'material-ui/Popover/Popover';
 
 export default class Navbar extends React.Component {

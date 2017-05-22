@@ -4,9 +4,9 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const PATHS = {
-  indexHTML: path.join(__dirname, '../browser/build/index.html'),
+  indexHTML: path.join(__dirname, '../build/index.html'),
   robots: path.join(__dirname, '../robots.txt'),
-  build: path.join(__dirname, '../browser/build')
+  build: path.join(__dirname, '../build')
 }
 const PORT = process.env.PORT || 8080;
 const chalk = require('chalk');

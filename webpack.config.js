@@ -19,12 +19,12 @@ const projects = [
 // Init common paths used by config
 const path = require('path');
 const PATHS = {
-  app: path.join(__dirname, 'browser/react'),
-  build: path.join(__dirname, 'browser/build'),
-  favicon: path.join(__dirname, 'browser/src/favicon.ico'),
-  stylesheets: path.join(__dirname, 'browser/src/stylesheets', 'style.scss'),
-  logo: path.join(__dirname, 'browser/src/images/logo.png'),
-  html_template: path.join(__dirname, 'browser/src/index.html')
+  app: path.join(__dirname, 'client/react/views', 'root.js'),
+  build: path.join(__dirname, 'build/'),
+  favicon: path.join(__dirname, 'client/assets', 'favicon.ico'),
+  stylesheets: path.join(__dirname, 'client/style', 'style.scss'),
+  logo: path.join(__dirname, 'client/assets', 'logo.png'),
+  html_template: path.join(__dirname, 'client/assets', 'index.html')
 };
 
 // Vendor dependencies, isolated for chunking
@@ -40,7 +40,7 @@ let htmlTemplate = {
   meta: {
     description: 'The personal website of Jake Peyser, full stack developer and international adventurer extraordinaire',
     author: 'Jake Peyser',
-    keywords: 'software,developer,web,freelance,nodejs,react',
+    keywords: 'software,developer,web,freelance,nodejs,react,vue',
     viewport: 'width=device-width, initial-scale=1.0'
   },
   template: PATHS.html_template

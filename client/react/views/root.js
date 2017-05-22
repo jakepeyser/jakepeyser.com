@@ -4,18 +4,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
-import store from './store';
+import store from '../store';
 import { Provider } from 'react-redux';
-import { getProject } from './utils';
+import { getProject } from '../utils';
 
 // React containers and components
-import App from './components/App';
-import Home from './components/Home';
-import Projects from './components/projects/Projects';
-import Project from './components/projects/Project';
-import Resume from './components/Resume';
-import ContactContainer from './components/contact/ContactContainer';
-import FourOhFour from './components/404/FourOhFour'
+import App from './App';
+import Home from './Home';
+import Projects from './Projects';
+import Project from './Project';
+import Resume from './Resume';
+import ContactContainer from './contact/ContactContainer';
+import FourOhFour from './FourOhFour'
 
 
 // onEnter functions
