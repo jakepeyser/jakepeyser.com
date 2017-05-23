@@ -22,7 +22,9 @@
   .bm-overlay {
     z-index: 3 !important;
   }
-
+  .bm-burger-button {
+    display: none;
+  }
   .mobile-menu__list { // sidebar menu
     z-index: 4 !important;
     background-color: $background;

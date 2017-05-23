@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import TextField from '../../components/form/TextField'
 import SocialIcons from '../../components/icons/SocialIcons';
-import { JPTextField } from '../../utils/material-style';
 
 export default (props) => {
 
@@ -22,29 +22,23 @@ export default (props) => {
         <form name="contactForm" noValidate onSubmit={props.handleSubmit}>
           <fieldset>
             <div className="form-group contact-form">
-              <JPTextField
-                floatingLabelText="Name"
+              <TextField
+                label="Name"
                 errorText={props.errors.name}
-                fullWidth={true}
                 onChange={(evt) => props.onFieldChange('name', evt.target.value) }
               />
-              <JPTextField
-                floatingLabelText="Email"
+              <TextField
+                label="Email"
                 type="email"
                 errorText={props.errors.email}
-                fullWidth={true}
                 onChange={(evt) => props.onFieldChange('email', evt.target.value) }
               />
-              <JPTextField
-                floatingLabelText="Message"
-                textareaStyle={{ marginTop: '-5px' }}
+              <TextField multiline
+                label="Message"
                 errorText={props.errors.message}
-                fullWidth={true}
-                multiLine={true}
-                rows={4} rowsMax={4}
+                maxChars={ 1000 }
                 onChange={(evt) => props.onFieldChange('message', evt.target.value) }
               />
-              <span>{1000 - props.message.length}</span>
               <button type="submit">Send</button>
             </div>
           </fieldset>

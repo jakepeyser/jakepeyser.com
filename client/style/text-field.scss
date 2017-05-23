@@ -1,0 +1,39 @@
+.text-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+  > .input {
+    padding: 8px;
+    border: 1px solid $borders;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+  > input {
+    height: 20px;
+    &:-webkit-autofill { // overwrite chrome autofill color
+      box-shadow: 0 0 0 1000px white inset;
+    }
+  }
+  > textarea {
+    resize: vertical;
+  }
+  > .sub-text {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4px 4px 0 5px;
+    span {
+      font-size: 14px;
+      &.counter {
+        position: absolute;
+        top: 5px;
+        right: 4px;
+      }
+      &.input-error, &.counter--max {
+        color: $error-text;
+      }
+    }
+  }
+}
