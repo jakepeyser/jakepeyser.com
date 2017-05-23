@@ -35,6 +35,7 @@
     "morgan": "^1.7.x",
     "prop-types": "15.5.10",
     "react": "^15.3.x",
+    "react-burger-menu": "^2.0.2",
     "react-dom": "^15.3.x",
     "react-helmet": "^3.1.0",
     "react-redux": "^4.4.x",

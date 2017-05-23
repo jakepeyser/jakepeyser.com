@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import Icon from '../components/icons/Icon'
 import { getProject, getStaticResourceLink } from '../utils'
 
 export default ({ params }) => {
@@ -16,13 +17,8 @@ export default ({ params }) => {
             <h1 className="name">{project.name}</h1>
             <div className="links">
             {
-              project.links && project.links.map((link, idx) => {
-                return (
-                  <a key={idx} href={ link.url } target="_blank">
-                    <i className={`profile-icon fa fa-${link.type} fa-2x`}
-                    aria-hidden="true"></i>
-                  </a>
-                )
+              project.links && project.links.map(link => {
+                return <Icon key={ link.url } icon={ link.type } link={ link.url } size="2" />
               })
             }
             </div>

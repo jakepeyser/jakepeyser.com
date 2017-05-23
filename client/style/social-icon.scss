@@ -5,10 +5,10 @@
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
-}
 
-.icon > i:hover {
-  cursor: pointer;
-  -webkit-text-fill-color: $hover;
-  color: $hover;
+  &:hover {
+    cursor: pointer;
+    -webkit-text-fill-color: $hover;
+    color: $hover;
+  }
 }

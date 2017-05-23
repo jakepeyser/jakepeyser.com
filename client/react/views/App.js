@@ -2,12 +2,11 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
+import MobileMenu from '../components/navbar/MobileMenu';
 
-/* Material Theme components */
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
-export default ({ children }) => (
-  <MuiThemeProvider>
+export default ({ children }) =>
+  <div id="page-wrap">
+    <MobileMenu />
     <div id="main">
       <Helmet
         defaultTitle="Jake Peyser"
@@ -21,5 +20,4 @@ export default ({ children }) => (
       </div>
       <Footer />
     </div>
-  </MuiThemeProvider>
-);
+  </div>
