@@ -30,8 +30,7 @@ const PATHS = {
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
   'axios', 'gsap', 'react-burger-menu',
-  'react', 'react-dom', 'react-helmet', 'react-router',
-  'redux', 'react-redux', 'redux-logger', 'redux-thunk'
+  'react', 'react-dom', 'react-helmet', 'react-router'
 ]
 
 // index.html template
