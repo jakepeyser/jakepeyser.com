@@ -1,3 +1,4 @@
+// Project icon sizes
 $projects: (
 	steps: 55%,
 	real-time-tone-analysis: 36%,
@@ -5,5 +6,35 @@ $projects: (
 	parachute-teachers: 40%,
 	runkeeper-hashmatch: 50%
 );
+
+// Fonts
+$primary: Lato;
+$headers: Raleway;
+
+// Screen sizes
+$xl: 991px;
+$lg: 768px;
+$md: 550px;
+$sm: 400px;
+
+$lg-nav: 55px;
+$sm-nav: 40px;
+
+/* COLORS */
+// Primary colors
+$link: #8c8c8c;
+$active: #8b9dc3;
+$hover: #8b9dc3;
+
+// Background colors
+$background: #f7f7f7;
+$foreground: white;
+$borders: #8c8c8c;
+
+// Text colors
+$text-light: white;
+$text-dark: black;
+$placeholder-text: black;
+$error-text: #f44336;
 
 $AMAZON_S3_IMAGES: "https://s3.amazonaws.com/jakepeyser.com/images/"

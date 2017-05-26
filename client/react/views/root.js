@@ -9,7 +9,7 @@ import { getProject } from '../utils';
 // React views
 import App from './App';
 import Home from './Home';
-import Projects from './Projects';
+import Portfolio from './Portfolio';
 import Project from './Project';
 import Resume from './Resume';
 import Contact from './Contact';
@@ -29,7 +29,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App} onEnter={onAppEnter}>
       <Route path="/home" component={Home} />
-      <Route path="/projects" component={Projects}>
+      <Route path="/projects" component={Portfolio}>
         <Route path="/projects/:projectName" component={Project} onEnter={validProject}/>
       </Route>
       <Route path="/resume" component={Resume} />
