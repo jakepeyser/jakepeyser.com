@@ -59,12 +59,12 @@ button:focus {
 }
 
 #content-wrapper {
-  min-height: calc(100vh - #{$lg-nav} - 30px);
+  min-height: $large-screen;
   margin-top: $lg-nav;
   background-color: $background;
   transition: all 0.5s ease-out;
   @media screen and (max-width: $md) {
-    min-height: calc(100vh - #{$sm-nav} - 30px);
+    min-height: $small-screen;
     margin-top: $sm-nav;
   }
 }

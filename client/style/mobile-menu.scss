@@ -27,6 +27,7 @@
   }
   .mobile-menu__list { // sidebar menu
     z-index: 4 !important;
+    max-width: 100%;
     background-color: $background;
     .bm-cross-button {
       .bm-cross {

@@ -124,6 +124,7 @@
       ( $md, 75px, 10px 10px, 3px )
     );
 		@include make-project-bubbles($bubbles);
+    transition: $project-select-transition;
     animation: none;
     &:first-child {
       margin-left: 0

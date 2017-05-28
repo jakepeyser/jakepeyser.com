@@ -17,8 +17,15 @@ $lg: 768px;
 $md: 550px;
 $sm: 400px;
 
+// Element heights
 $lg-nav: 55px;
 $sm-nav: 40px;
+$footer: 30px;
+$large-screen: calc(100vh - #{$lg-nav} - 30px);
+$small-screen: calc(100vh - #{$sm-nav} - 30px);
+
+// Transitions
+$project-select-transition: all 0.5s ease-out;
 
 /* COLORS */
 // Primary colors

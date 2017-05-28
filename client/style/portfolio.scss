@@ -1,22 +1,35 @@
-$project-select-transition: all 0.5s ease-out;
-
 .portfolio {
+	position: fixed;
+	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	height: $large-screen;
+  @media screen and (max-width: $md) {
+    height: $small-screen;
+  }
 
 	.project-bubbles__wrapper {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background: url("#{$AMAZON_S3_IMAGES}wallpaper/portfolio.png");
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
+		background: $foreground;
 		width: 100%;
 		height: 100%;
+		> .project-bubbles__bg {
+			position: absolute;
+			background: url("#{$AMAZON_S3_IMAGES}wallpaper/portfolio.png");
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			border-radius: inherit;
+			width: 100%;
+			height: 100%;
+		}
 		> .project-bubbles {
+			z-index: 1;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
@@ -56,8 +69,11 @@ $project-select-transition: all 0.5s ease-out;
 			}
 			z-index: 2;
 			margin-top: -1px;
-			background: $foreground;
 			transition: $project-select-transition;
+			> .project-bubbles__bg {
+				opacity: 0;
+				transition: $project-select-transition;
+			}
 			> .project-bubbles {
 				justify-content: flex-start;
 				flex-wrap: nowrap;

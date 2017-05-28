@@ -11,6 +11,7 @@ export default ({ children, location }) => {
     <div id="portfolio" className={ portfolioClass }>
       <Helmet title="Portfolio" />
       <div className="project-bubbles__wrapper">
+        <div className="project-bubbles__bg" />
         <div className="project-bubbles">
         {projects.map(project =>
           <ProjectBubble key={ project.id }
