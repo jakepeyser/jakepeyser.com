@@ -1,12 +1,11 @@
 .portfolio {
-	position: fixed;
 	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: $large-screen;
+	min-height: $large-screen;
   @media screen and (max-width: $md) {
-    height: $small-screen;
+    min-height: $small-screen;
   }
 
 	.project-bubbles__wrapper {
@@ -17,9 +16,14 @@
 		align-items: center;
 		background: $foreground;
 		width: 100%;
-		height: 100%;
+		min-height: $large-screen;
+		@media screen and (max-width: $md) {
+			min-height: $small-screen;
+		}
 		> .project-bubbles__bg {
 			position: absolute;
+			top: 0;
+			left: 0;
 			background: url("#{$AMAZON_S3_IMAGES}wallpaper/portfolio.png");
 			background-size: cover;
 			background-position: center;
@@ -36,11 +40,17 @@
 			align-items: center;
 			flex-wrap: wrap;
 			width: 100%;
-			height: 100%;
+			@media screen and (max-width: $sm) {
+				padding: 20px 0;
+			}
 		}
 	}
 
 	&.portfolio--sm {
+		position: fixed;
+		left: 0;
+		z-index: 4;
+		transition: $project-select-transition;
 		.project-bubbles__wrapper {
 			// Small panel sizes
 			$panels: (
@@ -60,6 +70,7 @@
 				@media #{$media-query} {
 					width: nth($size, 2);
 					height: nth($size, 3);
+					min-height: initial;
 					border-bottom-left-radius: nth($size, 4);
 					border-bottom-right-radius: nth($size, 4);
 					border: nth($size, 5) solid $borders;
@@ -75,6 +86,8 @@
 				transition: $project-select-transition;
 			}
 			> .project-bubbles {
+				position: absolute;
+				top: 0;
 				flex-wrap: nowrap;
 				box-sizing: border-box;
 				overflow-x: scroll;

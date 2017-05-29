@@ -4,9 +4,9 @@
   }
 
   > .mobile-menu__icon-wrapper { // hamburger menu icon
-    position: absolute;
+    position: fixed;
     right: 0;
-    z-index: 3;
+    z-index: 5;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -20,13 +20,13 @@
   }
 
   .bm-overlay {
-    z-index: 3 !important;
+    z-index: 5 !important;
   }
   .bm-burger-button {
     display: none;
   }
   .mobile-menu__list { // sidebar menu
-    z-index: 4 !important;
+    z-index: 5 !important;
     max-width: 100%;
     background-color: $background;
     .bm-cross-button {
