@@ -1,9 +1,8 @@
 import React from 'react';
-import SocialIcons from './SocialIcons'
+import SocialIcons from './icons/SocialIcons'
 
-export default ({ children }) => (
+export default () =>
   <div id="footer">
     <span>&copy; 2017 Jake Peyser</span>
     <SocialIcons />
   </div>
-);

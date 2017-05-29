@@ -19,11 +19,11 @@ router.post('/', (req, res, next) => {
 
   // Send email using SendGrid
   sg.API(sgReq)
-    .then((sgRes) => res.sendStatus(sgRes.statusCode))
-    .catch(({ sgRes }) => {
-      let err = new Error(sgRes.body.errors[0].message)
-      err.status = sgRes.statusCode;
-      next(err);
+    .then(sgRes => res.sendStatus(sgRes.statusCode))
+    .catch(({ response }) => {
+      let err = new Error(response.body.errors[0].message)
+      err.status = response.statusCode
+      next(err)
     });
 });
 

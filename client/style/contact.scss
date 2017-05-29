@@ -75,7 +75,7 @@
         }
       }
       @media (max-width: $md) {
-        padding: 0;
+        padding: 15px 0 0 0;
         button {
           align-self: center;
           width: 200px;
@@ -87,17 +87,19 @@
 
 $box-padding: 20px;
 .form-sent { // div after sending email
+  padding: $box-padding 0;
   border-radius: 15px;
   background-color: $foreground;
+  flex-direction: column;
   align-items: center;
   > p {
-    margin: $box-padding $box-padding 0;
+    margin: 0 $box-padding;
     font-size: 1.2em;
     text-align: center;
   }
   > button {
     display: block !important;
-    margin: $box-padding 0;
+    margin-top: $box-padding;
     width: 150px;
   }
   @media (max-width: $md) {
