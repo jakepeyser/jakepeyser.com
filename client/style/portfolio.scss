@@ -40,6 +40,9 @@
 			align-items: center;
 			flex-wrap: wrap;
 			width: 100%;
+			@media screen and (max-width: $sm) {
+				padding: 20px 0;
+			}
 		}
 	}
 
@@ -83,6 +86,8 @@
 				transition: $project-select-transition;
 			}
 			> .project-bubbles {
+				position: absolute;
+				top: 0;
 				flex-wrap: nowrap;
 				box-sizing: border-box;
 				overflow-x: scroll;
