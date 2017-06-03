@@ -12,7 +12,7 @@
     "start": "node server/app.js",
     "dev": "nodemon --watch server -e js server/app.js",
     "hmr": "webpack-dev-server",
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "build-watch": "webpack -w --progress --colors",
     "stats": "webpack --profile --json > stats.json"
   },
@@ -55,6 +55,7 @@
     "html-webpack-plugin": "2.28.0",
     "node-sass": "4.5.3",
     "nodemon": "1.11.0",
+    "optimize-css-assets-webpack-plugin": "^2.0.0",
     "sass-loader": "6.0.5",
     "sitemap-webpack-plugin": "0.3.0",
     "style-loader": "0.17.0",

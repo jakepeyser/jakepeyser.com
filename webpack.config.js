@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin');
@@ -134,6 +135,7 @@ switch (process.env.npm_lifecycle_event) {
             'process.env.NODE_ENV': JSON.stringify('production')
           }),
           new webpack.optimize.UglifyJsPlugin(),
+          new OptimizeCssAssetsPlugin(),
           new SitemapPlugin('http://jakepeyser.com', sitePaths),
           new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest']

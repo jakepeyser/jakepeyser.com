@@ -3534,6 +3534,13 @@ optimist@~0.6.0:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
+optimize-css-assets-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-2.0.0.tgz#51cae71230ec91a4c157649715e47498e0cb460b"
+  dependencies:
+    underscore "^1.8.3"
+    webpack-sources "^0.1.0"
+
 original@>=0.0.5:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/original/-/original-1.0.0.tgz#9147f93fa1696d04be61e01bd50baeaca656bd3b"
