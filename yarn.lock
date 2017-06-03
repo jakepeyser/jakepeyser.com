@@ -1311,7 +1311,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.1:
+create-react-class@^15.5.1, create-react-class@^15.5.2:
   version "15.5.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.5.3.tgz#fb0f7cae79339e9a179e194ef466efa3923820fe"
   dependencies:
@@ -2207,9 +2207,9 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-gsap@1.19.1:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-1.19.1.tgz#480d320c662337c2663f836baf45e91ea024b553"
+gsap@1.19.0:
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-1.19.0.tgz#f36b78c6b1a449028d89efbb4c161db29f5991dd"
 
 handle-thing@^1.2.4:
   version "1.2.5"
@@ -4921,10 +4921,11 @@ supports-color@^3.1.0, supports-color@^3.1.1, supports-color@^3.2.3:
   dependencies:
     has-flag "^1.0.0"
 
-svg-react-loader@0.3.7:
+svg-react-loader@jhamlet/svg-react-loader#67/merge:
   version "0.3.7"
-  resolved "https://registry.yarnpkg.com/svg-react-loader/-/svg-react-loader-0.3.7.tgz#a88a92a6349260f599f922ac6def7753787b9216"
+  resolved "https://codeload.github.com/jhamlet/svg-react-loader/tar.gz/fe82c597850f2b425bdbaa37b3bfa18b40332685"
   dependencies:
+    create-react-class "^15.5.2"
     loader-utils "^0.2"
     lodash "^4.12.0"
     xml2js "^0.4"
