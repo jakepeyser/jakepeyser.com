@@ -203,8 +203,7 @@ export default class Zipper extends React.Component {
             </clipPath>
           </defs>
 
-          {
-            // Message displayed when unzipped
+          { // Message displayed when unzipped
             this.props.message ?
               <text x={ midway } y={ text.height }
                 textAnchor="middle" fontSize={ text.fontSize }
