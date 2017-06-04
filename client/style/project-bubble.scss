@@ -56,7 +56,7 @@
       > .i-#{$name} {
         @extend .bubble-child;
         position: absolute;
-        background: url("#{$AMAZON_S3_IMAGES}#{$name}/icon.png");
+        background: url("#{$AMAZON_S3_IMAGES}#{$name}/icon.svg");
         background-size: $icon-size;
         background-repeat: no-repeat;
         background-position: center;
@@ -121,7 +121,7 @@
 		$bubbles: (
       ( 0, 50px, 5px 5px, 2px ),
       ( $sm, 60px, 7px 7px, 2px ),
-      ( $md, 75px, 10px 10px, 3px )
+      ( $md, 75px, 10px 10px, 2px )
     );
 		@include make-project-bubbles($bubbles);
     transition: $project-select-transition;
