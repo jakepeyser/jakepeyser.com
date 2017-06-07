@@ -31,7 +31,7 @@ export default class Portfolio extends React.Component {
   }
 
   render() {
-    const fullView = this.props.location.pathname === '/projects'
+    const fullView = this.props.location.pathname === '/portfolio'
     const portfolioClass = classNames('portfolio', { 'portfolio--sm': !fullView })
     return (
       <div id="portfolio" className={ portfolioClass }>

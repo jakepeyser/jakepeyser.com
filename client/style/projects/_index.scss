@@ -1,0 +1,11 @@
+// Fix project content at top of view
+.fix-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: inherit;
+}
+
+@import "banner";
+@import "project";

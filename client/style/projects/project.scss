@@ -10,85 +10,13 @@
   perspective: 1px;
   overflow-x: hidden;
   overflow-y: scroll;
-  > .project-banner, > .project-content {
-    position: absolute;
-    width: inherit;
-  }
 }
 
-// Dynamic size of project banner
-.banner-height {
-  height: 400px;
-  @media (max-width: $sm) {
-    height: 250px;
-    margin-top: 64px;
-  }
-}
-
-
-.project-banner {
-  transform: translateZ(-1px) scale(2);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  @each $name, $icon-size in $projects { // banner background images
-    > .bg-#{$name} {
-      width: 100%;
-      @extend .banner-height;
-      background: url("#{$AMAZON_S3_IMAGES}#{$name}/banner.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-  }
-}
-
-.project-content {
+.project__content {
+  @extend .fix-content;
   transform: translateZ(0);
-  top: 0;
-  right: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
-}
-
-.project-title-wrapper {
-  @extend .banner-height;
-  align-items: center;
-  justify-content: center;
-  @media (max-width: $sm) {
-    align-items: flex-start;
-  }
-  > .project-title-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: $headers;
-    background-color: rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, .85);
-    $banners: (
-      ( 0, 100%, 15px 0, 600, 1.8em ),
-      ( $sm, 300px, 20px, 600, 2em ),
-      ( $md, 300px, 20px, 600, 2.5em )
-    );
-    @each $size in $banners {
-        @media (min-width: nth($size, 1)) {
-          min-width: nth($size, 2);
-          padding: nth($size, 3);
-          > h1 {
-            margin: 0;
-            font-weight: nth($size, 4);
-            font-size: nth($size, 5);
-          }
-        }
-      }
-    .links { // project links
-      margin-top: 8px;
-      > a + a {
-        margin-left: 10px;
-      }
-    }
-  }
 }
 
 .sections-wrapper {

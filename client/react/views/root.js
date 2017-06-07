@@ -29,8 +29,8 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App} onEnter={onAppEnter}>
       <Route path="/home" component={Home} />
-      <Route path="/projects" component={Portfolio}>
-        <Route path="/projects/:projectName" component={Project} onEnter={validProject}/>
+      <Route path="/portfolio" component={Portfolio}>
+        <Route path="/portfolio/:projectName" component={Project} onEnter={validProject}/>
       </Route>
       <Route path="/resume" component={Resume} />
       <Route path="/contact" component={Contact} />

@@ -7,7 +7,7 @@ export default ({ name, filename, small, bubbleHover }) => {
   const bubbleIconClass = classNames('project-bubble__icon', `i-${filename}`)
   const bubbleTextClass = classNames('project-bubble__text', { 'project-bubble__text--sm': small })
   return (
-    <Link to={`/projects/${filename}`}
+    <Link to={`/portfolio/${filename}`}
       className={ bubbleClass }
       data-project={ filename }
       activeClassName="project-bubble--active"
