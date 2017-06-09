@@ -1,24 +1,15 @@
 /* eslint-disable no-unused-vars, no-fallthrough*/
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const SitemapPlugin = require('sitemap-webpack-plugin');
-const merge = require('webpack-merge');
-
-// Projects in my portfolio
-const projects = [
-  'capital-weather',
-  'parachute-teachers',
-  'real-time-tone-analysis',
-  'runkeeper-hashmatch',
-  'steps'
-];
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const SitemapPlugin = require('sitemap-webpack-plugin')
+const merge = require('webpack-merge')
 
 // Init common paths used by config
-const path = require('path');
+const path = require('path')
 const PATHS = {
   app: path.join(__dirname, 'client/react/views', 'root.js'),
   build: path.join(__dirname, 'build/'),
@@ -26,7 +17,7 @@ const PATHS = {
   stylesheets: path.join(__dirname, 'client/style', 'style.scss'),
   logo: path.join(__dirname, 'client/assets', 'logo.png'),
   html_template: path.join(__dirname, 'client/assets', 'index.html')
-};
+}
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
@@ -46,16 +37,17 @@ let htmlTemplate = {
   template: PATHS.html_template
 }
 
-// Desginate sitemap paths
+// Designate sitemap paths
+import projects from './client/projects'
 const sitePaths = [
   '/home',
   '/portfolio',
   '/resume',
   '/contact'
-];
-projects.forEach(project => {
-  sitePaths.push(`/portfolio/${project}`);
-})
+]
+for (let project in projects) {
+  sitePaths.push(`/portfolio/${projects[project].filename}`)
+}
 
 // Standard build artifacts for all envs
 const common = {

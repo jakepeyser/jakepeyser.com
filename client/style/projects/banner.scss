@@ -1,0 +1,62 @@
+// Dynamic size of project banner
+.banner-height {
+  height: 400px;
+  @media (max-width: $sm) {
+    height: 250px;
+    margin-top: 64px;
+  }
+}
+
+.project__banner {
+  @extend .fix-content;
+  transform: translateZ(-1px) scale(2);
+  bottom: 0;
+  @each $name, $icon-size in $projects { // banner background images
+    > .project__banner--bg-#{$name} {
+      width: 100%;
+      @extend .banner-height;
+      background: url("#{$AMAZON_S3_IMAGES}#{$name}/banner.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.project__title-wrapper {
+  @extend .banner-height;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: $sm) {
+    align-items: flex-start;
+  }
+  > .project__title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: $headers;
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, .85);
+    $banners: (
+      ( 0, 100%, 15px 0, 600, 1.8em ),
+      ( $sm, 300px, 20px, 600, 2em ),
+      ( $md, 300px, 20px, 600, 2.5em )
+    );
+    @each $size in $banners {
+        @media (min-width: nth($size, 1)) {
+          min-width: nth($size, 2);
+          padding: nth($size, 3);
+          > h1 {
+            margin: 0;
+            font-weight: nth($size, 4);
+            font-size: nth($size, 5);
+          }
+        }
+      }
+    .project__links { // project links
+      margin-top: 8px;
+      > a + a {
+        margin-left: 10px;
+      }
+    }
+  }
+}

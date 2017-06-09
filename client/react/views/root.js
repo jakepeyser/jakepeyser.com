@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
-import { getProject } from '../utils';
+import { existingProject } from '../utils';
 
 // React views
 import App from './App';
@@ -21,7 +21,7 @@ const onAppEnter = (nextState, replace) => {
   if (nextState.location.pathname === '/') replace('/home');
 };
 const validProject = (nextState, replace) => {
-  if (!getProject(nextState.params.projectName))
+  if (!existingProject(nextState.params.projectName))
     replace('/invalid-project');
 };
 
@@ -29,8 +29,8 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App} onEnter={onAppEnter}>
       <Route path="/home" component={Home} />
-      <Route path="/projects" component={Portfolio}>
-        <Route path="/projects/:projectName" component={Project} onEnter={validProject}/>
+      <Route path="/portfolio" component={Portfolio}>
+        <Route path="/portfolio/:projectName" component={Project} onEnter={validProject}/>
       </Route>
       <Route path="/resume" component={Resume} />
       <Route path="/contact" component={Contact} />

@@ -4,6 +4,24 @@
 	border-radius: inherit;
 }
 
+// active/hover states for small bubbles
+.active-icon {
+  border-color: $active;
+  box-shadow: 0 10px 12px 0px rgba(0, 0, 0, 0.3);
+  transform: translatey(-5px);
+  > .project-bubble__wrapper {
+    > .project-bubble__icon {
+      filter: brightness(0) invert(90%);
+      z-index: 1;
+    }
+    .project-bubble__text-wrapper {
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, .75);
+      opacity: 1;
+    }
+  }
+}
+
 @mixin make-project-bubbles ($bubbles) {
   @each $size in $bubbles {
 			// Media queries for screen sizes and handheld landscape mode
@@ -36,16 +54,24 @@
   color: inherit;
   -webkit-text-fill-color: inherit;
 
-  // Large bubbles floating animation
-  animation: 2s infinite border-pulse;
-  &:hover {
-    animation: none;
-    border-color: $active;
-  }
-  @keyframes border-pulse {
-    0%   {border-color: $borders}
-    50%  {border-color: $active}
-    100% {border-color: $borders}
+  // Large bubbles floating animations
+  animation: float 5s ease-in-out infinite;
+  @keyframes float {
+    0%   {
+      border-color: $borders;
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+    50%  {
+      border-color: $active;
+      box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+      transform: translatey(-10px);
+    }
+    100% {
+      border-color: $borders;
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
   }
 
   > .project-bubble__wrapper {
@@ -133,42 +159,27 @@
       margin-right: 0
     }
 
-    .active-text {
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, .75);
-      opacity: 1;
-    }
-
     // hover on small bubble colored icons
-		&:hover > .project-bubble__wrapper {
-			> .project-bubble__icon {
-				@media (max-width: $md) {
-					filter: brightness(0) invert(90%);
-					z-index: 1;
-				}
-			}
-			> .project-bubble__text-wrapper {
-        @extend .active-text;
-				cursor: pointer;
-			}
-		}
+		&:hover:not(.project-bubble--active) {
+      @extend .active-icon;
+      > .project-bubble__wrapper {
+        > .project-bubble__icon {
+          @media (min-width: $md) {
+            filter: none;
+            z-index: 0;
+          }
+        }
+        > .project-bubble__text-wrapper {
+          cursor: pointer;
+        }
+      }
+    }
 
     // currently selected project
     &.project-bubble--active {
-      border-color: $active;
-      .project-bubble__wrapper {
-        > .project-bubble__icon {
-          @media (max-width: $md), (max-height: $md) {
-            filter: brightness(0) invert(90%);
-            z-index: 1;
-          }
-        }
-        .project-bubble__text-wrapper {
-          @extend .active-text;
-          filter: none;
-          color: $text-light;
-          -webkit-text-fill-color: $text-light;
-        }
+      @extend .active-icon;
+      span {
+        opacity: 0;
       }
     }
   }
