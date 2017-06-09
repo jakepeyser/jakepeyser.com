@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import ProjectBubble from '../components/ProjectBubble'
 import classNames from 'classnames'
-import projects from '../data/projects'
+import projects from '../components/projects'
 import { getStaticResourceLink } from '../utils'
 
 export default class Portfolio extends React.Component {
@@ -39,14 +39,17 @@ export default class Portfolio extends React.Component {
         <div className="project-bubbles__wrapper">
           <div className="project-bubbles__bg" />
           <div className="project-bubbles">
-          {projects.map(project =>
-            <ProjectBubble key={ project.id }
-              name={ project.name }
-              filename={ project.filename }
-              small={ !fullView }
-              bubbleHover={ this.preloadProjectImage }
-            />
-          )}
+          {Object.keys(projects).map(key => {
+            let project = projects[key]
+            return (
+              <ProjectBubble key={ key }
+                name={ project.name }
+                filename={ project.filename }
+                small={ !fullView }
+                bubbleHover={ this.preloadProjectImage }
+              />
+            )
+          })}
           </div>
         </div>
         { this.props.children }

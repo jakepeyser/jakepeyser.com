@@ -19,31 +19,8 @@ body,html {
   display: flex;
   flex-direction: column;
   font-family: $primary, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1.5;
   color: $text-dark;
-}
-
-button {
-  height: 3em;
-  width: 8em;
-  background-color: inherit;
-  border: 3px solid $borders;
-  font-size: .9em;
-  font-weight: 500;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-
-button:hover {
-  background-color: $borders;
-  color: $text-light;
-  -webkit-text-fill-color: $text-light;
-  cursor: pointer;
-}
-
-button:focus {
-  outline: none;
 }
 
 #app {
@@ -86,4 +63,29 @@ button:focus {
 #content > div {
   min-height: inherit;
   width: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: $headers;
+}
+
+button {
+  height: 3em;
+  width: 8em;
+  background-color: inherit;
+  border: 3px solid $borders;
+  font-size: .9em;
+  font-weight: 500;
+  transition: all 0.2s linear;
+}
+
+button:hover {
+  background-color: $borders;
+  color: $text-light;
+  -webkit-text-fill-color: $text-light;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }

@@ -38,14 +38,16 @@ let htmlTemplate = {
 }
 
 // Designate sitemap paths
-import projects from './client/react/data/projects'
+import projects from './client/react/components/projects'
 const sitePaths = [
   '/home',
   '/portfolio',
   '/resume',
   '/contact'
-];
-projects.forEach(project => sitePaths.push(`/portfolio/${project.filename}`))
+]
+for (let project in projects) {
+  sitePaths.push(`/portfolio/${projects[project].filename}`)
+}
 
 // Standard build artifacts for all envs
 const common = {
