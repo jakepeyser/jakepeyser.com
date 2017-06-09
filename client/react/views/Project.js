@@ -1,11 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import ProjectComponents from '../components/project'
+const { ProjectSummary, ProjectImages } = ProjectComponents
 import Icon from '../components/icons/Icon'
-import projects from '../components/projects'
+import projects from '../../projects'
 
 export default ({ params }) => {
   const project = projects[params.projectName]
-  const Project = project.component
   return (
     <div id="project">
       <Helmet title={ project.name } />
@@ -25,31 +26,12 @@ export default ({ params }) => {
         </div>
         <div className="project__content">
           <div className="project__content-buffer">
-            <div className="project__summary">
-              <h2>Project Summary</h2>
-              <table>
-                <tbody>
-                {Object.keys(project.summary).map(key => {
-                  const value = typeof project.summary[key] === 'string'
-                    ? project.summary[key].slice(0, 4) === 'http'
-                      ? `<a href=${project.summary[key]} target="_blank"}>${project.summary[key]}</a>`
-                      : project.summary[key]
-                    : project.summary[key].join(', ')
-                  return (
-                    <tr key={ key } className="project__summary-row">
-                      <td>{ key }:</td>
-                      <td dangerouslySetInnerHTML={{ __html: value }}></td>
-                    </tr>
-                  )
-                })}
-                </tbody>
-              </table>
-            </div>
+            <ProjectSummary summary={ project.summary } />
             <div className="project__background">
-              <h2>Project Summary</h2>
+              <h2>Background</h2>
               <p>{ project.background }</p>
             </div>
-            <Project />
+            <ProjectImages projectName={ project.filename } images={ project.images } />
           </div>
         </div>
       </div>

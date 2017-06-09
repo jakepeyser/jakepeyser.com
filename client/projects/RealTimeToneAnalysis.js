@@ -1,7 +1,4 @@
 /* eslint-disable max-len */
-import React from 'react'
-import { getStaticResourceLink } from '../../utils'
-
 export default {
   name: 'Real Time Tone Analysis',
   filename: 'real-time-tone-analysis',
@@ -18,10 +15,6 @@ export default {
     Technology: ['Node.js', 'Socket.io', 'Watson Speech-to-Text', 'Watson Tone Analyzer', 'Bluemix', 'Smoothie Charts']
   },
   background: 'This project initially started as the brainchild of my colleague, Anton, and ultimately evolved into a joint project. Working for a Fortune 500 company comes with its fair share of stress and sometimes this manifests itself in an intense exchange of words during a meeting. He thought it would be useful if there was a way to track the tone of your language in order to alert you when you express excessive anger or frustration. After sharing his idea with our small team, we set to work on an app that automatically transcribes your speech and can plot the tone of the conversation in real time. Using IBM Watson services, we built the app and used an open source charting library to display the tone results in a beautiful, streaming graph. Our main goal is for the app to encourage individuals to be conscious of their tone as they go about their day. We also found the app to be a good introduction to Watson\'s language parsing technologies and built a workshop around it, helping introduce client developers to Node.js, cognitive apps, and microservices.',
-  component: () =>
-    <div className="project__images">
-      <img src={ getStaticResourceLink('images/real-time-tone-analysis/screenshot.png') } alt="Audio Transcription" />
-      <img src={ getStaticResourceLink('images/real-time-tone-analysis/mobile.png') } alt="Document Tone Analysis Chart" />
-    </div>
+  images: ['transcription.png', 'emotion_tone_chart.gif', ['metadata.png', 'alternate_hypotheses.png']]
 }
 

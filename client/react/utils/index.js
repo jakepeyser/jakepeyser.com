@@ -1,4 +1,4 @@
-import projects from '../components/projects'
+import projects from '../../projects'
 import { AMAZON_S3_BUCKET } from './constants'
 
 export const getStaticResourceLink = filename =>

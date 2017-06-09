@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import ProjectBubble from '../components/ProjectBubble'
 import classNames from 'classnames'
-import projects from '../components/projects'
+import projects from '../../projects'
 import { getStaticResourceLink } from '../utils'
 
 export default class Portfolio extends React.Component {

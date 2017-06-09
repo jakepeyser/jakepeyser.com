@@ -38,7 +38,7 @@ let htmlTemplate = {
 }
 
 // Designate sitemap paths
-import projects from './client/react/components/projects'
+import projects from './client/projects'
 const sitePaths = [
   '/home',
   '/portfolio',
