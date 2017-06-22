@@ -1,59 +1,25 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import ProjectBubble from '../components/ProjectBubble'
-import classNames from 'classnames'
+import BubbleCarousel from '../components/bubbles/BubbleCarousel'
 import projects from '../../projects'
-import { getStaticResourceLink } from '../utils'
+import classNames from 'classnames'
 
-export default class Portfolio extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      loadedProjects: []
-    }
-    this.preloadProjectImage = this.preloadProjectImage.bind(this)
+export default ({ location, children }) => {
+  const fullView = location.pathname === '/portfolio'
+  const portfolioClass = classNames('portfolio', { 'portfolio--sm': !fullView })
+
+  // If on a project page, determine what index the bubble will be
+  let projectIndex
+  if (location.pathname.slice(-9) !== 'portfolio') {
+    let curProject = location.pathname.slice(location.pathname.lastIndexOf('/') + 1)
+    projectIndex = Object.keys(projects).indexOf(curProject) + 1
   }
 
-  // When hovering over a project bubble, preload images to improve performance
-  preloadProjectImage({ target }) {
-    // Bubble up to link wrapper if needed
-    while (target.nodeName !== 'A') {
-      target = target.parentNode
-    }
-
-    // Load corresponding project's images if not yet loaded
-    let project = target.dataset.project
-    if (!this.state.loadedProjects.includes(project)) {
-      const projectBanner = new Image()
-      projectBanner.src = getStaticResourceLink(`images/${project}/banner.png`)
-      this.setState({ loadedProjects: [...this.state.loadedProjects, project] })
-    }
-  }
-
-  render() {
-    const fullView = this.props.location.pathname === '/portfolio'
-    const portfolioClass = classNames('portfolio', { 'portfolio--sm': !fullView })
-    return (
-      <div id="portfolio" className={ portfolioClass }>
-        <Helmet title="Portfolio" />
-        <div className="project-bubbles__wrapper">
-          <div className="project-bubbles__bg" />
-          <div className="project-bubbles">
-          {Object.keys(projects).map(key => {
-            let project = projects[key]
-            return (
-              <ProjectBubble key={ key }
-                name={ project.name }
-                filename={ project.filename }
-                small={ !fullView }
-                bubbleHover={ this.preloadProjectImage }
-              />
-            )
-          })}
-          </div>
-        </div>
-        { this.props.children }
-      </div>
-    )
-  }
+  return (
+    <div id="portfolio" className={ portfolioClass }>
+      <Helmet title="Portfolio" />
+      <BubbleCarousel active={ !fullView } projectIndex={ projectIndex } />
+      { children }
+    </div>
+  )
 }

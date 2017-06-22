@@ -67,7 +67,7 @@
             &:first-child { padding-left: 0; }
             &:last-child { padding-right: 0; }
           }
-          @media (max-width: $sm) {
+          @media (max-width: $md) {
             flex-direction: column;
             .project__images--wrapper { padding: 0; }
           }
