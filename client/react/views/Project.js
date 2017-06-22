@@ -17,11 +17,13 @@ export default ({ params }) => {
         <div className="project__title-wrapper">
           <div className="project__title">
             <h1 className="project__name">{project.name}</h1>
-            <div className="project__links">
-            {project.links && project.links.map(link => {
-              return <Icon key={ link.url } icon={ link.type } link={ link.url } size="2" />
-            })}
-            </div>
+            {project.links && project.links.length ?
+              <div className="project__links">
+              {project.links.map(link => {
+                return <Icon key={ link.url } icon={ link.type } link={ link.url } size="2" />
+              })}
+              </div> : null
+            }
           </div>
         </div>
         <div className="project__content">

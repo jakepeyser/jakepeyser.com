@@ -8,7 +8,7 @@ export default {
   summary: {
     Companies: ['IBM', 'Runkeeper'],
     Description: 'Discovers the running hashtag most aligned with your personality',
-    Date: 'Winter 2015',
+    Date: 'Winter 2016',
     Responsibility: 'Updated back end to accommodate matching against aggregated profiles instead of individual accounts. Extended front end of app beyond just personality comparisons. Scraped Twitter for popular hashtags related to running',
     Technology: ['Node.js', 'Jade', 'Twitter API', 'Watson Personality Insights API', 'MongoDB', 'Bluemix']
   },

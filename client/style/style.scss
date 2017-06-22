@@ -46,7 +46,6 @@ body,html {
 
 #content-wrapper, #content-wrapper  * {
   display: flex;
-	text-decoration: none;
 }
 
 #content-wrapper {
@@ -67,6 +66,12 @@ body,html {
 
 h1, h2, h3, h4 {
   font-family: $headers;
+}
+
+a {
+  text-decoration: none;
+  color: $link;
+  &:hover { color: $hover; }
 }
 
 button {

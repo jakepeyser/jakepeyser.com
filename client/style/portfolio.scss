@@ -8,18 +8,23 @@
     min-height: $small-screen;
   }
 
-	.project-bubbles__wrapper {
+	.project-bubbles__carousel {
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		background: $foreground;
 		width: 100%;
+		background: $foreground;
 		min-height: $large-screen;
 		@media screen and (max-width: $md) {
 			min-height: $small-screen;
 		}
+	}
+
+	.project-bubbles__wrapper {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
 		> .project-bubbles__bg {
 			position: absolute;
 			top: 0;
@@ -51,11 +56,12 @@
 		left: 0;
 		z-index: 4;
 		transition: $project-select-transition;
-		.project-bubbles__wrapper {
+
+		> .project-bubbles__carousel {
 			// Small panel sizes
 			$panels: (
 				( 0, 100%, 70px, 0, 0px ),
-				( $sm, 80%, 85px, 10px, 1px ),
+				( $sm, 400px, 85px, 10px, 1px ),
 				( $md, 500px, 100px, 15px, 1px )
 			);
 			@each $size in $panels {
@@ -81,6 +87,57 @@
 			z-index: 2;
 			margin-top: -1px;
 			transition: $project-select-transition;
+			@mixin project-scroller($dir, $carrot) {
+				position: absolute;
+				z-index: 2;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 25px;
+				background: linear-gradient($dir, rgba(0, 0, 0, .3), transparent);
+				color: rgba(255, 255, 255, .8);
+  			-webkit-text-fill-color: rgba(255, 255, 255, .8);
+				font-size: 22px;
+				transition: opacity 0.3s ease-out;
+				cursor: pointer;
+				&:after {
+					position: inherit;
+					display: inherit;
+					justify-content: inherit;
+					align-items: inherit;
+					content: $carrot;
+					opacity: 0;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border-radius: inherit;
+				  background: linear-gradient($dir, rgba(0, 0, 0, .5), rgba(0, 0, 0, .3) 50%, transparent);
+					transition: inherit;
+				}
+				&:hover:after {
+					opacity: 1;
+				}
+				@media screen and (max-width: $sm) {
+					width: 30px;
+					font-size: 24px;
+				}
+			}
+			> .project-bubbles__scroll--left {
+				@include project-scroller(to right, '<');
+				border-bottom-left-radius: inherit;
+			}
+			> .project-bubbles__scroll--right {
+				@include project-scroller(to left, '>');
+				right: 0;
+				border-bottom-right-radius: inherit;
+			}
+		}
+
+		.project-bubbles__wrapper {
+			align-items: flex-start;
+			overflow: scroll;
 			> .project-bubbles__bg {
 				opacity: 0;
 				transition: $project-select-transition;
@@ -93,6 +150,8 @@
 				overflow-x: scroll;
 				overflow-y: hidden;
 				padding: 0 10px;
+				height: 100%;
+				transition: margin-left .4s linear;
 			}
 		}
 	}
