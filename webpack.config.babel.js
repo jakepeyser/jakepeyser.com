@@ -2,6 +2,7 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+var WebpackMd5Hash = require('webpack-md5-hash')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -70,8 +71,9 @@ const common = {
   },
   plugins: [
     new ExtractTextPlugin('[name].[chunkhash].css'),
+    new WebpackMd5Hash(),
     new CleanWebpackPlugin( // remove old build before each bundling
-      [ PATHS.build ],
+      [PATHS.build],
       { root: process.cwd() }
     )
   ],
@@ -87,9 +89,9 @@ const common = {
         use: process.env.NODE_ENV === 'production'
           ? ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: [ 'css-loader', 'sass-loader' ]
+            use: ['css-loader', 'sass-loader']
           })
-          : [ 'style-loader', 'css-loader', 'sass-loader' ],
+          : ['style-loader', 'css-loader', 'sass-loader'],
         include: PATHS.stylesheets
       },
       { // Inline SVGs where required in components

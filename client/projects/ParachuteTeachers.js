@@ -14,6 +14,8 @@ export default {
     Technology: ['Python', 'Flask', 'React', 'Redux', 'PostgreSQL', 'Travis CI', 'Heroku']
   },
   background: 'In early 2016, I contributed to the development of a platform for an early-stage education startup out of Boston. What began as a way to enhance my Python skills and learn a new JavaScript framework led to a keen interest in the problem we were trying to solve. Our goal was to revolutionize the substitute management space, providing a modern system for school districts and knocking down the barriers that prevent community members from substitute teaching.',
-  images: ['teacher_search_results.png']
+  images: [
+    { file: 'teacher_search_results.png', desc: 'Search for relevant teachers available in your school district' }
+  ]
 }
 

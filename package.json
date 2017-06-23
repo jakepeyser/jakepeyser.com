@@ -62,6 +62,7 @@
     "svg-react-loader": "jhamlet/svg-react-loader#67/merge",
     "webpack": "2.5.1",
     "webpack-dev-server": "2.4.5",
+    "webpack-md5-hash": "^0.0.5",
     "webpack-merge": "4.1.0"
   }
 }
