@@ -81,7 +81,8 @@
               padding: 10px 15px;
               width: calc(100% - 2 * calc(5px + 1vw));
               text-align: center;
-              color: white;
+              color: $text-dark;
+              -webkit-text-fill-color: $text-light;
               line-height: 18px;
               font-size: 14px;
               transition: $image-transition;
