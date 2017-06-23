@@ -14,6 +14,14 @@ export default {
     Technology: ['React', 'Redux', 'Node.js', 'PostgreSQL', 'Travis CI', 'Heroku', 'Socket.io', 'D3.js', 'Material-UI', 'Sketch']
   },
   background: 'Steps offers a suite of digital tools for patients to better engage in their treatments. Treatment plans and exercises are easily accessed via mobile with helpful videos and clear information. Patients can log their treatment workouts and see their improvement over time, including pain metrics on specific exercises. There\'s even real-time chat, allowing patients to bring urgent issues to their therapist\'s attention and overall feel more engaged in the treatment process. On the therapist\'s view, Steps provides real-time insight into patients\' improvement (or lack thereof), putting a new spin on the "how has it been going question?" during follow-up appointments. Therapists can also easily create new exercises for their patients and new treatment plans, as well as view a multitude of practice information, including current plans, historical plans, and aggregated analytics about the effectiveness of their treatments.',
-  images: ['exercise_view.png', 'patient_list.png', ['plan_view.png', 'workout_view.png'], 'patient_view.png']
+  images: [
+    { file: 'exercise_view.png', desc: 'Patients can see detailed information for all of their exercises, as well as personalized instructional videos' },
+    { file: 'patient_list.png', desc: 'Therapists see a grid view of all their patients' },
+    [
+      { file: 'plan_view.png', desc: 'A patient\s plan lists all their exercises and the current day\'s completion status' },
+      { file: 'workout_view.png', desc: 'After each exercise, a patient logs the level of pain they are still experiencing' }
+    ],
+    { file: 'patient_view.png', desc: 'Using patients\' exercise logs, therapists can get a better sense of their recovery progress' }
+  ]
 }
 

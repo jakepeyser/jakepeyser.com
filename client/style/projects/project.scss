@@ -51,10 +51,44 @@
           justify-content: center;
           margin-bottom: calc(20px + 1vw);
           a {
+            $image-transition: all .3s ease-out;
+            $image-padding: calc(5px + 1vw);
+            position: relative;
             display: block !important;
-            padding: calc(5px + 1vw);
+            padding: $image-padding;
             border: 1px solid $borders-body;
-            img { max-width: 100%; }
+            transition: $image-transition;
+            &:hover {
+              transform: scale(1.025);
+              border-color: transparent;
+              background: rgba(0, 0, 0, .2);
+              .project__images--description {
+                opacity: 1;
+                background: rgba(0, 0, 0, .6);
+              }
+            }
+            img {
+              max-width: 100%;
+            }
+            .project__images--description {
+              position: absolute;
+              bottom: 0;
+              opacity: 0;
+              box-sizing: border-box;
+              display: flex;
+              justify-content: center;
+              margin-bottom: $image-padding;
+              padding: 10px 15px;
+              width: calc(100% - 2 * calc(5px + 1vw));
+              text-align: center;
+              color: white;
+              line-height: 18px;
+              font-size: 14px;
+              transition: $image-transition;
+              @media (max-width: $md) {
+                font-size: 12px;
+              }
+            }
           }
         }
         .project__images--row {

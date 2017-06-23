@@ -13,6 +13,12 @@ export default {
     Technology: ['Node.js', 'Express', 'React', 'Redux', 'GitHub API', 'Travis CI', 'Heroku']
   },
   background: 'As a way to experiment with the GitHub API, I created an advanced repository search and filtering tool.',
-  images: ['home_login.png', ['search_react.png', 'search_vue.png']]
+  images: [
+    { file: 'home_login.png', desc: 'Authenticate with your GitHub account using OAuth' },
+    [
+      { file: 'search_react.png', desc: 'Search for repos by primary language' },
+      { file: 'search_vue.png', desc: 'Search for repos by owner username' }
+    ]
+  ]
 }
 
