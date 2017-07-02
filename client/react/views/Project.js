@@ -31,7 +31,7 @@ export default ({ params }) => {
             <ProjectSummary summary={ project.summary } />
             <div className="project__background">
               <h2>Background</h2>
-              <p>{ project.background }</p>
+              {project.background.split('\n').map(text => <p>{ text }</p>)}
             </div>
             <ProjectImages projectName={ project.filename } images={ project.images } />
           </div>

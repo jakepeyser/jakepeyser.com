@@ -12,7 +12,7 @@ export default {
     URL: 'https://git-lucky-search.herokuapp.com/',
     Technology: ['Node.js', 'Express', 'React', 'Redux', 'GitHub API', 'Travis CI', 'Heroku']
   },
-  background: 'As a way to experiment with the GitHub API, I created an advanced repository search and filtering tool.',
+  background: 'As a way to experiment with the GitHub API, I created an advanced repository search and filtering tool. The search tool allows users to query repositories by name with the added ability of filtering by owner, creation date, or primary language.',
   images: [
     { file: 'home_login.png', desc: 'Authenticate with your GitHub account using OAuth' },
     [
