@@ -4,6 +4,7 @@ import projects from '../../../projects'
 import { getStaticResourceLink } from '../../utils'
 
 // Constants
+const BUBBLE_SCROLL_DURATION = 250
 const numProjects = Object.keys(projects).length
 const getBubbleSize = () => {
   const { clientWidth } = document.documentElement
@@ -88,15 +89,62 @@ class BubbleCarousel extends React.Component {
   // Calculate needed scroll offset based on initial select project
   setScroll(projectIndex) {
     setTimeout(() => {
-      this.refs.bubbles.scrollLeft = projectIndex > 5 ? (projectIndex - 5) * this.state.bubbleSize : 0
+      const scrollIncrements = projectIndex > 5 ? projectIndex - 5 : 0
+      const scrollTarget = scrollIncrements * this.state.bubbleSize
+      const scrollDuration = scrollIncrements * BUBBLE_SCROLL_DURATION
+      this.scroll(scrollTarget, scrollDuration)
     }, 800)
   }
 
+  // Rotate the carousel one bubble
   rotate(left) {
     const { scrollLeft } = this.refs.bubbles
     const roundFunc = left ? Math.floor : Math.ceil
     const curScroll = left ? scrollLeft - 1 : scrollLeft + 1
-    this.refs.bubbles.scrollLeft = roundFunc(curScroll / this.state.bubbleSize) * this.state.bubbleSize
+    const scrollTarget = roundFunc(curScroll / this.state.bubbleSize) * this.state.bubbleSize
+    this.scroll(scrollTarget, BUBBLE_SCROLL_DURATION)
+  }
+
+  // Smooth scroll the carousel to the specified target
+  scroll(target, duration) {
+    const startTime = Date.now()
+    const endTime = startTime + duration
+
+    let previousLeft
+    const startLeft = previousLeft = this.refs.bubbles.scrollLeft
+
+    // Scroll a single frame
+    const scrollFrame = () => {
+      // Allow previous scroll (if any) to complete first
+      if (this.refs.bubbles.scrollLeft !== previousLeft) return
+
+      // Calculate the scrollLeft for this frame
+      let point
+      const now = Date.now()
+      if (now <= startTime) point = 0
+      else if (now >= endTime) point = 1
+      else {
+        const x = (now - startTime) / (endTime - startTime)
+        point = x * x * (3 - 2 * x)
+      }
+
+      // Scroll the the next calculated frame
+      const distance = target - startLeft
+      const frameLeft = Math.round(startLeft + distance * point)
+      this.refs.bubbles.scrollLeft = frameLeft
+
+      // Check if we're done or we were supposed to scroll but hit the limit
+      // Otherwise, go reset previous scroll value
+      const scrollPos = this.refs.bubbles.scrollLeft
+      if (now >= endTime || scrollPos === previousLeft && scrollPos !== frameLeft) return
+      previousLeft = scrollPos
+
+      // Schedule next frame for execution
+      setTimeout(scrollFrame, 0);
+    }
+
+    // Begin the animation process
+    scrollFrame()
   }
 
   // When hovering over a project bubble, preload images to improve performance
