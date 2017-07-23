@@ -1,0 +1,63 @@
+// Dynamic size of about banner
+.about-banner-height {
+  height: 500px;
+  @media (max-width: $sm) {
+    height: 300px;
+  }
+}
+
+#about {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: flex-start;
+  // Lock perspective and render children relative to fixed
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  .about__banner {
+    @extend .fix-content;
+    transform: translateZ(-1px) scale(2);
+    bottom: 0;
+    > .about__banner--bg {
+      width: 100%;
+      @extend .about-banner-height;
+      background: url("#{$AMAZON_S3_IMAGES}wallpaper/about.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      @media (max-width: $xl) {
+        background-position: center bottom;
+      }
+    }
+  }
+  .about__wrapper {
+    @extend .fix-content;
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column;
+    .about__title-wrapper {
+      @extend .about-banner-height;
+    }
+    .about__content {
+      justify-content: center;
+      border-top: 1px solid $borders-body;
+      background: $background;
+      > .about__content-buffer {
+        display: flex;
+        flex-direction: column;
+        max-width: $xl;
+        width: 90%;
+        > * {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
