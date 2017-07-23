@@ -1,6 +1,7 @@
 node_modules
 build/
 stats.json
+.vscode
 .DS_STORE
 *.log
 .env
