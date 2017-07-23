@@ -9,7 +9,8 @@
 #about {
   position: absolute;
   top: 0;
-  height: 100%;
+  left: 0;
+  height: calc(100% - #{$footer});
   width: 100%;
   align-items: center;
   align-content: flex-start;
@@ -43,19 +44,51 @@
       @extend .about-banner-height;
     }
     .about__content {
-      justify-content: center;
-      border-top: 1px solid $borders-body;
+      flex-direction: column;
       background: $background;
-      > .about__content-buffer {
-        display: flex;
-        flex-direction: column;
-        max-width: $xl;
-        width: 90%;
-        > * {
-          display: flex;
+      > .about__section {
+        justify-content: center;
+        padding: 25px 0;
+        > .about__section--wrapper {
           flex-direction: column;
-          margin-bottom: 50px;
-          width: 100%;
+          max-width: $xl;
+          width: 90%;
+          > h2 {
+            margin: 0 0 20px;
+            font-weight: 500;
+            font-size: 2em;
+          }
+          p {
+            margin: 0;
+          }
+        }
+        &:nth-child(even) {
+          background: $foreground;
+        }
+        .about__intro {
+          > .about__intro--headline {
+            min-width: 33%;
+            margin-right: 25px;
+            text-align: right;
+            font-family: $headers;
+            font-size: 1.2em;
+          }
+          > .about__intro--body {
+            flex-direction: column;
+            p + p {
+              margin-top: 20px;
+            }
+          }
+          @media (max-width: $md) {
+            flex-direction: column;
+            > .about__intro--headline {
+              margin-right: 0;
+              text-align: initial;
+            }
+            > .about__intro--body {
+              margin-top: 20px;
+            }
+          }
         }
       }
     }
