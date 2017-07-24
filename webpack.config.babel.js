@@ -70,7 +70,7 @@ const common = {
     }
   },
   plugins: [
-    new ExtractTextPlugin('[name].[chunkhash].css'),
+    new ExtractTextPlugin('[name].[contenthash].css'),
     new WebpackMd5Hash(),
     new CleanWebpackPlugin( // remove old build before each bundling
       [PATHS.build],
