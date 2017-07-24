@@ -7,7 +7,9 @@ const AboutSkill = ({ icon, title, link }) =>
       <Icon icon={icon} />
     </div>
     <div className="about__skill--overlay">
-      <span>{title}</span>
+      <div className="about__skill--title">
+        <span>{title}</span>
+      </div>
     </div>
   </a>
 

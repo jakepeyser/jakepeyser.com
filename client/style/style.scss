@@ -72,7 +72,11 @@ h1, h2, h3, h4 {
 a {
   text-decoration: none;
   color: $link;
-  &:hover { color: $hover; }
+  -webkit-text-fill-color: $link;
+  &:hover {
+    -webkit-text-fill-color: $hover;
+    color: $hover;
+  }
 }
 
 button {
