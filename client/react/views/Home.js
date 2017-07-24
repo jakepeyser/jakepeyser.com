@@ -6,7 +6,7 @@ export default () => (
     <div className="info-wrapper">
       <div className="info animated fadeInDown">
         <span className="name">Jake Peyser</span>
-        <span className="title">full stack developer</span>
+        <span className="title">software engineer</span>
       </div>
     </div>
   </div>

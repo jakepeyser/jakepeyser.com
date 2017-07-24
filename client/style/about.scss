@@ -1,0 +1,237 @@
+// Dynamic size of about banner
+.about-banner-height {
+  height: 500px;
+  @media (max-width: $sm) {
+    height: 300px;
+  }
+}
+
+#about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - #{$footer});
+  width: 100%;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: flex-start;
+  // Lock perspective and render children relative to fixed
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  .about__banner {
+    @extend .fix-content;
+    transform: translateZ(-1px) scale(2);
+    bottom: 0;
+    > .about__banner--bg {
+      width: 100%;
+      @extend .about-banner-height;
+      background: url("#{$AMAZON_S3_IMAGES}wallpaper/about.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      @media (max-width: $xl) {
+        background-position: center bottom;
+      }
+    }
+  }
+  .about__wrapper {
+    @extend .fix-content;
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column;
+    .about__title-wrapper {
+      @extend .about-banner-height;
+    }
+    .about__content {
+      flex-direction: column;
+      background: $background;
+      > .about__section {
+        position: relative;
+        justify-content: center;
+        padding: 40px 0;
+        > .about__section--background {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 200%;
+        }
+        > .about__section--wrapper {
+          z-index: 0;
+          flex-direction: column;
+          max-width: $xl;
+          width: 90%;
+          > h2 {
+            margin: 0 0 20px;
+            font-weight: 500;
+            font-size: 2em;
+          }
+          p {
+            margin: 0;
+          }
+        }
+        &:nth-child(even) {
+          > .about__section--background {
+            background: $foreground;
+            transform: rotate(6deg);
+          }
+        }
+        .about__intro {
+          > .about__intro--headline {
+            min-width: 33%;
+            margin-right: 25px;
+            text-align: right;
+            font-family: $headers;
+            font-size: 1.2em;
+          }
+          > .about__intro--body {
+            flex-direction: column;
+            p + p {
+              margin-top: 20px;
+            }
+          }
+          @media (max-width: $md) {
+            flex-direction: column;
+            > .about__intro--headline {
+              margin-right: 0;
+              text-align: initial;
+            }
+            > .about__intro--body {
+              margin-top: 20px;
+            }
+          }
+        }
+        .about__skills {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          .about__skill {
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            margin: 2px;
+            border: 2px solid $borders;
+            transition: all .5s ease;
+            * {
+              transition: inherit;
+            }
+            .about__skill--icon {
+              justify-content: center;
+              align-items: flex-end;
+              width: 60%;
+              height: 60%;
+              .icon {
+                width: 80%;
+                height: 80%;
+              }
+            }
+            .about__skill--overlay {
+              position: absolute;
+              top: 0;
+              justify-content: center;
+              width: 100%;
+              height: 100%;
+              > span {
+                position: absolute;
+                top: 70%;
+                align-items: center;
+                text-align: center;
+                font-family: $headers;
+                font-size: .8em;
+                color: $text-dark;
+              }
+            }
+            &:hover {
+              background: rgba(0, 0, 0, .5);
+              .about__skill--icon {
+                width: 100%;
+                height: 100%;
+                > .icon {
+                  width: 70%;
+                  height: 70%;
+                  padding-bottom: 5px;
+                  path {
+                    fill: white;
+                  }
+                  &.icon--skinny path {
+                    stroke: white;
+                  }
+                }
+              }
+              .about__skill--overlay {
+                background: rgba(0, 0, 0, .4);
+                > span {
+                  top: 2px;
+                  font-size: .9em;
+                  color: white;
+                }
+              }
+            }
+          }
+          @media (max-width: $md) {
+            .about__skill {
+              width: 80px;
+              height: 80px;
+              border: 1px solid $borders;
+              .about__skill--overlay > span {
+                font-size: .6em;
+              }
+              &:hover .about__skill--overlay > span {
+                font-size: .7em;
+              }
+            }
+          }
+        }
+        .about__publications {
+          flex-direction: column;
+          margin-top: 10px;
+          .about__writing {
+            flex-direction: column;
+            $link-transition: 0.3s ease-out;
+            a {
+              position: relative;
+              display: inline-table;
+              font-family: $headers;
+              font-size: 1.5em;
+              transition: color $link-transition;
+              &:after {
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: $hover;
+                content: '';
+                opacity: 0;
+                transition: all $link-transition;
+                transform: translateY(3px);
+              }
+              &:hover:after {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            span {
+              font-size: .8em;
+            }
+            + .about__writing {
+              margin-top: 15px;
+            }
+            @media (max-width: $md) {
+              a {
+                font-size: 1.2em;
+              }
+              span {
+                font-size: .7em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
