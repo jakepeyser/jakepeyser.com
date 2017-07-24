@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import AboutComponents from '../components/about'
-const { AboutSection } = AboutComponents
+const { AboutSection, AboutSkill } = AboutComponents
+import skills from '../components/about/skills'
 
 export default () => {
   return (
@@ -20,12 +21,23 @@ export default () => {
               </p>
               <div className="about__intro--body">
                 <p>
-                  I love the end-to-end process of designing and building digital experiences for a broad set of users. As such, I find myself involved in everything from research to prototyping to implementation. Having spent the earlier part of my career in consulting and developer advocacy, my focus always aligns with the user experience of the things I create.
+                  I love the end-to-end process of designing and building digital experiences for a broad set of users. As such, I find myself involved in everything from research to prototyping to implementation. Having spent the earlier part of my career in consulting and developer advocacy, my focus always aligns on the user experience of the things I create.
                 </p>
                 <p>
-                  These days I spend most of my time doing front end development with frameworks like React and Vue. However, I still like to play around on the server and with DevOps tooling from time to time. Specialization aside, I am at my best when I am deeply invested in the product domain and working to solve real world problems.
+                  These days I spend most of my time doing front end development with frameworks like React and Vue. However, I still like to play around on the server and with DevOps tooling. Specialization aside, I am at my best when I am deeply invested in the product domain and working to solve real world problems.
                 </p>
               </div>
+            </div>
+          </AboutSection>
+          <AboutSection title="Skills">
+            <div className="about__skills">
+              {skills.sort((a, b) => (a.name > b.name) - (a.name < b.name)).map(skill =>
+                <AboutSkill key={skill.icon}
+                  icon={skill.icon}
+                  title={skill.name}
+                  link={skill.link}
+                />
+              )}
             </div>
           </AboutSection>
         </div>

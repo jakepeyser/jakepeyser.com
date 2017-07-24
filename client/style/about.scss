@@ -90,6 +90,91 @@
             }
           }
         }
+        .about__skills {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          .about__skill {
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            margin: 2px;
+            border: 2px solid $borders;
+            transition: all .5s ease;
+            * {
+              transition: inherit;
+            }
+            .about__skill--icon {
+              justify-content: center;
+              align-items: flex-end;
+              width: 60%;
+              height: 60%;
+              .icon {
+                width: 80%;
+                height: 80%;
+              }
+            }
+            .about__skill--overlay {
+              position: absolute;
+              top: 0;
+              justify-content: center;
+              width: 100%;
+              height: 100%;
+              > span {
+                position: absolute;
+                top: 70%;
+                align-items: center;
+                text-align: center;
+                font-family: $headers;
+                font-size: .8em;
+                color: $text-dark;
+              }
+            }
+            &:hover {
+              background: rgba(0, 0, 0, .5);
+              .about__skill--icon {
+                width: 100%;
+                height: 100%;
+                > .icon {
+                  width: 70%;
+                  height: 70%;
+                  padding-bottom: 5px;
+                  path {
+                    fill: white;
+                  }
+                  &.icon--skinny path {
+                    stroke: white;
+                  }
+                }
+              }
+              .about__skill--overlay {
+                background: rgba(0, 0, 0, .4);
+                > span {
+                  top: 2px;
+                  font-size: .9em;
+                  color: white;
+                }
+              }
+            }
+          }
+          @media (max-width: $md) {
+            .about__skill {
+              width: 80px;
+              height: 80px;
+              border: 1px solid $borders;
+              .about__skill--overlay > span {
+                font-size: .6em;
+              }
+              &:hover .about__skill--overlay > span {
+                font-size: .7em;
+              }
+            }
+          }
+        }
       }
     }
   }
