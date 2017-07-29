@@ -71,11 +71,9 @@
             margin: 0;
           }
         }
-        &:nth-child(even) {
-          > .about__section--background {
-            background: $foreground;
-            transform: rotate(6deg);
-          }
+        &:nth-child(even) > .about__section--background {
+          background: $foreground;
+          transform: rotate(6deg);
         }
         .about__intro {
           > .about__intro--headline {
@@ -198,7 +196,7 @@
         }
         .about__publications {
           flex-direction: column;
-          margin-top: 10px;
+          margin-top: 20px;
           .about__writing {
             display: block;
             $link-transition: 0.3s ease-out;

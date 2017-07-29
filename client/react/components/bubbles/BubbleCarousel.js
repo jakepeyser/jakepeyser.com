@@ -191,17 +191,14 @@ class BubbleCarousel extends React.Component {
         <div className="project-bubbles__wrapper" ref="bubbles" onScroll={ this.handleScroll }>
           <div className="project-bubbles__bg" />
           <div className="project-bubbles" style={ bubblesStyle }>
-          {Object.keys(projects).map(key => {
-            let project = projects[key]
-            return (
-              <ProjectBubble key={ key }
-                name={ project.name }
-                filename={ project.filename }
-                small={ active }
-                bubbleHover={ this.preloadProjectImage }
-              />
-            )
-          })}
+          {Object.values(projects).map(project =>
+            <ProjectBubble key={ project.filename }
+              name={ project.name }
+              filename={ project.filename }
+              small={ active }
+              bubbleHover={ this.preloadProjectImage }
+            />
+          )}
           </div>
         </div>
       </div>

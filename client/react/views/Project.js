@@ -30,8 +30,11 @@ export default ({ params }) => {
           <div className="project__content-buffer">
             <ProjectSummary summary={ project.summary } />
             <div className="project__background">
-              <h2>Background</h2>
-              {project.background.split('\n').map((text, idx) => <p key={idx}>{ text }</p>)}
+              <div className="project__background--background" />
+              <div className="project__background--wrapper">
+                <h2>Background</h2>
+                {project.background.split('\n').map((text, idx) => <p key={idx}>{ text }</p>)}
+              </div>
             </div>
             <ProjectImages projectName={ project.filename } images={ project.images } />
           </div>

@@ -53,6 +53,7 @@
         color: $text-dark;
         &.active-nav {
           color: $active;
+          -webkit-text-fill-color: $active;
         }
         &:hover {
           color: $hover;
