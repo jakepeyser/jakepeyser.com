@@ -71,11 +71,9 @@
             margin: 0;
           }
         }
-        &:nth-child(even) {
-          > .about__section--background {
-            background: $foreground;
-            transform: rotate(6deg);
-          }
+        &:nth-child(even) > .about__section--background {
+          background: $foreground;
+          transform: rotate(6deg);
         }
         .about__intro {
           > .about__intro--headline {
@@ -239,6 +237,17 @@
                 font-size: .7em;
               }
             }
+          }
+        }
+        .about__apps {
+          justify-content: center;
+          margin-top: 20px;
+          > .project-bubble {
+            animation: none;
+          }
+          @media (max-width: $md) {
+            flex-direction: column;
+            align-items: center;
           }
         }
       }
