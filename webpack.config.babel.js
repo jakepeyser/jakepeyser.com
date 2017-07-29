@@ -2,7 +2,7 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-var WebpackMd5Hash = require('webpack-md5-hash')
+const WebpackMd5Hash = require('webpack-md5-hash')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -22,7 +22,7 @@ const PATHS = {
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
-  'axios', 'gsap', 'moment', 'react-burger-menu',
+  'axios', 'gsap', 'moment', 'react-burger-menu', 'react-portal',
   'react', 'react-dom', 'react-helmet', 'react-router'
 ]
 
