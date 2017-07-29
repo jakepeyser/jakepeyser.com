@@ -29,7 +29,7 @@ export default {
       { file: 'offer_accept_modal.png' }
     ],
     { file: 'offer_list.png', desc: 'View all your pending offers and quickly disposition the ones that need your action' },
-    { file: 'profile_settings.png', desc: 'Fine tune your profile information and notification settings' }
+    { file: 'profile_settings.png', desc: 'Fine-tune your profile information and notification settings' }
   ]
 }
 

@@ -1,19 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Portal from 'react-portal';
 import { getStaticResourceLink } from '../../utils'
 
-const Image = ({ path, desc }) => {
-  const link = getStaticResourceLink(path)
-  return (
-    <div className="project__images--wrapper">
-      <a href={link} target="_blank">
-        <img src={link} />
-        {desc && <div className="project__images--description">{desc}</div>}
-      </a>
-    </div>
-  )
+class Image extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expand: false
+    }
+  }
+
+  // Manipulate an image display modal that takes over the screen
+  expandImage(status) {
+    this.setState({ expand: status })
+  }
+
+  render() {
+    const { path, desc } = this.props
+    const link = getStaticResourceLink(path)
+    return (
+      <div className="project__image">
+        <Portal closeOnEsc
+          isOpened={this.state.expand}
+          onClose={() => this.expandImage(false)}>
+          <div className="modal project__image--modal" onClick={() => this.expandImage(false)}>
+            <img src={link} />
+            {desc && <div className="project__image--modal-text">{desc}</div>}
+          </div>
+        </Portal>
+        <div className="project__image--wrapper" onClick={() => this.expandImage(true)}>
+          <img src={link} />
+          {desc && <div className="project__image--description">{desc}</div>}
+        </div>
+      </div>
+    )
+  }
 }
 
-export default ({ projectName, images }) =>
+const ProjectImages = ({ projectName, images }) =>
   <div className="project__images">
     <h2>Gallery</h2>
     <div className="project__images--gallery">
@@ -27,3 +51,5 @@ export default ({ projectName, images }) =>
       })}
     </div>
   </div>
+
+export default ProjectImages;
