@@ -239,17 +239,6 @@
             }
           }
         }
-        .about__apps {
-          justify-content: center;
-          margin-top: 20px;
-          > .project-bubble {
-            animation: none;
-          }
-          @media (max-width: $md) {
-            flex-direction: column;
-            align-items: center;
-          }
-        }
       }
     }
   }
