@@ -11,16 +11,22 @@ import HTML from '../../assets/icons/html.svg';
 import CSS from '../../assets/icons/css.svg';
 import Sass from '../../assets/icons/sass.svg';
 import Stylus from '../../assets/icons/stylus.svg';
+import Styled from '../../assets/icons/styled-components.svg';
 import Webpack from '../../assets/icons/webpack.svg';
+import GraphQL from '../../assets/icons/graphql.svg';
 import Node from '../../assets/icons/node.svg';
 import Express from '../../assets/icons/express.svg';
 import Sequelize from '../../assets/icons/sequelize.svg';
 import Python from '../../assets/icons/python.svg';
 import Flask from '../../assets/icons/flask.svg';
+import Golang from '../../assets/icons/golang.svg';
 import Git from '../../assets/icons/git.svg';
 import Travis from '../../assets/icons/travis.svg';
 import Codeship from '../../assets/icons/codeship.svg';
+import Airflow from '../../assets/icons/airflow.svg';
 import AWS from '../../assets/icons/aws.svg';
+import GoogleCloud from '../../assets/icons/gcp.svg';
+import Kubernetes from '../../assets/icons/kubernetes.svg';
 import Heroku from '../../assets/icons/heroku.svg';
 import Bluemix from '../../assets/icons/bluemix.svg';
 import PostgreSQL from '../../assets/icons/postgres.svg';
@@ -39,18 +45,24 @@ const icons = {
   css: CSS,
   sass: Sass,
   stylus: Stylus,
+  styled: Styled,
   webpack: Webpack,
+  graphql: GraphQL,
   node: Node,
   express: Express,
   sequelize: Sequelize,
   python: Python,
   flask: Flask,
+  golang: Golang,
   git: Git,
   travis: Travis,
   codeship: Codeship,
+  airflow: Airflow,
   aws: AWS,
   heroku: Heroku,
   bluemix: Bluemix,
+  gcp: GoogleCloud,
+  k8s: Kubernetes,
   postgres: PostgreSQL,
   elasticsearch: Elasticsearch,
   apple: Apple,
