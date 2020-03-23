@@ -23,10 +23,10 @@ export default () => {
               </p>
               <div className="about__intro--body">
                 <p>
-                  I love the end-to-end process of designing and building digital experiences for a broad set of users. As such, I find myself involved in everything from research to prototyping to implementation. Having spent the earlier part of my career in consulting and developer advocacy, my focus always aligns on the user experience of the things I create.
+                  I love the end-to-end process of designing and building digital experiences for a broad set of users. As such, I find myself involved in everything from strategy to research to implementation. Having spent the earlier part of my career in consulting and developer advocacy, my focus always aligns on the user experience of the things I create.
                 </p>
                 <p>
-                  These days I spend most of my time doing front end development with frameworks like React and Vue. However, I still like to mess around on the server and with DevOps tooling. Specialization aside, I am at my best when I am deeply invested in the product domain and working to solve real world problems.
+                  These days I spend my time leading a team of engineers working on everything needed to make a great SaaS product: single-page applications, APIs, streaming data jobs, and data storage and synchronization services. I contribute to all layers of the stack, but am most effective at building and scaling complex web components. Specialization aside, I am at my best when I am deeply invested in the product domain and working to solve real world problems.
                 </p>
               </div>
             </div>
