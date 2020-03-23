@@ -1,3 +1,4 @@
+import Oden from './Oden'
 import Fyre from './Fyre'
 import Steps from './Steps'
 import RealTimeToneAnalysis from './RealTimeToneAnalysis'
@@ -9,6 +10,7 @@ import RunkeeperHashmatch from './RunkeeperHashmatch'
 
 // List of projects and their corresponding components
 export default {
+  [Oden.filename]: Oden,
   [Fyre.filename]: Fyre,
   [Steps.filename]: Steps,
   [RealTimeToneAnalysis.filename]: RealTimeToneAnalysis,
