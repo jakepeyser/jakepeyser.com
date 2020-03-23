@@ -3,6 +3,6 @@ import SocialIcons from './icons/SocialIcons'
 
 export default () =>
   <div id="footer">
-    <span>&copy; 2017 Jake Peyser</span>
+    <span>&copy; 2020 Jake Peyser</span>
     <SocialIcons />
   </div>
