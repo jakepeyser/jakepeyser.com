@@ -15,7 +15,7 @@ export default () => {
         </p>
       </div>
       <iframe
-        src={`http://mozilla.github.io/pdf.js/web/viewer.html?file=${resumeLink}`}
+        src={`https://mozilla.github.io/pdf.js/web/viewer.html?file=${resumeLink}`}
       />
     </div>
   )
